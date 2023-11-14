@@ -1,0 +1,17 @@
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\bin\Debug\net6.0-windows\Code.exe
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\bin\Debug\net6.0-windows\Code.deps.json
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\bin\Debug\net6.0-windows\Code.runtimeconfig.json
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\bin\Debug\net6.0-windows\Code.dll
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\bin\Debug\net6.0-windows\Code.pdb
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.csproj.AssemblyReference.cache
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.Form1.resources
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.csproj.GenerateResource.cache
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.AssemblyInfoInputs.cache
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.AssemblyInfo.cs
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.csproj.CoreCompileInputs.cache
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.dll
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\refint\Code.dll
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.pdb
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.genruntimeconfig.cache
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\ref\Code.dll
