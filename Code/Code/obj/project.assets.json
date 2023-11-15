@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+      "projectUniqueName": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
       "projectName": "Code",
-      "projectPath": "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+      "projectPath": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
       "packagesPath": "C:\\Users\\pb21ajx\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
+      "outputPath": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pb21ajx\\AppData\\Roaming\\NuGet\\NuGet.Config",
