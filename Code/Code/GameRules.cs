@@ -17,9 +17,19 @@ namespace Code
             InitializeComponent();
         }
 
-        private void GameRulesLabel_Click(object sender, EventArgs e)
+        private void RulesTitleLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BackToMenuButton_Click(object sender, EventArgs e)
+        {
+            // Show the game menu window
+            GameMenu gameMenu = new GameMenu();
+            gameMenu.Show();
+
+            // Hide the game rules window
+            this.Hide();
         }
     }
 }

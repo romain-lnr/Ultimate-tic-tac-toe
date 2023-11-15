@@ -37,11 +37,11 @@ namespace Code
 
         private void RulesButton_Click(object sender, EventArgs e)
         {
-            // 
+            // Show the game rules window
             GameRules gameRules = new GameRules();
             gameRules.Show();
 
-            // 
+            // Hide the game menu window
             this.Hide();
         }
 
