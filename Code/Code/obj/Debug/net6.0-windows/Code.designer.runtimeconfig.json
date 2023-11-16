@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\pb21ajx\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\pb21ajx\\.nuget\\packages"
+      "C:\\Users\\jota1\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\jota1\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

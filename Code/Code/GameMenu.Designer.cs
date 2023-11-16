@@ -109,6 +109,7 @@
             OnePlayerButton.Text = "1 Player";
             OnePlayerButton.UseVisualStyleBackColor = true;
             OnePlayerButton.Visible = false;
+            OnePlayerButton.Click += OnePlayerButton_Click;
             // 
             // TwoPlayersButton
             // 
@@ -120,6 +121,7 @@
             TwoPlayersButton.Text = "2 Players";
             TwoPlayersButton.UseVisualStyleBackColor = true;
             TwoPlayersButton.Visible = false;
+            TwoPlayersButton.Click += TwoPlayersButton_Click;
             // 
             // GameMenuForm
             // 

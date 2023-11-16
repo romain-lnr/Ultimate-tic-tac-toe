@@ -49,7 +49,7 @@
             // 
             GridLabel.AutoSize = true;
             GridLabel.Image = (Image)resources.GetObject("GridLabel.Image");
-            GridLabel.Location = new Point(739, 45);
+            GridLabel.Location = new Point(660, 68);
             GridLabel.MinimumSize = new Size(600, 600);
             GridLabel.Name = "GridLabel";
             GridLabel.Size = new Size(600, 600);
@@ -58,7 +58,7 @@
             // BackToMenuButton
             // 
             BackToMenuButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            BackToMenuButton.Location = new Point(557, 827);
+            BackToMenuButton.Location = new Point(517, 827);
             BackToMenuButton.Name = "BackToMenuButton";
             BackToMenuButton.Size = new Size(390, 132);
             BackToMenuButton.TabIndex = 1;
@@ -69,7 +69,7 @@
             // QuitButton
             // 
             QuitButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            QuitButton.Location = new Point(1117, 827);
+            QuitButton.Location = new Point(1013, 827);
             QuitButton.Name = "QuitButton";
             QuitButton.Size = new Size(390, 132);
             QuitButton.TabIndex = 2;
@@ -80,7 +80,7 @@
             // TopLeftLabel
             // 
             TopLeftLabel.AutoSize = true;
-            TopLeftLabel.Location = new Point(742, 48);
+            TopLeftLabel.Location = new Point(663, 71);
             TopLeftLabel.MinimumSize = new Size(192, 192);
             TopLeftLabel.Name = "TopLeftLabel";
             TopLeftLabel.Size = new Size(192, 192);
@@ -92,7 +92,7 @@
             XsTurnLabel.AutoSize = true;
             XsTurnLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
             XsTurnLabel.ForeColor = Color.Blue;
-            XsTurnLabel.Location = new Point(85, 98);
+            XsTurnLabel.Location = new Point(92, 226);
             XsTurnLabel.Name = "XsTurnLabel";
             XsTurnLabel.Size = new Size(197, 37);
             XsTurnLabel.TabIndex = 4;
@@ -103,7 +103,7 @@
             OsTurnLabel.AutoSize = true;
             OsTurnLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
             OsTurnLabel.ForeColor = Color.Red;
-            OsTurnLabel.Location = new Point(85, 175);
+            OsTurnLabel.Location = new Point(92, 471);
             OsTurnLabel.Name = "OsTurnLabel";
             OsTurnLabel.Size = new Size(197, 37);
             OsTurnLabel.TabIndex = 5;
@@ -112,7 +112,7 @@
             // TopLabel
             // 
             TopLabel.AutoSize = true;
-            TopLabel.Location = new Point(942, 48);
+            TopLabel.Location = new Point(863, 71);
             TopLabel.MinimumSize = new Size(192, 192);
             TopLabel.Name = "TopLabel";
             TopLabel.Size = new Size(192, 192);
@@ -122,7 +122,7 @@
             // TopRightLabel
             // 
             TopRightLabel.AutoSize = true;
-            TopRightLabel.Location = new Point(1142, 48);
+            TopRightLabel.Location = new Point(1063, 71);
             TopRightLabel.MinimumSize = new Size(192, 192);
             TopRightLabel.Name = "TopRightLabel";
             TopRightLabel.Size = new Size(192, 192);
@@ -132,7 +132,7 @@
             // LeftLabel
             // 
             LeftLabel.AutoSize = true;
-            LeftLabel.Location = new Point(742, 248);
+            LeftLabel.Location = new Point(663, 271);
             LeftLabel.MinimumSize = new Size(192, 192);
             LeftLabel.Name = "LeftLabel";
             LeftLabel.Size = new Size(192, 192);
@@ -142,7 +142,7 @@
             // MiddleLabel
             // 
             MiddleLabel.AutoSize = true;
-            MiddleLabel.Location = new Point(942, 248);
+            MiddleLabel.Location = new Point(864, 271);
             MiddleLabel.MinimumSize = new Size(192, 192);
             MiddleLabel.Name = "MiddleLabel";
             MiddleLabel.Size = new Size(192, 192);
@@ -152,7 +152,7 @@
             // RightLabel
             // 
             RightLabel.AutoSize = true;
-            RightLabel.Location = new Point(1142, 248);
+            RightLabel.Location = new Point(1063, 271);
             RightLabel.MinimumSize = new Size(192, 192);
             RightLabel.Name = "RightLabel";
             RightLabel.Size = new Size(192, 192);
@@ -162,7 +162,7 @@
             // BottomLeftLabel
             // 
             BottomLeftLabel.AutoSize = true;
-            BottomLeftLabel.Location = new Point(742, 448);
+            BottomLeftLabel.Location = new Point(663, 471);
             BottomLeftLabel.MinimumSize = new Size(192, 192);
             BottomLeftLabel.Name = "BottomLeftLabel";
             BottomLeftLabel.Size = new Size(192, 192);
@@ -172,7 +172,7 @@
             // BottomLabel
             // 
             BottomLabel.AutoSize = true;
-            BottomLabel.Location = new Point(942, 448);
+            BottomLabel.Location = new Point(863, 471);
             BottomLabel.MinimumSize = new Size(192, 192);
             BottomLabel.Name = "BottomLabel";
             BottomLabel.Size = new Size(192, 192);
@@ -182,7 +182,7 @@
             // BottomRightLabel
             // 
             BottomRightLabel.AutoSize = true;
-            BottomRightLabel.Location = new Point(1142, 448);
+            BottomRightLabel.Location = new Point(1063, 471);
             BottomRightLabel.MinimumSize = new Size(192, 192);
             BottomRightLabel.Name = "BottomRightLabel";
             BottomRightLabel.Size = new Size(192, 192);

@@ -52,17 +52,29 @@ namespace Code
             PlayButton.Visible = false;
             RulesButton.Visible = false;
 
-            // Enable all the menu buttons
+            // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+        }
 
-            /*
+        private void OnePlayerButton_Click(object sender, EventArgs e)
+        {
             // Show the game window
             PlayGameForm playGame = new PlayGameForm();
             playGame.Show();
 
             // Hide the game menu window
-            this.Hide();*/
+            this.Hide();
+        }
+
+        private void TwoPlayersButton_Click(object sender, EventArgs e)
+        {
+            // Show the game window
+            PlayGameForm playGame = new PlayGameForm();
+            playGame.Show();
+
+            // Hide the game menu window
+            this.Hide();
         }
     }
 }

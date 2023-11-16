@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj": {}
+    "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj": {
+    "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+        "projectUniqueName": "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
         "projectName": "Code",
-        "projectPath": "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
-        "packagesPath": "C:\\Users\\pb21ajx\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pb21ajx\\Documents\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
+        "projectPath": "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+        "packagesPath": "C:\\Users\\jota1\\.nuget\\packages\\",
+        "outputPath": "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pb21ajx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jota1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
