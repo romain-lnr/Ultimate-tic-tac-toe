@@ -25,14 +25,14 @@ namespace Code
         {
             if (circleTurn)
             {
-                OsTurnLabel.Visible = true;
-                XsTurnLabel.Visible = false;
-                circleTurn = false;    
+                OsTurnLabel.Enabled = true;
+                XsTurnLabel.Enabled = false;
+                circleTurn = false;
             }
             else
             {
-                XsTurnLabel.Visible = true;
-                OsTurnLabel.Visible = false;
+                XsTurnLabel.Enabled = true;
+                OsTurnLabel.Enabled = false;
                 circleTurn = true;
             }
         }
@@ -41,7 +41,7 @@ namespace Code
         {
             InitializeComponent();
 
-            int zeroOrOne = random.Next(0, 1);
+            int zeroOrOne = random.Next(0, 2);
             if (zeroOrOne == 0) circleTurn = false;
             else circleTurn = true;
 
@@ -71,17 +71,62 @@ namespace Code
 
         private void TopLeftLabel_Click(object sender, EventArgs e)
         {
-            if (isOccupied[0] == false)
+            PlaceSymbol(0, TopLeftLabel);
+        }
+
+        private void TopLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(1, TopLabel);
+        }
+
+        private void TopRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(2, TopRightLabel);
+        }
+
+        private void LeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(3, LeftLabel);
+        }
+
+        private void MiddleLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(4, MiddleLabel);
+        }
+
+        private void RightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(5, RightLabel);
+        }
+
+        private void BottomLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, BottomLeftLabel);
+        }
+
+        private void BottomLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, BottomLabel);
+        }
+
+        private void BottomRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, BottomRightLabel);
+        }
+
+        private void PlaceSymbol(int idLabel, Label label)
+        {
+            if (isOccupied[idLabel] == false)
             {
                 if (!circleTurn)
                 {
-                    TopLeftLabel.Image = System.Drawing.Image.FromFile(grandCercle);
+                    label.Image = System.Drawing.Image.FromFile(grandCercle);
                 }
                 else
                 {
-                    TopLeftLabel.Image = System.Drawing.Image.FromFile(grandeCroix);
+                    label.Image = System.Drawing.Image.FromFile(grandeCroix);
                 }
-                isOccupied[0] = true;
+                isOccupied[idLabel] = true;
                 WhosTurn();
             }
         }

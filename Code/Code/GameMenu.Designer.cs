@@ -35,6 +35,8 @@
             QuitButton = new Button();
             RulesButton = new Button();
             PlayButton = new Button();
+            OnePlayerButton = new Button();
+            TwoPlayersButton = new Button();
             SuspendLayout();
             // 
             // GameStartButton
@@ -97,11 +99,35 @@
             PlayButton.Visible = false;
             PlayButton.Click += PlayButton_Click;
             // 
+            // OnePlayerButton
+            // 
+            OnePlayerButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            OnePlayerButton.Location = new Point(517, 671);
+            OnePlayerButton.Name = "OnePlayerButton";
+            OnePlayerButton.Size = new Size(390, 132);
+            OnePlayerButton.TabIndex = 5;
+            OnePlayerButton.Text = "1 Player";
+            OnePlayerButton.UseVisualStyleBackColor = true;
+            OnePlayerButton.Visible = false;
+            // 
+            // TwoPlayersButton
+            // 
+            TwoPlayersButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            TwoPlayersButton.Location = new Point(1013, 671);
+            TwoPlayersButton.Name = "TwoPlayersButton";
+            TwoPlayersButton.Size = new Size(390, 132);
+            TwoPlayersButton.TabIndex = 6;
+            TwoPlayersButton.Text = "2 Players";
+            TwoPlayersButton.UseVisualStyleBackColor = true;
+            TwoPlayersButton.Visible = false;
+            // 
             // GameMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(TwoPlayersButton);
+            Controls.Add(OnePlayerButton);
             Controls.Add(PlayButton);
             Controls.Add(RulesButton);
             Controls.Add(QuitButton);
@@ -122,5 +148,7 @@
         private Button QuitButton;
         private Button RulesButton;
         private Button PlayButton;
+        private Button OnePlayerButton;
+        private Button TwoPlayersButton;
     }
 }

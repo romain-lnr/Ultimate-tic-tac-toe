@@ -2,7 +2,7 @@ namespace Code
 {
     public partial class GameMenuForm : Form
     {
-        
+
         public GameMenuForm()
         {
             InitializeComponent();
@@ -47,12 +47,22 @@ namespace Code
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
+            // Disable the choice buttons
+            QuitButton.Visible = false;
+            PlayButton.Visible = false;
+            RulesButton.Visible = false;
+
+            // Enable all the menu buttons
+            OnePlayerButton.Visible = true;
+            TwoPlayersButton.Visible = true;
+
+            /*
             // Show the game window
             PlayGameForm playGame = new PlayGameForm();
             playGame.Show();
 
             // Hide the game menu window
-            this.Hide();
+            this.Hide();*/
         }
     }
 }
