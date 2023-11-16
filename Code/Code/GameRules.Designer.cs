@@ -1,6 +1,6 @@
 ﻿namespace Code
 {
-    partial class GameRules
+    partial class GameRulesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameRules));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameRulesForm));
             RulesTitleLabel = new Label();
             label2 = new Label();
             BackToMenuButton = new Button();
@@ -67,7 +67,7 @@
             BackToMenuButton.UseVisualStyleBackColor = true;
             BackToMenuButton.Click += BackToMenuButton_Click;
             // 
-            // GameRules
+            // GameRulesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -75,7 +75,7 @@
             Controls.Add(BackToMenuButton);
             Controls.Add(label2);
             Controls.Add(RulesTitleLabel);
-            Name = "GameRules";
+            Name = "GameRulesForm";
             Text = "Ultimate Tic-Tac-Toe";
             ResumeLayout(false);
             PerformLayout();

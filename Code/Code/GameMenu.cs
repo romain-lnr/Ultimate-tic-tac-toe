@@ -1,8 +1,9 @@
 namespace Code
 {
-    public partial class GameMenu : Form
+    public partial class GameMenuForm : Form
     {
-        public GameMenu()
+        
+        public GameMenuForm()
         {
             InitializeComponent();
         }
@@ -26,7 +27,6 @@ namespace Code
             QuitButton.Visible = true;
             RulesButton.Visible = true;
             PlayButton.Visible = true;
-
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace Code
         private void RulesButton_Click(object sender, EventArgs e)
         {
             // Show the game rules window
-            GameRules gameRules = new GameRules();
+            GameRulesForm gameRules = new GameRulesForm();
             gameRules.Show();
 
             // Hide the game menu window
@@ -47,7 +47,12 @@ namespace Code
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
+            // Show the game window
+            PlayGameForm playGame = new PlayGameForm();
+            playGame.Show();
 
+            // Hide the game menu window
+            this.Hide();
         }
     }
 }

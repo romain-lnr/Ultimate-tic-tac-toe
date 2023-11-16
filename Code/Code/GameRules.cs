@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Code
 {
-    public partial class GameRules : Form
+    public partial class GameRulesForm : Form
     {
-        public GameRules()
+        public GameRulesForm()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace Code
         private void BackToMenuButton_Click(object sender, EventArgs e)
         {
             // Show the game menu window
-            GameMenu gameMenu = new GameMenu();
+            GameMenuForm gameMenu = new GameMenuForm();
             gameMenu.Show();
 
             // Hide the game rules window

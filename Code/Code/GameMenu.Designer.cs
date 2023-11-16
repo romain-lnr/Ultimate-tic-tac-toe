@@ -1,6 +1,6 @@
 ﻿namespace Code
 {
-    partial class GameMenu
+    partial class GameMenuForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameMenuForm));
             GameStartButton = new Button();
             GameTitle = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -62,6 +62,7 @@
             // 
             // QuitButton
             // 
+            QuitButton.AccessibleName = "";
             QuitButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
             QuitButton.Location = new Point(270, 671);
             QuitButton.Name = "QuitButton";
@@ -96,7 +97,7 @@
             PlayButton.Visible = false;
             PlayButton.Click += PlayButton_Click;
             // 
-            // GameStart
+            // GameMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -106,7 +107,7 @@
             Controls.Add(QuitButton);
             Controls.Add(GameTitle);
             Controls.Add(GameStartButton);
-            Name = "GameStart";
+            Name = "GameMenuForm";
             Text = "Ultimate Tic-Tac-Toe";
             Load += Form1_Load;
             ResumeLayout(false);
