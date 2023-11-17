@@ -37,6 +37,7 @@
             PlayButton = new Button();
             OnePlayerButton = new Button();
             TwoPlayersButton = new Button();
+            BackToMenuButton = new Button();
             SuspendLayout();
             // 
             // GameStartButton
@@ -102,7 +103,7 @@
             // OnePlayerButton
             // 
             OnePlayerButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            OnePlayerButton.Location = new Point(517, 671);
+            OnePlayerButton.Location = new Point(765, 671);
             OnePlayerButton.Name = "OnePlayerButton";
             OnePlayerButton.Size = new Size(390, 132);
             OnePlayerButton.TabIndex = 5;
@@ -114,7 +115,7 @@
             // TwoPlayersButton
             // 
             TwoPlayersButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            TwoPlayersButton.Location = new Point(1013, 671);
+            TwoPlayersButton.Location = new Point(1260, 671);
             TwoPlayersButton.Name = "TwoPlayersButton";
             TwoPlayersButton.Size = new Size(390, 132);
             TwoPlayersButton.TabIndex = 6;
@@ -123,11 +124,24 @@
             TwoPlayersButton.Visible = false;
             TwoPlayersButton.Click += TwoPlayersButton_Click;
             // 
+            // BackToMenuButton
+            // 
+            BackToMenuButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            BackToMenuButton.Location = new Point(270, 671);
+            BackToMenuButton.Name = "BackToMenuButton";
+            BackToMenuButton.Size = new Size(390, 132);
+            BackToMenuButton.TabIndex = 7;
+            BackToMenuButton.Text = "Back to Menu";
+            BackToMenuButton.UseVisualStyleBackColor = true;
+            BackToMenuButton.Visible = false;
+            BackToMenuButton.Click += BackToMenuButton_Click;
+            // 
             // GameMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(BackToMenuButton);
             Controls.Add(TwoPlayersButton);
             Controls.Add(OnePlayerButton);
             Controls.Add(PlayButton);
@@ -152,5 +166,6 @@
         private Button PlayButton;
         private Button OnePlayerButton;
         private Button TwoPlayersButton;
+        private Button BackToMenuButton;
     }
 }

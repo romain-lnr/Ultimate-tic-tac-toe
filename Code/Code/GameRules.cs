@@ -24,12 +24,7 @@ namespace Code
 
         private void BackToMenuButton_Click(object sender, EventArgs e)
         {
-            // Show the game menu window
-            GameMenuForm gameMenu = new GameMenuForm();
-            gameMenu.Show();
-
-            // Hide the game rules window
-            this.Hide();
+            Close();
         }
     }
 }

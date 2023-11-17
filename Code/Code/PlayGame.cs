@@ -17,7 +17,7 @@ namespace Code
     {
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
-        private bool[] isOccupied = new bool[9];
+        private int[,] isOccupiedBy = new int[3,3];
         private bool circleTurn;
         Random random = new Random((int)DateTime.Now.Ticks);
 
@@ -47,20 +47,18 @@ namespace Code
 
             WhosTurn();
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 2; i++)
             {
-                isOccupied[i] = false;
+                for (int j = 0; j < 2; j++)
+                {
+                    isOccupiedBy[i, j] = 0;
+                }
             }
         }
 
         private void BackToMenuButton_Click(object sender, EventArgs e)
         {
-            // Show the game menu window
-            GameMenuForm gameMenu = new GameMenuForm();
-            gameMenu.Show();
-
-            // Hide the game window
-            this.Hide();
+            Close();
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
@@ -71,63 +69,78 @@ namespace Code
 
         private void TopLeftLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(0, TopLeftLabel);
+            PlaceSymbol(0, 0, TopLeftLabel);
         }
 
         private void TopLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(1, TopLabel);
+            PlaceSymbol(0, 1, TopLabel);
         }
 
         private void TopRightLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(2, TopRightLabel);
+            PlaceSymbol(0, 2, TopRightLabel);
         }
 
         private void LeftLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(3, LeftLabel);
+            PlaceSymbol(1, 0, LeftLabel);
         }
 
         private void MiddleLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(4, MiddleLabel);
+            PlaceSymbol(1, 1, MiddleLabel);
         }
 
         private void RightLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(5, RightLabel);
+            PlaceSymbol(1 ,2, RightLabel);
         }
 
         private void BottomLeftLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(6, BottomLeftLabel);
+            PlaceSymbol(2, 0, BottomLeftLabel);
         }
 
         private void BottomLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(7, BottomLabel);
+            PlaceSymbol(2, 1, BottomLabel);
         }
 
         private void BottomRightLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(8, BottomRightLabel);
+            PlaceSymbol(2, 2, BottomRightLabel);
         }
 
-        private void PlaceSymbol(int idLabel, Label label)
+        private void PlaceSymbol(int idLabelColumn, int idLabelLine, Label label)
         {
-            if (isOccupied[idLabel] == false)
+            if (isOccupiedBy[idLabelColumn, idLabelLine] == 0)
             {
                 if (!circleTurn)
                 {
                     label.Image = System.Drawing.Image.FromFile(grandCercle);
+                    isOccupiedBy[idLabelColumn, idLabelLine] = 1;
                 }
                 else
                 {
                     label.Image = System.Drawing.Image.FromFile(grandeCroix);
+                    isOccupiedBy[idLabelColumn, idLabelLine] = 2;
                 }
-                isOccupied[idLabel] = true;
                 WhosTurn();
+            }
+        }
+
+        private int verifyWinner(int[,] isOccupiedBy)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (isOccupiedBy[i, j] == 1)
+                    {
+
+                    }
+                }
             }
         }
     }

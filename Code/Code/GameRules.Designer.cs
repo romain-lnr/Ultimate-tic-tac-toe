@@ -58,7 +58,7 @@
             // 
             // BackToMenuButton
             // 
-            BackToMenuButton.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            BackToMenuButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
             BackToMenuButton.Location = new Point(765, 614);
             BackToMenuButton.Name = "BackToMenuButton";
             BackToMenuButton.Size = new Size(390, 132);

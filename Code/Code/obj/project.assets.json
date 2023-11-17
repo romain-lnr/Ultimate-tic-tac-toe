@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jota1\\.nuget\\packages\\": {}
+    "C:\\Users\\py71hee\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+      "projectUniqueName": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
       "projectName": "Code",
-      "projectPath": "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
-      "packagesPath": "C:\\Users\\jota1\\.nuget\\packages\\",
-      "outputPath": "D:\\CPNV\\3emeAnnee\\2emeTrimestre\\ICT\\ProjetC#\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
+      "projectPath": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+      "packagesPath": "C:\\Users\\py71hee\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jota1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\py71hee\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

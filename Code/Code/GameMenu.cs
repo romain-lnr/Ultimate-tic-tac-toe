@@ -39,10 +39,7 @@ namespace Code
         {
             // Show the game rules window
             GameRulesForm gameRules = new GameRulesForm();
-            gameRules.Show();
-
-            // Hide the game menu window
-            this.Hide();
+            gameRules.ShowDialog();
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
@@ -55,26 +52,34 @@ namespace Code
             // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+            BackToMenuButton.Visible = true;
         }
 
         private void OnePlayerButton_Click(object sender, EventArgs e)
         {
             // Show the game window
             PlayGameForm playGame = new PlayGameForm();
-            playGame.Show();
-
-            // Hide the game menu window
-            this.Hide();
+            playGame.ShowDialog();
         }
 
         private void TwoPlayersButton_Click(object sender, EventArgs e)
         {
             // Show the game window
             PlayGameForm playGame = new PlayGameForm();
-            playGame.Show();
+            playGame.ShowDialog();
+        }
 
-            // Hide the game menu window
-            this.Hide();
+        private void BackToMenuButton_Click(object sender, EventArgs e)
+        {
+            // Disable the game mode buttons
+            OnePlayerButton.Visible = false;
+            TwoPlayersButton.Visible = false;
+            BackToMenuButton.Visible = false;
+
+            // Enable the choice buttons
+            QuitButton.Visible = true;
+            PlayButton.Visible = true;
+            RulesButton.Visible = true;
         }
     }
 }
