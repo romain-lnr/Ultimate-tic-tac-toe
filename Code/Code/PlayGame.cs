@@ -134,12 +134,9 @@ namespace Code
         {
             for (int i = 0; i < 2; i++)
             {
-                for (int j = 0; j < 2; j++)
+                if (isOccupiedBy[i, 0] != 0 && isOccupiedBy[i, 1] != 0 && isOccupiedBy[i, 2] != 0)
                 {
-                    if (isOccupiedBy[i, j] == 1)
-                    {
-
-                    }
+                    return isOccupiedBy[i, 0];
                 }
             }
         }
