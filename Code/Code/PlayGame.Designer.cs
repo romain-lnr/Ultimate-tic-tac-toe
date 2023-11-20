@@ -43,6 +43,8 @@
             BottomLeftLabel = new Label();
             BottomLabel = new Label();
             BottomRightLabel = new Label();
+            OsWinningLabel = new Label();
+            XsWinningLabel = new Label();
             SuspendLayout();
             // 
             // GridLabel
@@ -189,11 +191,37 @@
             BottomRightLabel.TabIndex = 13;
             BottomRightLabel.Click += BottomRightLabel_Click;
             // 
+            // OsWinningLabel
+            // 
+            OsWinningLabel.AutoSize = true;
+            OsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            OsWinningLabel.ForeColor = Color.Red;
+            OsWinningLabel.Location = new Point(406, 648);
+            OsWinningLabel.Name = "OsWinningLabel";
+            OsWinningLabel.Size = new Size(177, 37);
+            OsWinningLabel.TabIndex = 14;
+            OsWinningLabel.Text = "O's won!";
+            OsWinningLabel.Visible = false;
+            // 
+            // XsWinningLabel
+            // 
+            XsWinningLabel.AutoSize = true;
+            XsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            XsWinningLabel.ForeColor = Color.Blue;
+            XsWinningLabel.Location = new Point(406, 648);
+            XsWinningLabel.Name = "XsWinningLabel";
+            XsWinningLabel.Size = new Size(177, 37);
+            XsWinningLabel.TabIndex = 15;
+            XsWinningLabel.Text = "X's won!";
+            XsWinningLabel.Visible = false;
+            // 
             // PlayGameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(XsWinningLabel);
+            Controls.Add(OsWinningLabel);
             Controls.Add(BottomRightLabel);
             Controls.Add(BottomLabel);
             Controls.Add(BottomLeftLabel);
@@ -230,5 +258,7 @@
         private Label BottomLeftLabel;
         private Label BottomLabel;
         private Label BottomRightLabel;
+        private Label OsWinningLabel;
+        private Label XsWinningLabel;
     }
 }
