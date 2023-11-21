@@ -37,7 +37,6 @@ namespace Code
                 circleTurn = true;
             }
         }
-
         public PlayGameMorpionForm()
         {
             InitializeComponent();
@@ -134,6 +133,7 @@ namespace Code
                     {
                         if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
                         if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
+                        isgameEnded = true;
                     }
                     WhosTurn();
                 }

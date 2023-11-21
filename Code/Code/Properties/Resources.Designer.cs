@@ -63,6 +63,16 @@ namespace Code.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GrandCercle {
+            get {
+                object obj = ResourceManager.GetObject("GrandCercle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Grille1_0 {
             get {
                 object obj = ResourceManager.GetObject("Grille1.0", resourceCulture);
