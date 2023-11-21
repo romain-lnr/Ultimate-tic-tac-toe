@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Code
 {
-    public partial class PlayGameForm : Form
+    public partial class PlayGameMorpionForm : Form
     {
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
@@ -38,7 +38,7 @@ namespace Code
             }
         }
 
-        public PlayGameForm()
+        public PlayGameMorpionForm()
         {
             InitializeComponent();
 
@@ -57,7 +57,7 @@ namespace Code
             }
         }
 
-        private void BackToMenuButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             Close();
         }

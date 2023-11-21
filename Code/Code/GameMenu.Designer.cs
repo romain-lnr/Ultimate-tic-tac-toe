@@ -38,6 +38,8 @@
             OnePlayerButton = new Button();
             TwoPlayersButton = new Button();
             BackToMenuButton = new Button();
+            ClassicButton = new Button();
+            SuperMorpionButton = new Button();
             SuspendLayout();
             // 
             // GameStartButton
@@ -61,7 +63,6 @@
             GameTitle.Size = new Size(1174, 378);
             GameTitle.TabIndex = 1;
             GameTitle.Text = resources.GetString("GameTitle.Text");
-            GameTitle.Click += label1_Click;
             // 
             // QuitButton
             // 
@@ -136,11 +137,38 @@
             BackToMenuButton.Visible = false;
             BackToMenuButton.Click += BackToMenuButton_Click;
             // 
+            // ClassicButton
+            // 
+            ClassicButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            ClassicButton.ForeColor = SystemColors.ControlText;
+            ClassicButton.Location = new Point(765, 671);
+            ClassicButton.Name = "ClassicButton";
+            ClassicButton.Size = new Size(390, 132);
+            ClassicButton.TabIndex = 9;
+            ClassicButton.Text = "Classique";
+            ClassicButton.UseVisualStyleBackColor = true;
+            ClassicButton.Visible = false;
+            ClassicButton.Click += ClassicButton_Click;
+            // 
+            // SuperMorpionButton
+            // 
+            SuperMorpionButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            SuperMorpionButton.Location = new Point(1260, 671);
+            SuperMorpionButton.Name = "SuperMorpionButton";
+            SuperMorpionButton.Size = new Size(390, 132);
+            SuperMorpionButton.TabIndex = 10;
+            SuperMorpionButton.Text = "Super Morpion";
+            SuperMorpionButton.UseVisualStyleBackColor = true;
+            SuperMorpionButton.Visible = false;
+            SuperMorpionButton.Click += SuperMorpionButton_Click;
+            // 
             // GameMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(SuperMorpionButton);
+            Controls.Add(ClassicButton);
             Controls.Add(BackToMenuButton);
             Controls.Add(TwoPlayersButton);
             Controls.Add(OnePlayerButton);
@@ -151,7 +179,6 @@
             Controls.Add(GameStartButton);
             Name = "GameMenuForm";
             Text = "Ultimate Tic-Tac-Toe";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,5 +194,7 @@
         private Button OnePlayerButton;
         private Button TwoPlayersButton;
         private Button BackToMenuButton;
+        private Button ClassicButton;
+        private Button SuperMorpionButton;
     }
 }

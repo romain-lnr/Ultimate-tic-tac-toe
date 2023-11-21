@@ -1,6 +1,6 @@
 ﻿namespace Code
 {
-    partial class PlayGameForm
+    partial class PlayGameMorpionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayGameForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayGameMorpionForm));
             GridLabel = new Label();
-            BackToMenuButton = new Button();
+            BackButton = new Button();
             QuitButton = new Button();
             TopLeftLabel = new Label();
             XsTurnLabel = new Label();
@@ -57,16 +57,16 @@
             GridLabel.Size = new Size(600, 600);
             GridLabel.TabIndex = 0;
             // 
-            // BackToMenuButton
+            // BackButton
             // 
-            BackToMenuButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            BackToMenuButton.Location = new Point(517, 827);
-            BackToMenuButton.Name = "BackToMenuButton";
-            BackToMenuButton.Size = new Size(390, 132);
-            BackToMenuButton.TabIndex = 1;
-            BackToMenuButton.Text = "Back to Menu";
-            BackToMenuButton.UseVisualStyleBackColor = true;
-            BackToMenuButton.Click += BackToMenuButton_Click;
+            BackButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            BackButton.Location = new Point(517, 827);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(390, 132);
+            BackButton.TabIndex = 1;
+            BackButton.Text = "Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
             // 
             // QuitButton
             // 
@@ -215,7 +215,7 @@
             XsWinningLabel.Text = "X's won!";
             XsWinningLabel.Visible = false;
             // 
-            // PlayGameForm
+            // PlayGameMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -234,9 +234,9 @@
             Controls.Add(XsTurnLabel);
             Controls.Add(TopLeftLabel);
             Controls.Add(QuitButton);
-            Controls.Add(BackToMenuButton);
+            Controls.Add(BackButton);
             Controls.Add(GridLabel);
-            Name = "PlayGameForm";
+            Name = "PlayGameMorpionForm";
             Text = "Ultimate Tic-Tac-Toe";
             ResumeLayout(false);
             PerformLayout();
@@ -245,7 +245,7 @@
         #endregion
 
         private Label GridLabel;
-        private Button BackToMenuButton;
+        private Button BackButton;
         private Button QuitButton;
         private Label TopLeftLabel;
         private Label XsTurnLabel;
