@@ -21,8 +21,9 @@ namespace Code
         private int[,] isOccupiedBy = new int[3, 3];
         private bool circleTurn;
         private bool isgameEnded;
+        private bool isBotPlays;
+        private Label[,] labels;
         Random random = new Random((int)DateTime.Now.Ticks);
-        GameMenuForm gameMenuForm;
 
         private void WhosTurn()
         {
@@ -38,23 +39,20 @@ namespace Code
                 OsTurnLabel.Enabled = false;
                 circleTurn = true;
             }
+
         }
 
         public PlayGameMorpionForm()
         {
             InitializeComponent();
-            gameMenuForm = new GameMenuForm();
-            isgameEnded = false;
 
+
+
+            labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel}, { LeftLabel, MiddleLabel, RightLabel}, { BottomLeftLabel, BottomLabel, BottomRightLabel} };
             int zeroOrOne = random.Next(0, 2);
 
             if (zeroOrOne == 0) circleTurn = false;
             else circleTurn = true;
-
-            if (gameMenuForm.onePlayer == true && circleTurn == false)
-            {
-                //BotPlays();
-            }
 
             WhosTurn();
 
@@ -65,6 +63,26 @@ namespace Code
                     isOccupiedBy[i, j] = 0;
                 }
             }
+            if (GameMenuForm.onePlayer && !circleTurn)
+            {
+                BotPlays(labels);
+            }
+        }
+
+        private void BotPlays(Label[,] labels)
+        {
+            int rdmColumn;
+            int rdmLine;
+
+            isBotPlays = true;
+
+            do
+            {
+                rdmColumn = random.Next(0, 3);
+                rdmLine = random.Next(0, 3);
+            } while (isOccupiedBy[rdmColumn, rdmLine] != 0);
+
+            PlaceSymbol(rdmColumn, rdmLine, labels[rdmColumn, rdmLine]);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -145,30 +163,17 @@ namespace Code
                         if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
                         if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
                         isgameEnded = true;
+                    } else
+                    {
+                        WhosTurn();
+                        if (GameMenuForm.onePlayer)
+                        {
+                            if (!isBotPlays) BotPlays(labels);
+                            else isBotPlays = false;
+                        }
                     }
-                    WhosTurn();
                 }
             }
-        }
-
-        private int RandomColumnOrLine()
-        {
-            return random.Next(0, 3);
-        }
-
-        private void BotPlays(Label label)
-        {
-            int rdmColumn;
-            int rdmLine;
-
-            do
-            {
-                rdmColumn = RandomColumnOrLine();
-                rdmLine = RandomColumnOrLine();
-            } while (isOccupiedBy[rdmColumn, rdmLine] == 1);
-
-            label.Image = System.Drawing.Image.FromFile(grandeCroix);
-            isOccupiedBy[rdmColumn, rdmLine] = 2;
         }
 
         private int VerifyWinner(int[,] isOccupiedBy)

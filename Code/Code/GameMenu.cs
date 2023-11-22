@@ -3,7 +3,7 @@ namespace Code
     public partial class GameMenuForm : Form
     {
         private bool isSuperMorpion;
-        public bool onePlayer;
+        public static bool onePlayer;
 
         public GameMenuForm()
         {
