@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Code
         private bool circleTurn;
         private bool isgameEnded;
         Random random = new Random((int)DateTime.Now.Ticks);
+        GameMenuForm gameMenuForm;
 
         private void WhosTurn()
         {
@@ -37,13 +39,22 @@ namespace Code
                 circleTurn = true;
             }
         }
+
         public PlayGameMorpionForm()
         {
             InitializeComponent();
+            gameMenuForm = new GameMenuForm();
+            isgameEnded = false;
 
             int zeroOrOne = random.Next(0, 2);
+
             if (zeroOrOne == 0) circleTurn = false;
             else circleTurn = true;
+
+            if (gameMenuForm.onePlayer == true && circleTurn == false)
+            {
+                //BotPlays();
+            }
 
             WhosTurn();
 
@@ -119,7 +130,7 @@ namespace Code
                 if (isOccupiedBy[idLabelColumn, idLabelLine] == 0)
                 {
                     if (!circleTurn)
-                    {
+                    {   
                         label.Image = System.Drawing.Image.FromFile(grandCercle);
                         isOccupiedBy[idLabelColumn, idLabelLine] = 1;
                     }
@@ -138,6 +149,26 @@ namespace Code
                     WhosTurn();
                 }
             }
+        }
+
+        private int RandomColumnOrLine()
+        {
+            return random.Next(0, 3);
+        }
+
+        private void BotPlays(Label label)
+        {
+            int rdmColumn;
+            int rdmLine;
+
+            do
+            {
+                rdmColumn = RandomColumnOrLine();
+                rdmLine = RandomColumnOrLine();
+            } while (isOccupiedBy[rdmColumn, rdmLine] == 1);
+
+            label.Image = System.Drawing.Image.FromFile(grandeCroix);
+            isOccupiedBy[rdmColumn, rdmLine] = 2;
         }
 
         private int VerifyWinner(int[,] isOccupiedBy)

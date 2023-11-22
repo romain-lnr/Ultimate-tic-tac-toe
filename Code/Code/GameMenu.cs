@@ -2,10 +2,13 @@ namespace Code
 {
     public partial class GameMenuForm : Form
     {
-        private bool isSuperMorpion = false;
+        private bool isSuperMorpion;
+        public bool onePlayer;
+
         public GameMenuForm()
         {
             InitializeComponent();
+            isSuperMorpion = false;
         }
 
         private void GameStartButton_Click(object sender, EventArgs e)
@@ -47,11 +50,13 @@ namespace Code
 
         private void OnePlayerButton_Click(object sender, EventArgs e)
         {
+            onePlayer = true;
             if (isSuperMorpion)
             {
                 // Show the game Morpion form
                 PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
                 playGameSMorpion.ShowDialog();
+                isSuperMorpion = false;
             }
             else
             {
@@ -62,11 +67,13 @@ namespace Code
 
         private void TwoPlayersButton_Click(object sender, EventArgs e)
         {
+            onePlayer = false;
             if (isSuperMorpion)
             {
                 // Show the game Morpion form
                 PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
                 playGameSMorpion.ShowDialog();
+                isSuperMorpion = false;
             }
             else
             {
