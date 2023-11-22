@@ -31,13 +31,11 @@ namespace Code
             {
                 OsTurnLabel.Enabled = true;
                 XsTurnLabel.Enabled = false;
-                circleTurn = false;
             }
             else
             {
                 XsTurnLabel.Enabled = true;
                 OsTurnLabel.Enabled = false;
-                circleTurn = true;
             }
 
         }
@@ -51,8 +49,7 @@ namespace Code
             labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel}, { LeftLabel, MiddleLabel, RightLabel}, { BottomLeftLabel, BottomLabel, BottomRightLabel} };
             int zeroOrOne = random.Next(0, 2);
 
-            if (zeroOrOne == 0) circleTurn = false;
-            else circleTurn = true;
+            circleTurn = (zeroOrOne == 0) ? true : false;
 
             WhosTurn();
 
@@ -147,15 +144,17 @@ namespace Code
             {
                 if (isOccupiedBy[idLabelColumn, idLabelLine] == 0)
                 {
-                    if (!circleTurn)
+                    if (circleTurn)
                     {   
                         label.Image = System.Drawing.Image.FromFile(grandCercle);
                         isOccupiedBy[idLabelColumn, idLabelLine] = 1;
+                        circleTurn = false;
                     }
                     else
                     {
                         label.Image = System.Drawing.Image.FromFile(grandeCroix);
                         isOccupiedBy[idLabelColumn, idLabelLine] = 2;
+                        circleTurn = true;
                     }
 
                     if (VerifyWinner(isOccupiedBy) != 0)
