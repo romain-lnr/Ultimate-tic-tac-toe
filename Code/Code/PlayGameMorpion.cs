@@ -44,7 +44,7 @@ namespace Code
         {
             InitializeComponent();
 
-
+            isgameEnded = false;
 
             labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel}, { LeftLabel, MiddleLabel, RightLabel}, { BottomLeftLabel, BottomLabel, BottomRightLabel} };
             int zeroOrOne = random.Next(0, 2);
@@ -60,6 +60,7 @@ namespace Code
                     isOccupiedBy[i, j] = 0;
                 }
             }
+
             if (GameMenuForm.onePlayer && !circleTurn)
             {
                 BotPlays(labels);
