@@ -19,6 +19,8 @@ namespace Code
         private int[,,] isOccupiedBy = new int[9, 3, 3];
         private bool circleTurn;
         private bool isgameEnded;
+        private bool isBotPlays;
+        private Label[,,] labels;
         Random random = new Random((int)DateTime.Now.Ticks);
 
         private void WhosTurn()
@@ -39,7 +41,20 @@ namespace Code
         public PlayGameSMorpionForm()
         {
             InitializeComponent();
+
             isgameEnded = false;
+
+            labels = new Label[,,] { { { TopLeft_TopLeftLabel, TopLeft_TopLabel, TopLeft_TopRightLabel }, { TopLeft_LeftLabel, TopLeft_MiddleLabel, TopLeft_RightLabel }, { TopLeft_BottomLeftLabel, TopLeft_BottomLabel, TopLeft_BottomRightLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLabel, Top_TopRightLabel }, { Top_LeftLabel, Top_MiddleLabel, Top_RightLabel }, {Top_BottomLeftLabel, Top_BottomLabel, Top_BottomRightLabel } },
+                                     //
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } },
+                                     { { Top_TopLeftLabel,  Top_TopLeftLabel, Top_TopLeftLabel }, { Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel }, {Top_TopLeftLabel, Top_TopLeftLabel, Top_TopLeftLabel } } };
+
             int zeroOrOne = random.Next(0, 2);
             if (zeroOrOne == 0) circleTurn = false;
             else circleTurn = true;
@@ -56,6 +71,27 @@ namespace Code
                     }
                 }
             }
+
+            if (GameMenuForm.onePlayer && !circleTurn)
+            {
+                BotPlays(labels);
+            }
+        }
+
+        private void BotPlays(Label[,] labels)
+        {
+            int rdmColumn;
+            int rdmLine;
+
+            isBotPlays = true;
+
+            do
+            {
+                rdmColumn = random.Next(0, 3);
+                rdmLine = random.Next(0, 3);
+            } while (isOccupiedBy[rdmColumn, rdmLine] != 0);
+
+            PlaceSymbol(rdmColumn, rdmLine, labels[rdmColumn, rdmLine]);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -339,6 +375,142 @@ namespace Code
             PlaceSymbol(5, 2, 2, Right_BottomRightLabel);
         }
 
+        private void BottomLeft_TopLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 0, 0, BottomLeft_TopLeftLabel);
+        }
+
+        private void BottomLeft_TopLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 0, 1, BottomLeft_TopLabel);
+        }
+
+        private void BottomLeft_TopRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 0, 2, BottomLeft_TopRightLabel);
+        }
+
+        private void BottomLeft_LeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 1, 0, BottomLeft_LeftLabel);
+        }
+
+        private void BottomLeft_MiddleLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 1, 1, BottomLeft_MiddleLabel);
+        }
+
+        private void BottomLeft_RightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 1, 2, BottomLeft_RightLabel);
+        }
+
+        private void BottomLeft_BottomLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 2, 0, BottomLeft_BottomLeftLabel);
+        }
+
+        private void BottomLeft_BottomLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 2, 1, BottomLeft_BottomLabel);
+        }
+
+        private void BottomLeft_BottomRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(6, 2, 2, BottomLeft_BottomRightLabel);
+        }
+
+        private void Bottom_TopLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 0, 0, Bottom_TopLeftLabel);
+        }
+
+        private void Bottom_TopLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 0, 1, Bottom_TopLabel);
+        }
+
+        private void Bottom_TopRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 0, 2, Bottom_TopRightLabel);
+        }
+
+        private void Bottom_LeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 1, 0, Bottom_LeftLabel);
+        }
+
+        private void Bottom_MiddleLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 1, 1, Bottom_MiddleLabel);
+        }
+
+        private void Bottom_RightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 1, 2, Bottom_RightLabel);
+        }
+
+        private void Bottom_BottomLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 2, 0, Bottom_BottomLeftLabel);
+        }
+
+        private void Bottom_BottomLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 2, 1, Bottom_BottomLabel);
+        }
+
+        private void Bottom_BottomRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(7, 2, 2, Bottom_BottomRightLabel);
+        }
+
+        private void BottomRight_TopLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 0, 0, BottomRight_TopLeftLabel);
+        }
+
+        private void BottomRight_TopLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 0, 1, BottomRight_TopLabel);
+        }
+
+        private void BottomRight_TopRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 0, 2, BottomRight_TopRightLabel);
+        }
+
+        private void BottomRight_LeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 1, 0, BottomRight_LeftLabel);
+        }
+
+        private void BottomRight_MiddleLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 1, 1, BottomRight_MiddleLabel);
+        }
+
+        private void BottomRight_RightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 1, 2, BottomRight_RightLabel);
+        }
+
+        private void BottomRight_BottomLeftLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 2, 0, BottomRight_BottomLeftLabel);
+        }
+
+        private void BottomRight_BottomLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 2, 1, BottomRight_BottomLabel);
+        }
+
+        private void BottomRight_BottomRightLabel_Click(object sender, EventArgs e)
+        {
+            PlaceSymbol(8, 2, 2, BottomRight_BottomRightLabel);
+        }
+
+
         private void PlaceSymbol(int case_label, int idLabelColumn, int idLabelLine, Label label)
         {
             if (!isgameEnded)
@@ -355,13 +527,13 @@ namespace Code
                         label.Image = System.Drawing.Image.FromFile(petiteCroix);
                         isOccupiedBy[case_label, idLabelColumn, idLabelLine] = 2;
                     }
-                    /*
+
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
                         if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
                         if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
                         isgameEnded = true;
-                    }*/
+                    }
                     WhosTurn();
                 }
             }
@@ -396,7 +568,7 @@ return isOccupiedBy[0, 0];
 }
 
 // Verify horizontal left line
-if ((isOccupiedBy[0, 2] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 0] == 1) || (isOccupiedBy[0, 0] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 2] == 2))
+if ((isOccupiedBy[0, 2] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 0] == 1) || (isOccupiedBy[0, 2] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 0] == 2))
 {
 return isOccupiedBy[0, 2];
 }

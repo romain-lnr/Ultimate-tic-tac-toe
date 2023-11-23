@@ -598,6 +598,7 @@
             BottomLeft_TopLeftLabel.Name = "BottomLeft_TopLeftLabel";
             BottomLeft_TopLeftLabel.Size = new Size(39, 39);
             BottomLeft_TopLeftLabel.TabIndex = 57;
+            BottomLeft_TopLeftLabel.Click += BottomLeft_TopLeftLabel_Click;
             // 
             // BottomLeft_TopLabel
             // 
@@ -605,6 +606,7 @@
             BottomLeft_TopLabel.Name = "BottomLeft_TopLabel";
             BottomLeft_TopLabel.Size = new Size(37, 39);
             BottomLeft_TopLabel.TabIndex = 58;
+            BottomLeft_TopLabel.Click += BottomLeft_TopLabel_Click;
             // 
             // BottomLeft_TopRightLabel
             // 
@@ -612,6 +614,7 @@
             BottomLeft_TopRightLabel.Name = "BottomLeft_TopRightLabel";
             BottomLeft_TopRightLabel.Size = new Size(39, 39);
             BottomLeft_TopRightLabel.TabIndex = 59;
+            BottomLeft_TopRightLabel.Click += BottomLeft_TopRightLabel_Click;
             // 
             // BottomLeft_LeftLabel
             // 
@@ -619,6 +622,7 @@
             BottomLeft_LeftLabel.Name = "BottomLeft_LeftLabel";
             BottomLeft_LeftLabel.Size = new Size(39, 37);
             BottomLeft_LeftLabel.TabIndex = 60;
+            BottomLeft_LeftLabel.Click += BottomLeft_LeftLabel_Click;
             // 
             // BottomLeft_MiddleLabel
             // 
@@ -626,6 +630,7 @@
             BottomLeft_MiddleLabel.Name = "BottomLeft_MiddleLabel";
             BottomLeft_MiddleLabel.Size = new Size(37, 37);
             BottomLeft_MiddleLabel.TabIndex = 61;
+            BottomLeft_MiddleLabel.Click += BottomLeft_MiddleLabel_Click;
             // 
             // BottomLeft_RightLabel
             // 
@@ -633,6 +638,7 @@
             BottomLeft_RightLabel.Name = "BottomLeft_RightLabel";
             BottomLeft_RightLabel.Size = new Size(39, 37);
             BottomLeft_RightLabel.TabIndex = 62;
+            BottomLeft_RightLabel.Click += BottomLeft_RightLabel_Click;
             // 
             // BottomLeft_BottomLeftLabel
             // 
@@ -640,6 +646,7 @@
             BottomLeft_BottomLeftLabel.Name = "BottomLeft_BottomLeftLabel";
             BottomLeft_BottomLeftLabel.Size = new Size(39, 39);
             BottomLeft_BottomLeftLabel.TabIndex = 63;
+            BottomLeft_BottomLeftLabel.Click += BottomLeft_BottomLeftLabel_Click;
             // 
             // BottomLeft_BottomLabel
             // 
@@ -647,6 +654,7 @@
             BottomLeft_BottomLabel.Name = "BottomLeft_BottomLabel";
             BottomLeft_BottomLabel.Size = new Size(37, 39);
             BottomLeft_BottomLabel.TabIndex = 64;
+            BottomLeft_BottomLabel.Click += BottomLeft_BottomLabel_Click;
             // 
             // BottomLeft_BottomRightLabel
             // 
@@ -654,6 +662,7 @@
             BottomLeft_BottomRightLabel.Name = "BottomLeft_BottomRightLabel";
             BottomLeft_BottomRightLabel.Size = new Size(39, 39);
             BottomLeft_BottomRightLabel.TabIndex = 65;
+            BottomLeft_BottomRightLabel.Click += BottomLeft_BottomRightLabel_Click;
             // 
             // Bottom_TopLeftLabel
             // 
@@ -661,6 +670,7 @@
             Bottom_TopLeftLabel.Name = "Bottom_TopLeftLabel";
             Bottom_TopLeftLabel.Size = new Size(39, 39);
             Bottom_TopLeftLabel.TabIndex = 66;
+            Bottom_TopLeftLabel.Click += Bottom_TopLeftLabel_Click;
             // 
             // Bottom_TopLabel
             // 
@@ -668,6 +678,7 @@
             Bottom_TopLabel.Name = "Bottom_TopLabel";
             Bottom_TopLabel.Size = new Size(37, 39);
             Bottom_TopLabel.TabIndex = 67;
+            Bottom_TopLabel.Click += Bottom_TopLabel_Click;
             // 
             // Bottom_TopRightLabel
             // 
@@ -675,6 +686,7 @@
             Bottom_TopRightLabel.Name = "Bottom_TopRightLabel";
             Bottom_TopRightLabel.Size = new Size(39, 39);
             Bottom_TopRightLabel.TabIndex = 68;
+            Bottom_TopRightLabel.Click += Bottom_TopRightLabel_Click;
             // 
             // Bottom_LeftLabel
             // 
@@ -682,6 +694,7 @@
             Bottom_LeftLabel.Name = "Bottom_LeftLabel";
             Bottom_LeftLabel.Size = new Size(39, 37);
             Bottom_LeftLabel.TabIndex = 69;
+            Bottom_LeftLabel.Click += Bottom_LeftLabel_Click;
             // 
             // Bottom_MiddleLabel
             // 
@@ -689,6 +702,7 @@
             Bottom_MiddleLabel.Name = "Bottom_MiddleLabel";
             Bottom_MiddleLabel.Size = new Size(37, 37);
             Bottom_MiddleLabel.TabIndex = 70;
+            Bottom_MiddleLabel.Click += Bottom_MiddleLabel_Click;
             // 
             // Bottom_RightLabel
             // 
@@ -696,6 +710,7 @@
             Bottom_RightLabel.Name = "Bottom_RightLabel";
             Bottom_RightLabel.Size = new Size(39, 37);
             Bottom_RightLabel.TabIndex = 71;
+            Bottom_RightLabel.Click += Bottom_RightLabel_Click;
             // 
             // Bottom_BottomLeftLabel
             // 
@@ -703,6 +718,7 @@
             Bottom_BottomLeftLabel.Name = "Bottom_BottomLeftLabel";
             Bottom_BottomLeftLabel.Size = new Size(39, 39);
             Bottom_BottomLeftLabel.TabIndex = 72;
+            Bottom_BottomLeftLabel.Click += Bottom_BottomLeftLabel_Click;
             // 
             // Bottom_BottomLabel
             // 
@@ -710,6 +726,7 @@
             Bottom_BottomLabel.Name = "Bottom_BottomLabel";
             Bottom_BottomLabel.Size = new Size(37, 39);
             Bottom_BottomLabel.TabIndex = 73;
+            Bottom_BottomLabel.Click += Bottom_BottomLabel_Click;
             // 
             // Bottom_BottomRightLabel
             // 
@@ -717,6 +734,7 @@
             Bottom_BottomRightLabel.Name = "Bottom_BottomRightLabel";
             Bottom_BottomRightLabel.Size = new Size(39, 39);
             Bottom_BottomRightLabel.TabIndex = 74;
+            Bottom_BottomRightLabel.Click += Bottom_BottomRightLabel_Click;
             // 
             // BottomRight_TopLeftLabel
             // 
@@ -724,6 +742,7 @@
             BottomRight_TopLeftLabel.Name = "BottomRight_TopLeftLabel";
             BottomRight_TopLeftLabel.Size = new Size(39, 39);
             BottomRight_TopLeftLabel.TabIndex = 75;
+            BottomRight_TopLeftLabel.Click += BottomRight_TopLeftLabel_Click;
             // 
             // BottomRight_TopLabel
             // 
@@ -731,6 +750,7 @@
             BottomRight_TopLabel.Name = "BottomRight_TopLabel";
             BottomRight_TopLabel.Size = new Size(37, 39);
             BottomRight_TopLabel.TabIndex = 76;
+            BottomRight_TopLabel.Click += BottomRight_TopLabel_Click;
             // 
             // BottomRight_TopRightLabel
             // 
@@ -738,6 +758,7 @@
             BottomRight_TopRightLabel.Name = "BottomRight_TopRightLabel";
             BottomRight_TopRightLabel.Size = new Size(39, 39);
             BottomRight_TopRightLabel.TabIndex = 77;
+            BottomRight_TopRightLabel.Click += BottomRight_TopRightLabel_Click;
             // 
             // BottomRight_LeftLabel
             // 
@@ -745,6 +766,7 @@
             BottomRight_LeftLabel.Name = "BottomRight_LeftLabel";
             BottomRight_LeftLabel.Size = new Size(39, 37);
             BottomRight_LeftLabel.TabIndex = 78;
+            BottomRight_LeftLabel.Click += BottomRight_LeftLabel_Click;
             // 
             // BottomRight_MiddleLabel
             // 
@@ -752,6 +774,7 @@
             BottomRight_MiddleLabel.Name = "BottomRight_MiddleLabel";
             BottomRight_MiddleLabel.Size = new Size(37, 37);
             BottomRight_MiddleLabel.TabIndex = 79;
+            BottomRight_MiddleLabel.Click += BottomRight_MiddleLabel_Click;
             // 
             // BottomRight_RightLabel
             // 
@@ -759,6 +782,7 @@
             BottomRight_RightLabel.Name = "BottomRight_RightLabel";
             BottomRight_RightLabel.Size = new Size(39, 37);
             BottomRight_RightLabel.TabIndex = 80;
+            BottomRight_RightLabel.Click += BottomRight_RightLabel_Click;
             // 
             // BottomRight_BottomLeftLabel
             // 
@@ -766,6 +790,7 @@
             BottomRight_BottomLeftLabel.Name = "BottomRight_BottomLeftLabel";
             BottomRight_BottomLeftLabel.Size = new Size(39, 39);
             BottomRight_BottomLeftLabel.TabIndex = 81;
+            BottomRight_BottomLeftLabel.Click += BottomRight_BottomLeftLabel_Click;
             // 
             // BottomRight_BottomLabel
             // 
@@ -773,6 +798,7 @@
             BottomRight_BottomLabel.Name = "BottomRight_BottomLabel";
             BottomRight_BottomLabel.Size = new Size(37, 39);
             BottomRight_BottomLabel.TabIndex = 82;
+            BottomRight_BottomLabel.Click += BottomRight_BottomLabel_Click;
             // 
             // BottomRight_BottomRightLabel
             // 
@@ -780,6 +806,7 @@
             BottomRight_BottomRightLabel.Name = "BottomRight_BottomRightLabel";
             BottomRight_BottomRightLabel.Size = new Size(39, 39);
             BottomRight_BottomRightLabel.TabIndex = 83;
+            BottomRight_BottomRightLabel.Click += BottomRight_BottomRightLabel_Click;
             // 
             // Cache_TopLeftLabel
             // 

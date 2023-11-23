@@ -138,7 +138,7 @@ namespace Code
             PlaceSymbol(2, 2, BottomRightLabel);
         }
 
-        private void PlaceSymbol(int idLabelColumn, int idLabelLine, Label label)
+        private async void PlaceSymbol(int idLabelColumn, int idLabelLine, Label label)
         {
             if (!isgameEnded)
             {
@@ -157,6 +157,8 @@ namespace Code
                         circleTurn = true;
                     }
 
+                  
+
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
                         if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
@@ -167,6 +169,9 @@ namespace Code
                         WhosTurn();
                         if (GameMenuForm.onePlayer)
                         {
+                            // Attendre 500 millisecondes
+                            await Task.Delay(500);
+
                             if (!isBotPlays) BotPlays(labels);
                             else isBotPlays = false;
                         }
@@ -200,9 +205,8 @@ namespace Code
             {
                 return isOccupiedBy[0, 0];
             }
-
             // Verify horizontal left line
-            if ((isOccupiedBy[0, 2] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 0] == 1) || (isOccupiedBy[0, 0] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 2] == 2))
+            else if ((isOccupiedBy[0, 2] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 0] == 1) || (isOccupiedBy[0, 2] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 0] == 2))
             {
                 return isOccupiedBy[0, 2];
             }
