@@ -46,7 +46,10 @@ namespace Code
 
             isgameEnded = false;
 
-            labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel}, { LeftLabel, MiddleLabel, RightLabel}, { BottomLeftLabel, BottomLabel, BottomRightLabel} };
+            labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel }, 
+                                    { LeftLabel, MiddleLabel, RightLabel },
+                                    { BottomLeftLabel, BottomLabel, BottomRightLabel } };
+
             int zeroOrOne = random.Next(0, 2);
 
             circleTurn = (zeroOrOne == 0) ? true : false;
@@ -70,17 +73,17 @@ namespace Code
         private void BotPlays(Label[,] labels)
         {
             int rdmColumn;
-            int rdmLine;
+            int rdmRow;
 
             isBotPlays = true;
 
             do
             {
                 rdmColumn = random.Next(0, 3);
-                rdmLine = random.Next(0, 3);
-            } while (isOccupiedBy[rdmColumn, rdmLine] != 0);
+                rdmRow = random.Next(0, 3);
+            } while (isOccupiedBy[rdmColumn, rdmRow] != 0);
 
-            PlaceSymbol(rdmColumn, rdmLine, labels[rdmColumn, rdmLine]);
+            PlaceSymbol(rdmColumn, rdmRow, labels[rdmColumn, rdmRow]);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -139,22 +142,22 @@ namespace Code
             PlaceSymbol(2, 2, BottomRightLabel);
         }
 
-        private async void PlaceSymbol(int idLabelColumn, int idLabelLine, Label label)
+        private async void PlaceSymbol(int idLabelColumn, int idLabelRow, Label label)
         {
             if (!isgameEnded)
             {
-                if (isOccupiedBy[idLabelColumn, idLabelLine] == 0)
+                if (isOccupiedBy[idLabelColumn, idLabelRow] == 0)
                 {
                     if (circleTurn)
                     {   
                         label.Image = System.Drawing.Image.FromFile(grandCercle);
-                        isOccupiedBy[idLabelColumn, idLabelLine] = 1;
+                        isOccupiedBy[idLabelColumn, idLabelRow] = 1;
                         circleTurn = false;
                     }
                     else
                     {
                         label.Image = System.Drawing.Image.FromFile(grandeCroix);
-                        isOccupiedBy[idLabelColumn, idLabelLine] = 2;
+                        isOccupiedBy[idLabelColumn, idLabelRow] = 2;
                         circleTurn = true;
                     }
 
@@ -168,6 +171,7 @@ namespace Code
                     } else
                     {
                         WhosTurn();
+
                         if (GameMenuForm.onePlayer)
                         {
                             // Attendre 500 millisecondes

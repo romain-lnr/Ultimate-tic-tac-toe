@@ -56,7 +56,6 @@ namespace Code
                 // Show the game Morpion form
                 PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
                 playGameSMorpion.ShowDialog();
-                isSuperMorpion = false;
             }
             else
             {
@@ -73,7 +72,6 @@ namespace Code
                 // Show the game Morpion form
                 PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
                 playGameSMorpion.ShowDialog();
-                isSuperMorpion = false;
             }
             else
             {
