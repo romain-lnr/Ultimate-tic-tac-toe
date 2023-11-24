@@ -517,21 +517,32 @@ namespace Code
         }
 
 
-        private async void PlaceSymbol(int case_label, int idLabelColumn, int idLabelRow, Label cache, Label label)
+        private async void PlaceSymbol(int idLabelCase, int idLabelColumn, int idLabelRow, Label cache, Label label)
         {
             if (!isgameEnded)
             {
-                if (isOccupiedBy[case_label, idLabelColumn, idLabelRow] == 0)
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        for (int k = 0; k < 3; k++)
+                        {
+                            labels[i, j, k].Enabled = false;
+                        }
+                    }
+                }
+
+                if (isOccupiedBy[idLabelCase, idLabelColumn, idLabelRow] == 0)
                 {
                     if (!circleTurn)
                     {
                         label.Image = System.Drawing.Image.FromFile(petitCercle);
-                        isOccupiedBy[case_label, idLabelColumn, idLabelRow] = 1;
+                        isOccupiedBy[idLabelCase, idLabelColumn, idLabelRow] = 1;
                     }
                     else
                     {
                         label.Image = System.Drawing.Image.FromFile(petiteCroix);
-                        isOccupiedBy[case_label, idLabelColumn, idLabelRow] = 2;
+                        isOccupiedBy[idLabelCase, idLabelColumn, idLabelRow] = 2;
                     }
                     result = VerifyWinnerCase(isOccupiedBy);
                     if (result != 0)
@@ -540,14 +551,28 @@ namespace Code
                         if (result == 1)
                         {
                             cache.Image = System.Drawing.Image.FromFile(grandCercle);
-                            isOccupiedBy[case_label, 1, 1] = 3;
+
+                            for (int i = 0; i < 9; i++)
+                            {
+                                for (int j = 0; j < 9; j++)
+                                {
+                                    isOccupiedBy[idLabelCase, i, j] = 3;
+                                }
+                            }                            
                         }
                         else if (result == 2)
-                        { 
+                        {
                             cache.Image = System.Drawing.Image.FromFile(grandeCroix);
-                            isOccupiedBy[case_label, 1, 1] = 4;
+
+                            for (int i = 0; i < 9; i++)
+                            {
+                                for (int j = 0; j < 9; j++)
+                                {
+                                    isOccupiedBy[idLabelCase, i, j] = 4;
+                                }
+                            }
                         }
-                    } 
+                    }
 
                     if (verifyWinner(isOccupiedBy) != 0)
                     {
@@ -561,11 +586,25 @@ namespace Code
 
                         if (GameMenuForm.onePlayer)
                         {
-                            // Attendre 500 millisecondes
-                            await Task.Delay(500);
+                            // Attendre 1000 millisecondes
+                            await Task.Delay(1000);
 
                             if (!isBotPlays) BotPlays(labels);
                             else isBotPlays = false;
+                        }
+                    }
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (i != idLabelCase)
+                        {
+                            for (int j = 0; j < 3; j++)
+                            {
+                                for (int k = 0; k < 3; k++)
+                                {
+                                    labels[i, j, k].Enabled = false;
+                                }                                
+                            }
                         }
                     }
                 }

@@ -145,7 +145,7 @@
             ClassicButton.Name = "ClassicButton";
             ClassicButton.Size = new Size(390, 132);
             ClassicButton.TabIndex = 9;
-            ClassicButton.Text = "Classique";
+            ClassicButton.Text = "Classic";
             ClassicButton.UseVisualStyleBackColor = true;
             ClassicButton.Visible = false;
             ClassicButton.Click += ClassicButton_Click;

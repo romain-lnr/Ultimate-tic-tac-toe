@@ -46,7 +46,7 @@ namespace Code
 
             isgameEnded = false;
 
-            labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel }, 
+            labels = new Label[,] { { TopLeftLabel, TopLabel, TopRightLabel },
                                     { LeftLabel, MiddleLabel, RightLabel },
                                     { BottomLeftLabel, BottomLabel, BottomRightLabel } };
 
@@ -149,7 +149,7 @@ namespace Code
                 if (isOccupiedBy[idLabelColumn, idLabelRow] == 0)
                 {
                     if (circleTurn)
-                    {   
+                    {
                         label.Image = System.Drawing.Image.FromFile(grandCercle);
                         isOccupiedBy[idLabelColumn, idLabelRow] = 1;
                         circleTurn = false;
@@ -161,14 +161,15 @@ namespace Code
                         circleTurn = true;
                     }
 
-                  
+
 
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
                         if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
                         if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
                         isgameEnded = true;
-                    } else
+                    }
+                    else
                     {
                         WhosTurn();
 
