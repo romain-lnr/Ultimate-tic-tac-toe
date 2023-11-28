@@ -125,6 +125,7 @@
             OsTurnLabel = new Label();
             OsWinningLabel = new Label();
             XsWinningLabel = new Label();
+            TopLeft_BorderBlueLabel = new Label();
             SuspendLayout();
             // 
             // Gridlabel
@@ -909,9 +910,9 @@
             OsWinningLabel.ForeColor = Color.Red;
             OsWinningLabel.Location = new Point(406, 648);
             OsWinningLabel.Name = "OsWinningLabel";
-            OsWinningLabel.Size = new Size(157, 37);
+            OsWinningLabel.Size = new Size(117, 37);
             OsWinningLabel.TabIndex = 95;
-            OsWinningLabel.Text = "O's won";
+            OsWinningLabel.Text = "O won";
             OsWinningLabel.Visible = false;
             // 
             // XsWinningLabel
@@ -920,16 +921,24 @@
             XsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
             XsWinningLabel.Location = new Point(406, 648);
             XsWinningLabel.Name = "XsWinningLabel";
-            XsWinningLabel.Size = new Size(157, 37);
+            XsWinningLabel.Size = new Size(117, 37);
             XsWinningLabel.TabIndex = 96;
-            XsWinningLabel.Text = "X's won";
+            XsWinningLabel.Text = "X won";
             XsWinningLabel.Visible = false;
+            // 
+            // TopLeft_BorderBlueLabel
+            // 
+            TopLeft_BorderBlueLabel.Location = new Point(0, 0);
+            TopLeft_BorderBlueLabel.Name = "TopLeft_BorderBlueLabel";
+            TopLeft_BorderBlueLabel.Size = new Size(100, 23);
+            TopLeft_BorderBlueLabel.TabIndex = 0;
             // 
             // PlayGameSMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(TopLeft_BorderBlueLabel);
             Controls.Add(XsWinningLabel);
             Controls.Add(OsWinningLabel);
             Controls.Add(OsTurnLabel);
@@ -1133,5 +1142,6 @@
         private Label OsTurnLabel;
         private Label OsWinningLabel;
         private Label XsWinningLabel;
+        private Label TopLeft_BorderBlueLabel;
     }
 }

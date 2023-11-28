@@ -41,6 +41,7 @@ namespace Code
                 circleTurn = true;
             }
         }
+
         public PlayGameSMorpionForm()
         {
             InitializeComponent();
@@ -67,15 +68,24 @@ namespace Code
 
             WhosTurn();
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 3; j++)
                 {
-                    for (int k = 0; k < 2; k++)
+                    for (int k = 0; k < 3; k++)
                     {
-                        for (int l = 0; l < 2; l++)
+                        for (int l = 0; l < 3; l++)
                         {
                             isOccupiedBy[i, j, k, l] = 0;
+
+                            if (circleTurn)
+                            {
+                                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#DDDDFF");
+                            }
+                            else
+                            {
+                                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#FFDDDD");
+                            }
                         }
                     }
                 }
@@ -525,7 +535,6 @@ namespace Code
         {
             if (!isgameEnded)
             {
-
                 if (isOccupiedBy[idLabelCaseColumn, idLabelCaseRow, idLabelColumn, idLabelRow] == 0)
                 {
                     if (!circleTurn)
@@ -569,7 +578,7 @@ namespace Code
                             }
                         }
                     }
-   
+
                     if (verifyWinner(isOccupiedBy) != 0)
                     {
                         if (verifyWinner(isOccupiedBy) == 3) OsWinningLabel.Visible = true;
@@ -592,7 +601,7 @@ namespace Code
                     }
                     else
                     {
-                    WhosTurn();
+                        WhosTurn();
 
                         if (isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 3 && isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 4)
                         {
@@ -605,6 +614,7 @@ namespace Code
                                         for (int l = 0; l < 3; l++)
                                         {
                                             labels[i, j, k, l].Enabled = false;
+                                            labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#F0F0F0");
                                         }
                                     }
                                 }
@@ -616,9 +626,19 @@ namespace Code
                                 for (int j = 0; j < 3; j++)
                                 {
                                     labels[idLabelColumn, idLabelRow, i, j].Enabled = true;
+
+                                    if (circleTurn)
+                                    {
+                                        labels[idLabelColumn, idLabelRow, i, j].BackColor = ColorTranslator.FromHtml("#DDDDFF");
+                                    }
+                                    else
+                                    {
+                                        labels[idLabelColumn, idLabelRow, i, j].BackColor = ColorTranslator.FromHtml("#FFDDDD");
+                                    }
                                 }
                             }
-                        } else
+                        }
+                        else
                         {
                             for (int i = 0; i < 3; i++)
                             {
@@ -629,13 +649,24 @@ namespace Code
                                         for (int l = 0; l < 3; l++)
                                         {
                                             if (isOccupiedBy[i, j, k, l] != 3 && isOccupiedBy[i, j, k, l] != 4)
-                                            labels[i, j, k, l].Enabled = true;
+                                            {
+                                                labels[i, j, k, l].Enabled = true;
+                                                if (circleTurn)
+                                                {
+                                                    labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#DDDDFF");
+                                                }
+                                                else
+                                                {
+                                                    labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#FFDDDD");
+                                                }
+                                            }
+
                                         }
                                     }
                                 }
                             }
                         }
-                       
+
 
                         if (GameMenuForm.onePlayer)
                         {
