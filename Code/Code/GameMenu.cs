@@ -104,6 +104,7 @@ namespace Code
             // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+
             isSuperMorpion = false;
         }
 
@@ -116,6 +117,7 @@ namespace Code
             // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+
             isSuperMorpion = true;
         }
     }
