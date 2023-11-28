@@ -104,6 +104,7 @@ namespace Code
             // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+            isSuperMorpion = false;
         }
 
         private void SuperMorpionButton_Click(object sender, EventArgs e)
