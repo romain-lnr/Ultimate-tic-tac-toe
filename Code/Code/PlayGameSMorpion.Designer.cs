@@ -112,15 +112,15 @@
             BottomRight_BottomLeftLabel = new Label();
             BottomRight_BottomLabel = new Label();
             BottomRight_BottomRightLabel = new Label();
-            Cache_TopLeftLabel = new Label();
-            Cache_TopLabel = new Label();
-            Cache_TopRightLabel = new Label();
-            Cache_LeftLabel = new Label();
-            Cache_MiddleLabel = new Label();
-            Cache_RightLabel = new Label();
-            Cache_BottomLeftLabel = new Label();
-            Cache_BottomLabel = new Label();
-            Cache_BottomRightLabel = new Label();
+            Hider_TopLeftLabel = new Label();
+            Hider_TopLabel = new Label();
+            Hider_TopRightLabel = new Label();
+            Hider_LeftLabel = new Label();
+            Hider_MiddleLabel = new Label();
+            Hider_RightLabel = new Label();
+            Hider_BottomLeftLabel = new Label();
+            Hider_BottomLabel = new Label();
+            Hider_BottomRightLabel = new Label();
             XsTurnLabel = new Label();
             OsTurnLabel = new Label();
             OsWinningLabel = new Label();
@@ -167,7 +167,7 @@
             TopLeft_TopLeftLabel.Name = "TopLeft_TopLeftLabel";
             TopLeft_TopLeftLabel.Size = new Size(39, 39);
             TopLeft_TopLeftLabel.TabIndex = 3;
-            TopLeft_TopLeftLabel.Click += TopLeft_TopLeftLabel_Click;
+            TopLeft_TopLeftLabel.Click += TheLabel_Click;
             // 
             // TopLeft_TopLabel
             // 
@@ -175,7 +175,7 @@
             TopLeft_TopLabel.Name = "TopLeft_TopLabel";
             TopLeft_TopLabel.Size = new Size(37, 39);
             TopLeft_TopLabel.TabIndex = 4;
-            TopLeft_TopLabel.Click += TopLeft_TopLabel_Click;
+            TopLeft_TopLabel.Click += TheLabel_Click;
             // 
             // TopLeft_TopRightLabel
             // 
@@ -183,7 +183,7 @@
             TopLeft_TopRightLabel.Name = "TopLeft_TopRightLabel";
             TopLeft_TopRightLabel.Size = new Size(39, 39);
             TopLeft_TopRightLabel.TabIndex = 5;
-            TopLeft_TopRightLabel.Click += TopLeft_TopRightLabel_Click;
+            TopLeft_TopRightLabel.Click += TheLabel_Click;
             // 
             // TopLeft_LeftLabel
             // 
@@ -191,7 +191,7 @@
             TopLeft_LeftLabel.Name = "TopLeft_LeftLabel";
             TopLeft_LeftLabel.Size = new Size(39, 37);
             TopLeft_LeftLabel.TabIndex = 6;
-            TopLeft_LeftLabel.Click += TopLeft_LeftLabel_Click;
+            TopLeft_LeftLabel.Click += TheLabel_Click;
             // 
             // TopLeft_MiddleLabel
             // 
@@ -199,7 +199,7 @@
             TopLeft_MiddleLabel.Name = "TopLeft_MiddleLabel";
             TopLeft_MiddleLabel.Size = new Size(37, 37);
             TopLeft_MiddleLabel.TabIndex = 7;
-            TopLeft_MiddleLabel.Click += TopLeft_MiddleLabel_Click;
+            TopLeft_MiddleLabel.Click += TheLabel_Click;
             // 
             // TopLeft_RightLabel
             // 
@@ -207,7 +207,7 @@
             TopLeft_RightLabel.Name = "TopLeft_RightLabel";
             TopLeft_RightLabel.Size = new Size(39, 37);
             TopLeft_RightLabel.TabIndex = 8;
-            TopLeft_RightLabel.Click += TopLeft_RightLabel_Click;
+            TopLeft_RightLabel.Click += TheLabel_Click;
             // 
             // TopLeft_BottomLeftLabel
             // 
@@ -215,7 +215,7 @@
             TopLeft_BottomLeftLabel.Name = "TopLeft_BottomLeftLabel";
             TopLeft_BottomLeftLabel.Size = new Size(39, 39);
             TopLeft_BottomLeftLabel.TabIndex = 9;
-            TopLeft_BottomLeftLabel.Click += TopLeft_BottomLeftLabel_Click;
+            TopLeft_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // TopLeft_BottomLabel
             // 
@@ -223,7 +223,7 @@
             TopLeft_BottomLabel.Name = "TopLeft_BottomLabel";
             TopLeft_BottomLabel.Size = new Size(37, 39);
             TopLeft_BottomLabel.TabIndex = 10;
-            TopLeft_BottomLabel.Click += TopLeft_BottomLabel_Click;
+            TopLeft_BottomLabel.Click += TheLabel_Click;
             // 
             // TopLeft_BottomRightLabel
             // 
@@ -231,7 +231,7 @@
             TopLeft_BottomRightLabel.Name = "TopLeft_BottomRightLabel";
             TopLeft_BottomRightLabel.Size = new Size(39, 39);
             TopLeft_BottomRightLabel.TabIndex = 11;
-            TopLeft_BottomRightLabel.Click += TopLeft_BottomRightLabel_Click;
+            TopLeft_BottomRightLabel.Click += TheLabel_Click;
             // 
             // Top_TopLeftLabel
             // 
@@ -239,7 +239,7 @@
             Top_TopLeftLabel.Name = "Top_TopLeftLabel";
             Top_TopLeftLabel.Size = new Size(39, 39);
             Top_TopLeftLabel.TabIndex = 12;
-            Top_TopLeftLabel.Click += Top_TopLeftLabel_Click;
+            Top_TopLeftLabel.Click += TheLabel_Click;
             // 
             // Top_TopLabel
             // 
@@ -247,7 +247,7 @@
             Top_TopLabel.Name = "Top_TopLabel";
             Top_TopLabel.Size = new Size(37, 39);
             Top_TopLabel.TabIndex = 13;
-            Top_TopLabel.Click += Top_TopLabel_Click;
+            Top_TopLabel.Click += TheLabel_Click;
             // 
             // Top_TopRightLabel
             // 
@@ -255,7 +255,7 @@
             Top_TopRightLabel.Name = "Top_TopRightLabel";
             Top_TopRightLabel.Size = new Size(39, 39);
             Top_TopRightLabel.TabIndex = 14;
-            Top_TopRightLabel.Click += Top_TopRightLabel_Click;
+            Top_TopRightLabel.Click += TheLabel_Click;
             // 
             // Top_LeftLabel
             // 
@@ -263,7 +263,7 @@
             Top_LeftLabel.Name = "Top_LeftLabel";
             Top_LeftLabel.Size = new Size(39, 37);
             Top_LeftLabel.TabIndex = 15;
-            Top_LeftLabel.Click += Top_LeftLabel_Click;
+            Top_LeftLabel.Click += TheLabel_Click;
             // 
             // Top_MiddleLabel
             // 
@@ -271,7 +271,7 @@
             Top_MiddleLabel.Name = "Top_MiddleLabel";
             Top_MiddleLabel.Size = new Size(37, 37);
             Top_MiddleLabel.TabIndex = 16;
-            Top_MiddleLabel.Click += Top_MiddleLabel_Click;
+            Top_MiddleLabel.Click += TheLabel_Click;
             // 
             // Top_RightLabel
             // 
@@ -279,7 +279,7 @@
             Top_RightLabel.Name = "Top_RightLabel";
             Top_RightLabel.Size = new Size(39, 37);
             Top_RightLabel.TabIndex = 17;
-            Top_RightLabel.Click += Top_RightLabel_Click;
+            Top_RightLabel.Click += TheLabel_Click;
             // 
             // Top_BottomLeftLabel
             // 
@@ -287,7 +287,7 @@
             Top_BottomLeftLabel.Name = "Top_BottomLeftLabel";
             Top_BottomLeftLabel.Size = new Size(39, 39);
             Top_BottomLeftLabel.TabIndex = 18;
-            Top_BottomLeftLabel.Click += Top_BottomLeftLabel_Click;
+            Top_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // Top_BottomLabel
             // 
@@ -295,7 +295,7 @@
             Top_BottomLabel.Name = "Top_BottomLabel";
             Top_BottomLabel.Size = new Size(37, 39);
             Top_BottomLabel.TabIndex = 19;
-            Top_BottomLabel.Click += Top_BottomLabel_Click;
+            Top_BottomLabel.Click += TheLabel_Click;
             // 
             // Top_BottomRightLabel
             // 
@@ -303,7 +303,7 @@
             Top_BottomRightLabel.Name = "Top_BottomRightLabel";
             Top_BottomRightLabel.Size = new Size(39, 39);
             Top_BottomRightLabel.TabIndex = 20;
-            Top_BottomRightLabel.Click += Top_BottomRightLabel_Click;
+            Top_BottomRightLabel.Click += TheLabel_Click;
             // 
             // TopRight_TopLeftLabel
             // 
@@ -311,7 +311,7 @@
             TopRight_TopLeftLabel.Name = "TopRight_TopLeftLabel";
             TopRight_TopLeftLabel.Size = new Size(39, 39);
             TopRight_TopLeftLabel.TabIndex = 21;
-            TopRight_TopLeftLabel.Click += TopRight_TopLeftLabel_Click;
+            TopRight_TopLeftLabel.Click += TheLabel_Click;
             // 
             // TopRight_TopLabel
             // 
@@ -319,7 +319,7 @@
             TopRight_TopLabel.Name = "TopRight_TopLabel";
             TopRight_TopLabel.Size = new Size(37, 39);
             TopRight_TopLabel.TabIndex = 22;
-            TopRight_TopLabel.Click += TopRight_TopLabel_Click;
+            TopRight_TopLabel.Click += TheLabel_Click;
             // 
             // TopRight_TopRightLabel
             // 
@@ -327,7 +327,7 @@
             TopRight_TopRightLabel.Name = "TopRight_TopRightLabel";
             TopRight_TopRightLabel.Size = new Size(39, 39);
             TopRight_TopRightLabel.TabIndex = 23;
-            TopRight_TopRightLabel.Click += TopRight_TopRightLabel_Click;
+            TopRight_TopRightLabel.Click += TheLabel_Click;
             // 
             // TopRight_LeftLabel
             // 
@@ -335,7 +335,7 @@
             TopRight_LeftLabel.Name = "TopRight_LeftLabel";
             TopRight_LeftLabel.Size = new Size(39, 37);
             TopRight_LeftLabel.TabIndex = 24;
-            TopRight_LeftLabel.Click += TopRight_LeftLabel_Click;
+            TopRight_LeftLabel.Click += TheLabel_Click;
             // 
             // TopRight_MiddleLabel
             // 
@@ -343,7 +343,7 @@
             TopRight_MiddleLabel.Name = "TopRight_MiddleLabel";
             TopRight_MiddleLabel.Size = new Size(37, 37);
             TopRight_MiddleLabel.TabIndex = 25;
-            TopRight_MiddleLabel.Click += TopRight_MiddleLabel_Click;
+            TopRight_MiddleLabel.Click += TheLabel_Click;
             // 
             // TopRight_RightLabel
             // 
@@ -351,7 +351,7 @@
             TopRight_RightLabel.Name = "TopRight_RightLabel";
             TopRight_RightLabel.Size = new Size(39, 37);
             TopRight_RightLabel.TabIndex = 26;
-            TopRight_RightLabel.Click += TopRight_RightLabel_Click;
+            TopRight_RightLabel.Click += TheLabel_Click;
             // 
             // TopRight_BottomLeftLabel
             // 
@@ -359,7 +359,7 @@
             TopRight_BottomLeftLabel.Name = "TopRight_BottomLeftLabel";
             TopRight_BottomLeftLabel.Size = new Size(39, 39);
             TopRight_BottomLeftLabel.TabIndex = 27;
-            TopRight_BottomLeftLabel.Click += TopRight_BottomLeftLabel_Click;
+            TopRight_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // TopRight_BottomLabel
             // 
@@ -367,7 +367,7 @@
             TopRight_BottomLabel.Name = "TopRight_BottomLabel";
             TopRight_BottomLabel.Size = new Size(37, 39);
             TopRight_BottomLabel.TabIndex = 28;
-            TopRight_BottomLabel.Click += TopRight_BottomLabel_Click;
+            TopRight_BottomLabel.Click += TheLabel_Click;
             // 
             // TopRight_BottomRightLabel
             // 
@@ -375,7 +375,7 @@
             TopRight_BottomRightLabel.Name = "TopRight_BottomRightLabel";
             TopRight_BottomRightLabel.Size = new Size(39, 39);
             TopRight_BottomRightLabel.TabIndex = 29;
-            TopRight_BottomRightLabel.Click += TopRight_BottomRightLabel_Click;
+            TopRight_BottomRightLabel.Click += TheLabel_Click;
             // 
             // Left_TopLeftLabel
             // 
@@ -383,7 +383,7 @@
             Left_TopLeftLabel.Name = "Left_TopLeftLabel";
             Left_TopLeftLabel.Size = new Size(39, 39);
             Left_TopLeftLabel.TabIndex = 30;
-            Left_TopLeftLabel.Click += Left_TopLeftLabel_Click;
+            Left_TopLeftLabel.Click += TheLabel_Click;
             // 
             // Left_TopLabel
             // 
@@ -391,7 +391,7 @@
             Left_TopLabel.Name = "Left_TopLabel";
             Left_TopLabel.Size = new Size(37, 39);
             Left_TopLabel.TabIndex = 31;
-            Left_TopLabel.Click += Left_TopLabel_Click;
+            Left_TopLabel.Click += TheLabel_Click;
             // 
             // Left_TopRightLabel
             // 
@@ -399,7 +399,7 @@
             Left_TopRightLabel.Name = "Left_TopRightLabel";
             Left_TopRightLabel.Size = new Size(39, 39);
             Left_TopRightLabel.TabIndex = 32;
-            Left_TopRightLabel.Click += Left_TopRightLabel_Click;
+            Left_TopRightLabel.Click += TheLabel_Click;
             // 
             // Left_LeftLabel
             // 
@@ -407,7 +407,7 @@
             Left_LeftLabel.Name = "Left_LeftLabel";
             Left_LeftLabel.Size = new Size(39, 37);
             Left_LeftLabel.TabIndex = 33;
-            Left_LeftLabel.Click += Left_LeftLabel_Click;
+            Left_LeftLabel.Click += TheLabel_Click;
             // 
             // Left_MiddleLabel
             // 
@@ -415,7 +415,7 @@
             Left_MiddleLabel.Name = "Left_MiddleLabel";
             Left_MiddleLabel.Size = new Size(37, 37);
             Left_MiddleLabel.TabIndex = 34;
-            Left_MiddleLabel.Click += Left_MiddleLabel_Click;
+            Left_MiddleLabel.Click += TheLabel_Click;
             // 
             // Left_RightLabel
             // 
@@ -423,7 +423,7 @@
             Left_RightLabel.Name = "Left_RightLabel";
             Left_RightLabel.Size = new Size(39, 37);
             Left_RightLabel.TabIndex = 35;
-            Left_RightLabel.Click += Left_RightLabel_Click;
+            Left_RightLabel.Click += TheLabel_Click;
             // 
             // Left_BottomLeftLabel
             // 
@@ -431,7 +431,7 @@
             Left_BottomLeftLabel.Name = "Left_BottomLeftLabel";
             Left_BottomLeftLabel.Size = new Size(39, 39);
             Left_BottomLeftLabel.TabIndex = 36;
-            Left_BottomLeftLabel.Click += Left_BottomLeftLabel_Click;
+            Left_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // Left_BottomLabel
             // 
@@ -439,7 +439,7 @@
             Left_BottomLabel.Name = "Left_BottomLabel";
             Left_BottomLabel.Size = new Size(37, 39);
             Left_BottomLabel.TabIndex = 37;
-            Left_BottomLabel.Click += Left_BottomLabel_Click;
+            Left_BottomLabel.Click += TheLabel_Click;
             // 
             // Left_BottomRightLabel
             // 
@@ -447,7 +447,7 @@
             Left_BottomRightLabel.Name = "Left_BottomRightLabel";
             Left_BottomRightLabel.Size = new Size(39, 39);
             Left_BottomRightLabel.TabIndex = 38;
-            Left_BottomRightLabel.Click += Left_BottomRightLabel_Click;
+            Left_BottomRightLabel.Click += TheLabel_Click;
             // 
             // Middle_TopLeftLabel
             // 
@@ -455,7 +455,7 @@
             Middle_TopLeftLabel.Name = "Middle_TopLeftLabel";
             Middle_TopLeftLabel.Size = new Size(39, 39);
             Middle_TopLeftLabel.TabIndex = 39;
-            Middle_TopLeftLabel.Click += Middle_TopLeftLabel_Click;
+            Middle_TopLeftLabel.Click += TheLabel_Click;
             // 
             // Middle_TopLabel
             // 
@@ -463,7 +463,7 @@
             Middle_TopLabel.Name = "Middle_TopLabel";
             Middle_TopLabel.Size = new Size(37, 39);
             Middle_TopLabel.TabIndex = 40;
-            Middle_TopLabel.Click += Middle_TopLabel_Click;
+            Middle_TopLabel.Click += TheLabel_Click;
             // 
             // Middle_TopRightLabel
             // 
@@ -471,7 +471,7 @@
             Middle_TopRightLabel.Name = "Middle_TopRightLabel";
             Middle_TopRightLabel.Size = new Size(39, 39);
             Middle_TopRightLabel.TabIndex = 41;
-            Middle_TopRightLabel.Click += Middle_TopRightLabel_Click;
+            Middle_TopRightLabel.Click += TheLabel_Click;
             // 
             // Middle_LeftLabel
             // 
@@ -479,7 +479,7 @@
             Middle_LeftLabel.Name = "Middle_LeftLabel";
             Middle_LeftLabel.Size = new Size(39, 37);
             Middle_LeftLabel.TabIndex = 42;
-            Middle_LeftLabel.Click += Middle_LeftLabel_Click;
+            Middle_LeftLabel.Click += TheLabel_Click;
             // 
             // Middle_MiddleLabel
             // 
@@ -487,7 +487,7 @@
             Middle_MiddleLabel.Name = "Middle_MiddleLabel";
             Middle_MiddleLabel.Size = new Size(37, 37);
             Middle_MiddleLabel.TabIndex = 43;
-            Middle_MiddleLabel.Click += Middle_MiddleLabel_Click;
+            Middle_MiddleLabel.Click += TheLabel_Click;
             // 
             // Middle_RightLabel
             // 
@@ -495,7 +495,7 @@
             Middle_RightLabel.Name = "Middle_RightLabel";
             Middle_RightLabel.Size = new Size(39, 37);
             Middle_RightLabel.TabIndex = 44;
-            Middle_RightLabel.Click += Middle_RightLabel_Click;
+            Middle_RightLabel.Click += TheLabel_Click;
             // 
             // Middle_BottomLeftLabel
             // 
@@ -503,7 +503,7 @@
             Middle_BottomLeftLabel.Name = "Middle_BottomLeftLabel";
             Middle_BottomLeftLabel.Size = new Size(39, 39);
             Middle_BottomLeftLabel.TabIndex = 45;
-            Middle_BottomLeftLabel.Click += Middle_BottomLeftLabel_Click;
+            Middle_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // Middle_BottomLabel
             // 
@@ -511,7 +511,7 @@
             Middle_BottomLabel.Name = "Middle_BottomLabel";
             Middle_BottomLabel.Size = new Size(37, 39);
             Middle_BottomLabel.TabIndex = 46;
-            Middle_BottomLabel.Click += Middle_BottomLabel_Click;
+            Middle_BottomLabel.Click += TheLabel_Click;
             // 
             // Middle_BottomRightLabel
             // 
@@ -519,7 +519,7 @@
             Middle_BottomRightLabel.Name = "Middle_BottomRightLabel";
             Middle_BottomRightLabel.Size = new Size(39, 39);
             Middle_BottomRightLabel.TabIndex = 47;
-            Middle_BottomRightLabel.Click += Middle_BottomRightLabel_Click;
+            Middle_BottomRightLabel.Click += TheLabel_Click;
             // 
             // Right_TopLeftLabel
             // 
@@ -527,7 +527,7 @@
             Right_TopLeftLabel.Name = "Right_TopLeftLabel";
             Right_TopLeftLabel.Size = new Size(39, 39);
             Right_TopLeftLabel.TabIndex = 48;
-            Right_TopLeftLabel.Click += Right_TopLeftLabel_Click;
+            Right_TopLeftLabel.Click += TheLabel_Click;
             // 
             // Right_TopLabel
             // 
@@ -535,7 +535,7 @@
             Right_TopLabel.Name = "Right_TopLabel";
             Right_TopLabel.Size = new Size(37, 39);
             Right_TopLabel.TabIndex = 49;
-            Right_TopLabel.Click += Right_TopLabel_Click;
+            Right_TopLabel.Click += TheLabel_Click;
             // 
             // Right_TopRightLabel
             // 
@@ -543,7 +543,7 @@
             Right_TopRightLabel.Name = "Right_TopRightLabel";
             Right_TopRightLabel.Size = new Size(39, 39);
             Right_TopRightLabel.TabIndex = 50;
-            Right_TopRightLabel.Click += Right_TopRightLabel_Click;
+            Right_TopRightLabel.Click += TheLabel_Click;
             // 
             // Right_LeftLabel
             // 
@@ -551,7 +551,7 @@
             Right_LeftLabel.Name = "Right_LeftLabel";
             Right_LeftLabel.Size = new Size(39, 37);
             Right_LeftLabel.TabIndex = 51;
-            Right_LeftLabel.Click += Right_LeftLabel_Click;
+            Right_LeftLabel.Click += TheLabel_Click;
             // 
             // Right_MiddleLabel
             // 
@@ -559,7 +559,7 @@
             Right_MiddleLabel.Name = "Right_MiddleLabel";
             Right_MiddleLabel.Size = new Size(37, 37);
             Right_MiddleLabel.TabIndex = 52;
-            Right_MiddleLabel.Click += Right_MiddleLabel_Click;
+            Right_MiddleLabel.Click += TheLabel_Click;
             // 
             // Right_RightLabel
             // 
@@ -567,7 +567,7 @@
             Right_RightLabel.Name = "Right_RightLabel";
             Right_RightLabel.Size = new Size(39, 37);
             Right_RightLabel.TabIndex = 53;
-            Right_RightLabel.Click += Right_RightLabel_Click;
+            Right_RightLabel.Click += TheLabel_Click;
             // 
             // Right_BottomLeftLabel
             // 
@@ -575,7 +575,7 @@
             Right_BottomLeftLabel.Name = "Right_BottomLeftLabel";
             Right_BottomLeftLabel.Size = new Size(39, 39);
             Right_BottomLeftLabel.TabIndex = 54;
-            Right_BottomLeftLabel.Click += Right_BottomLeftLabel_Click;
+            Right_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // Right_BottomLabel
             // 
@@ -583,7 +583,7 @@
             Right_BottomLabel.Name = "Right_BottomLabel";
             Right_BottomLabel.Size = new Size(37, 39);
             Right_BottomLabel.TabIndex = 55;
-            Right_BottomLabel.Click += Right_BottomLabel_Click;
+            Right_BottomLabel.Click += TheLabel_Click;
             // 
             // Right_BottomRightLabel
             // 
@@ -591,7 +591,7 @@
             Right_BottomRightLabel.Name = "Right_BottomRightLabel";
             Right_BottomRightLabel.Size = new Size(39, 39);
             Right_BottomRightLabel.TabIndex = 56;
-            Right_BottomRightLabel.Click += Right_BottomRightLabel_Click;
+            Right_BottomRightLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_TopLeftLabel
             // 
@@ -599,7 +599,7 @@
             BottomLeft_TopLeftLabel.Name = "BottomLeft_TopLeftLabel";
             BottomLeft_TopLeftLabel.Size = new Size(39, 39);
             BottomLeft_TopLeftLabel.TabIndex = 57;
-            BottomLeft_TopLeftLabel.Click += BottomLeft_TopLeftLabel_Click;
+            BottomLeft_TopLeftLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_TopLabel
             // 
@@ -607,7 +607,7 @@
             BottomLeft_TopLabel.Name = "BottomLeft_TopLabel";
             BottomLeft_TopLabel.Size = new Size(37, 39);
             BottomLeft_TopLabel.TabIndex = 58;
-            BottomLeft_TopLabel.Click += BottomLeft_TopLabel_Click;
+            BottomLeft_TopLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_TopRightLabel
             // 
@@ -615,7 +615,7 @@
             BottomLeft_TopRightLabel.Name = "BottomLeft_TopRightLabel";
             BottomLeft_TopRightLabel.Size = new Size(39, 39);
             BottomLeft_TopRightLabel.TabIndex = 59;
-            BottomLeft_TopRightLabel.Click += BottomLeft_TopRightLabel_Click;
+            BottomLeft_TopRightLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_LeftLabel
             // 
@@ -623,7 +623,7 @@
             BottomLeft_LeftLabel.Name = "BottomLeft_LeftLabel";
             BottomLeft_LeftLabel.Size = new Size(39, 37);
             BottomLeft_LeftLabel.TabIndex = 60;
-            BottomLeft_LeftLabel.Click += BottomLeft_LeftLabel_Click;
+            BottomLeft_LeftLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_MiddleLabel
             // 
@@ -631,7 +631,7 @@
             BottomLeft_MiddleLabel.Name = "BottomLeft_MiddleLabel";
             BottomLeft_MiddleLabel.Size = new Size(37, 37);
             BottomLeft_MiddleLabel.TabIndex = 61;
-            BottomLeft_MiddleLabel.Click += BottomLeft_MiddleLabel_Click;
+            BottomLeft_MiddleLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_RightLabel
             // 
@@ -639,7 +639,7 @@
             BottomLeft_RightLabel.Name = "BottomLeft_RightLabel";
             BottomLeft_RightLabel.Size = new Size(39, 37);
             BottomLeft_RightLabel.TabIndex = 62;
-            BottomLeft_RightLabel.Click += BottomLeft_RightLabel_Click;
+            BottomLeft_RightLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_BottomLeftLabel
             // 
@@ -647,7 +647,7 @@
             BottomLeft_BottomLeftLabel.Name = "BottomLeft_BottomLeftLabel";
             BottomLeft_BottomLeftLabel.Size = new Size(39, 39);
             BottomLeft_BottomLeftLabel.TabIndex = 63;
-            BottomLeft_BottomLeftLabel.Click += BottomLeft_BottomLeftLabel_Click;
+            BottomLeft_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_BottomLabel
             // 
@@ -655,7 +655,7 @@
             BottomLeft_BottomLabel.Name = "BottomLeft_BottomLabel";
             BottomLeft_BottomLabel.Size = new Size(37, 39);
             BottomLeft_BottomLabel.TabIndex = 64;
-            BottomLeft_BottomLabel.Click += BottomLeft_BottomLabel_Click;
+            BottomLeft_BottomLabel.Click += TheLabel_Click;
             // 
             // BottomLeft_BottomRightLabel
             // 
@@ -663,7 +663,7 @@
             BottomLeft_BottomRightLabel.Name = "BottomLeft_BottomRightLabel";
             BottomLeft_BottomRightLabel.Size = new Size(39, 39);
             BottomLeft_BottomRightLabel.TabIndex = 65;
-            BottomLeft_BottomRightLabel.Click += BottomLeft_BottomRightLabel_Click;
+            BottomLeft_BottomRightLabel.Click += TheLabel_Click;
             // 
             // Bottom_TopLeftLabel
             // 
@@ -671,7 +671,7 @@
             Bottom_TopLeftLabel.Name = "Bottom_TopLeftLabel";
             Bottom_TopLeftLabel.Size = new Size(39, 39);
             Bottom_TopLeftLabel.TabIndex = 66;
-            Bottom_TopLeftLabel.Click += Bottom_TopLeftLabel_Click;
+            Bottom_TopLeftLabel.Click += TheLabel_Click;
             // 
             // Bottom_TopLabel
             // 
@@ -679,7 +679,7 @@
             Bottom_TopLabel.Name = "Bottom_TopLabel";
             Bottom_TopLabel.Size = new Size(37, 39);
             Bottom_TopLabel.TabIndex = 67;
-            Bottom_TopLabel.Click += Bottom_TopLabel_Click;
+            Bottom_TopLabel.Click += TheLabel_Click;
             // 
             // Bottom_TopRightLabel
             // 
@@ -687,7 +687,7 @@
             Bottom_TopRightLabel.Name = "Bottom_TopRightLabel";
             Bottom_TopRightLabel.Size = new Size(39, 39);
             Bottom_TopRightLabel.TabIndex = 68;
-            Bottom_TopRightLabel.Click += Bottom_TopRightLabel_Click;
+            Bottom_TopRightLabel.Click += TheLabel_Click;
             // 
             // Bottom_LeftLabel
             // 
@@ -695,7 +695,7 @@
             Bottom_LeftLabel.Name = "Bottom_LeftLabel";
             Bottom_LeftLabel.Size = new Size(39, 37);
             Bottom_LeftLabel.TabIndex = 69;
-            Bottom_LeftLabel.Click += Bottom_LeftLabel_Click;
+            Bottom_LeftLabel.Click += TheLabel_Click;
             // 
             // Bottom_MiddleLabel
             // 
@@ -703,7 +703,7 @@
             Bottom_MiddleLabel.Name = "Bottom_MiddleLabel";
             Bottom_MiddleLabel.Size = new Size(37, 37);
             Bottom_MiddleLabel.TabIndex = 70;
-            Bottom_MiddleLabel.Click += Bottom_MiddleLabel_Click;
+            Bottom_MiddleLabel.Click += TheLabel_Click;
             // 
             // Bottom_RightLabel
             // 
@@ -711,7 +711,7 @@
             Bottom_RightLabel.Name = "Bottom_RightLabel";
             Bottom_RightLabel.Size = new Size(39, 37);
             Bottom_RightLabel.TabIndex = 71;
-            Bottom_RightLabel.Click += Bottom_RightLabel_Click;
+            Bottom_RightLabel.Click += TheLabel_Click;
             // 
             // Bottom_BottomLeftLabel
             // 
@@ -719,7 +719,7 @@
             Bottom_BottomLeftLabel.Name = "Bottom_BottomLeftLabel";
             Bottom_BottomLeftLabel.Size = new Size(39, 39);
             Bottom_BottomLeftLabel.TabIndex = 72;
-            Bottom_BottomLeftLabel.Click += Bottom_BottomLeftLabel_Click;
+            Bottom_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // Bottom_BottomLabel
             // 
@@ -727,7 +727,7 @@
             Bottom_BottomLabel.Name = "Bottom_BottomLabel";
             Bottom_BottomLabel.Size = new Size(37, 39);
             Bottom_BottomLabel.TabIndex = 73;
-            Bottom_BottomLabel.Click += Bottom_BottomLabel_Click;
+            Bottom_BottomLabel.Click += TheLabel_Click;
             // 
             // Bottom_BottomRightLabel
             // 
@@ -735,7 +735,7 @@
             Bottom_BottomRightLabel.Name = "Bottom_BottomRightLabel";
             Bottom_BottomRightLabel.Size = new Size(39, 39);
             Bottom_BottomRightLabel.TabIndex = 74;
-            Bottom_BottomRightLabel.Click += Bottom_BottomRightLabel_Click;
+            Bottom_BottomRightLabel.Click += TheLabel_Click;
             // 
             // BottomRight_TopLeftLabel
             // 
@@ -743,7 +743,7 @@
             BottomRight_TopLeftLabel.Name = "BottomRight_TopLeftLabel";
             BottomRight_TopLeftLabel.Size = new Size(39, 39);
             BottomRight_TopLeftLabel.TabIndex = 75;
-            BottomRight_TopLeftLabel.Click += BottomRight_TopLeftLabel_Click;
+            BottomRight_TopLeftLabel.Click += TheLabel_Click;
             // 
             // BottomRight_TopLabel
             // 
@@ -751,7 +751,7 @@
             BottomRight_TopLabel.Name = "BottomRight_TopLabel";
             BottomRight_TopLabel.Size = new Size(37, 39);
             BottomRight_TopLabel.TabIndex = 76;
-            BottomRight_TopLabel.Click += BottomRight_TopLabel_Click;
+            BottomRight_TopLabel.Click += TheLabel_Click;
             // 
             // BottomRight_TopRightLabel
             // 
@@ -759,7 +759,7 @@
             BottomRight_TopRightLabel.Name = "BottomRight_TopRightLabel";
             BottomRight_TopRightLabel.Size = new Size(39, 39);
             BottomRight_TopRightLabel.TabIndex = 77;
-            BottomRight_TopRightLabel.Click += BottomRight_TopRightLabel_Click;
+            BottomRight_TopRightLabel.Click += TheLabel_Click;
             // 
             // BottomRight_LeftLabel
             // 
@@ -767,7 +767,7 @@
             BottomRight_LeftLabel.Name = "BottomRight_LeftLabel";
             BottomRight_LeftLabel.Size = new Size(39, 37);
             BottomRight_LeftLabel.TabIndex = 78;
-            BottomRight_LeftLabel.Click += BottomRight_LeftLabel_Click;
+            BottomRight_LeftLabel.Click += TheLabel_Click;
             // 
             // BottomRight_MiddleLabel
             // 
@@ -775,7 +775,7 @@
             BottomRight_MiddleLabel.Name = "BottomRight_MiddleLabel";
             BottomRight_MiddleLabel.Size = new Size(37, 37);
             BottomRight_MiddleLabel.TabIndex = 79;
-            BottomRight_MiddleLabel.Click += BottomRight_MiddleLabel_Click;
+            BottomRight_MiddleLabel.Click += TheLabel_Click;
             // 
             // BottomRight_RightLabel
             // 
@@ -783,7 +783,7 @@
             BottomRight_RightLabel.Name = "BottomRight_RightLabel";
             BottomRight_RightLabel.Size = new Size(39, 37);
             BottomRight_RightLabel.TabIndex = 80;
-            BottomRight_RightLabel.Click += BottomRight_RightLabel_Click;
+            BottomRight_RightLabel.Click += TheLabel_Click;
             // 
             // BottomRight_BottomLeftLabel
             // 
@@ -791,7 +791,7 @@
             BottomRight_BottomLeftLabel.Name = "BottomRight_BottomLeftLabel";
             BottomRight_BottomLeftLabel.Size = new Size(39, 39);
             BottomRight_BottomLeftLabel.TabIndex = 81;
-            BottomRight_BottomLeftLabel.Click += BottomRight_BottomLeftLabel_Click;
+            BottomRight_BottomLeftLabel.Click += TheLabel_Click;
             // 
             // BottomRight_BottomLabel
             // 
@@ -799,7 +799,7 @@
             BottomRight_BottomLabel.Name = "BottomRight_BottomLabel";
             BottomRight_BottomLabel.Size = new Size(37, 39);
             BottomRight_BottomLabel.TabIndex = 82;
-            BottomRight_BottomLabel.Click += BottomRight_BottomLabel_Click;
+            BottomRight_BottomLabel.Click += TheLabel_Click;
             // 
             // BottomRight_BottomRightLabel
             // 
@@ -807,79 +807,79 @@
             BottomRight_BottomRightLabel.Name = "BottomRight_BottomRightLabel";
             BottomRight_BottomRightLabel.Size = new Size(39, 39);
             BottomRight_BottomRightLabel.TabIndex = 83;
-            BottomRight_BottomRightLabel.Click += BottomRight_BottomRightLabel_Click;
+            BottomRight_BottomRightLabel.Click += TheLabel_Click;
             // 
-            // Cache_TopLeftLabel
+            // Hider_TopLeftLabel
             // 
-            Cache_TopLeftLabel.Location = new Point(660, 68);
-            Cache_TopLeftLabel.Name = "Cache_TopLeftLabel";
-            Cache_TopLeftLabel.Size = new Size(198, 198);
-            Cache_TopLeftLabel.TabIndex = 84;
-            Cache_TopLeftLabel.Visible = false;
+            Hider_TopLeftLabel.Location = new Point(660, 68);
+            Hider_TopLeftLabel.Name = "Hider_TopLeftLabel";
+            Hider_TopLeftLabel.Size = new Size(198, 198);
+            Hider_TopLeftLabel.TabIndex = 84;
+            Hider_TopLeftLabel.Visible = false;
             // 
-            // Cache_TopLabel
+            // Hider_TopLabel
             // 
-            Cache_TopLabel.Location = new Point(861, 68);
-            Cache_TopLabel.Name = "Cache_TopLabel";
-            Cache_TopLabel.Size = new Size(197, 198);
-            Cache_TopLabel.TabIndex = 85;
-            Cache_TopLabel.Visible = false;
+            Hider_TopLabel.Location = new Point(861, 68);
+            Hider_TopLabel.Name = "Hider_TopLabel";
+            Hider_TopLabel.Size = new Size(197, 198);
+            Hider_TopLabel.TabIndex = 85;
+            Hider_TopLabel.Visible = false;
             // 
-            // Cache_TopRightLabel
+            // Hider_TopRightLabel
             // 
-            Cache_TopRightLabel.Location = new Point(1061, 68);
-            Cache_TopRightLabel.Name = "Cache_TopRightLabel";
-            Cache_TopRightLabel.Size = new Size(199, 198);
-            Cache_TopRightLabel.TabIndex = 86;
-            Cache_TopRightLabel.Visible = false;
+            Hider_TopRightLabel.Location = new Point(1061, 68);
+            Hider_TopRightLabel.Name = "Hider_TopRightLabel";
+            Hider_TopRightLabel.Size = new Size(199, 198);
+            Hider_TopRightLabel.TabIndex = 86;
+            Hider_TopRightLabel.Visible = false;
             // 
-            // Cache_LeftLabel
+            // Hider_LeftLabel
             // 
-            Cache_LeftLabel.Location = new Point(660, 269);
-            Cache_LeftLabel.Name = "Cache_LeftLabel";
-            Cache_LeftLabel.Size = new Size(198, 197);
-            Cache_LeftLabel.TabIndex = 87;
-            Cache_LeftLabel.Visible = false;
+            Hider_LeftLabel.Location = new Point(660, 269);
+            Hider_LeftLabel.Name = "Hider_LeftLabel";
+            Hider_LeftLabel.Size = new Size(198, 197);
+            Hider_LeftLabel.TabIndex = 87;
+            Hider_LeftLabel.Visible = false;
             // 
-            // Cache_MiddleLabel
+            // Hider_MiddleLabel
             // 
-            Cache_MiddleLabel.Location = new Point(861, 269);
-            Cache_MiddleLabel.Name = "Cache_MiddleLabel";
-            Cache_MiddleLabel.Size = new Size(197, 197);
-            Cache_MiddleLabel.TabIndex = 88;
-            Cache_MiddleLabel.Visible = false;
+            Hider_MiddleLabel.Location = new Point(861, 269);
+            Hider_MiddleLabel.Name = "Hider_MiddleLabel";
+            Hider_MiddleLabel.Size = new Size(197, 197);
+            Hider_MiddleLabel.TabIndex = 88;
+            Hider_MiddleLabel.Visible = false;
             // 
-            // Cache_RightLabel
+            // Hider_RightLabel
             // 
-            Cache_RightLabel.Location = new Point(1061, 269);
-            Cache_RightLabel.Name = "Cache_RightLabel";
-            Cache_RightLabel.Size = new Size(199, 197);
-            Cache_RightLabel.TabIndex = 89;
-            Cache_RightLabel.Visible = false;
+            Hider_RightLabel.Location = new Point(1061, 269);
+            Hider_RightLabel.Name = "Hider_RightLabel";
+            Hider_RightLabel.Size = new Size(199, 197);
+            Hider_RightLabel.TabIndex = 89;
+            Hider_RightLabel.Visible = false;
             // 
-            // Cache_BottomLeftLabel
+            // Hider_BottomLeftLabel
             // 
-            Cache_BottomLeftLabel.Location = new Point(660, 469);
-            Cache_BottomLeftLabel.Name = "Cache_BottomLeftLabel";
-            Cache_BottomLeftLabel.Size = new Size(198, 199);
-            Cache_BottomLeftLabel.TabIndex = 90;
-            Cache_BottomLeftLabel.Visible = false;
+            Hider_BottomLeftLabel.Location = new Point(660, 469);
+            Hider_BottomLeftLabel.Name = "Hider_BottomLeftLabel";
+            Hider_BottomLeftLabel.Size = new Size(198, 199);
+            Hider_BottomLeftLabel.TabIndex = 90;
+            Hider_BottomLeftLabel.Visible = false;
             // 
-            // Cache_BottomLabel
+            // Hider_BottomLabel
             // 
-            Cache_BottomLabel.Location = new Point(861, 469);
-            Cache_BottomLabel.Name = "Cache_BottomLabel";
-            Cache_BottomLabel.Size = new Size(197, 199);
-            Cache_BottomLabel.TabIndex = 91;
-            Cache_BottomLabel.Visible = false;
+            Hider_BottomLabel.Location = new Point(861, 469);
+            Hider_BottomLabel.Name = "Hider_BottomLabel";
+            Hider_BottomLabel.Size = new Size(197, 199);
+            Hider_BottomLabel.TabIndex = 91;
+            Hider_BottomLabel.Visible = false;
             // 
-            // Cache_BottomRightLabel
+            // Hider_BottomRightLabel
             // 
-            Cache_BottomRightLabel.Location = new Point(1061, 469);
-            Cache_BottomRightLabel.Name = "Cache_BottomRightLabel";
-            Cache_BottomRightLabel.Size = new Size(199, 199);
-            Cache_BottomRightLabel.TabIndex = 92;
-            Cache_BottomRightLabel.Visible = false;
+            Hider_BottomRightLabel.Location = new Point(1061, 469);
+            Hider_BottomRightLabel.Name = "Hider_BottomRightLabel";
+            Hider_BottomRightLabel.Size = new Size(199, 199);
+            Hider_BottomRightLabel.TabIndex = 92;
+            Hider_BottomRightLabel.Visible = false;
             // 
             // XsTurnLabel
             // 
@@ -943,15 +943,15 @@
             Controls.Add(OsWinningLabel);
             Controls.Add(OsTurnLabel);
             Controls.Add(XsTurnLabel);
-            Controls.Add(Cache_BottomRightLabel);
-            Controls.Add(Cache_BottomLabel);
-            Controls.Add(Cache_BottomLeftLabel);
-            Controls.Add(Cache_RightLabel);
-            Controls.Add(Cache_MiddleLabel);
-            Controls.Add(Cache_LeftLabel);
-            Controls.Add(Cache_TopRightLabel);
-            Controls.Add(Cache_TopLabel);
-            Controls.Add(Cache_TopLeftLabel);
+            Controls.Add(Hider_BottomRightLabel);
+            Controls.Add(Hider_BottomLabel);
+            Controls.Add(Hider_BottomLeftLabel);
+            Controls.Add(Hider_RightLabel);
+            Controls.Add(Hider_MiddleLabel);
+            Controls.Add(Hider_LeftLabel);
+            Controls.Add(Hider_TopRightLabel);
+            Controls.Add(Hider_TopLabel);
+            Controls.Add(Hider_TopLeftLabel);
             Controls.Add(BottomRight_BottomRightLabel);
             Controls.Add(BottomRight_BottomLabel);
             Controls.Add(BottomRight_BottomLeftLabel);
@@ -1129,15 +1129,15 @@
         private Label BottomRight_BottomLeftLabel;
         private Label BottomRight_BottomLabel;
         private Label BottomRight_BottomRightLabel;
-        private Label Cache_TopLeftLabel;
-        private Label Cache_TopLabel;
-        private Label Cache_TopRightLabel;
-        private Label Cache_LeftLabel;
-        private Label Cache_MiddleLabel;
-        private Label Cache_RightLabel;
-        private Label Cache_BottomLeftLabel;
-        private Label Cache_BottomLabel;
-        private Label Cache_BottomRightLabel;
+        private Label Hider_TopLeftLabel;
+        private Label Hider_TopLabel;
+        private Label Hider_TopRightLabel;
+        private Label Hider_LeftLabel;
+        private Label Hider_MiddleLabel;
+        private Label Hider_RightLabel;
+        private Label Hider_BottomLeftLabel;
+        private Label Hider_BottomLabel;
+        private Label Hider_BottomRightLabel;
         private Label XsTurnLabel;
         private Label OsTurnLabel;
         private Label OsWinningLabel;

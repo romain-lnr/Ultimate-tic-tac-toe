@@ -58,9 +58,9 @@ namespace Code
                                      { { Bottom_TopLeftLabel,  Bottom_TopLabel, Bottom_TopRightLabel }, { Bottom_LeftLabel, Bottom_MiddleLabel, Bottom_RightLabel }, { Bottom_BottomLeftLabel, Bottom_BottomLabel, Bottom_BottomRightLabel } },
                                      { { BottomRight_TopLeftLabel,  BottomRight_TopLabel, BottomRight_TopRightLabel }, { BottomRight_LeftLabel, BottomRight_MiddleLabel, BottomRight_RightLabel }, { BottomRight_BottomLeftLabel, BottomRight_BottomLabel, BottomRight_BottomRightLabel } } } };
 
-            caches = new Label[,] { { Cache_TopLeftLabel, Cache_TopLabel, Cache_TopRightLabel },
-                                      { Cache_LeftLabel, Cache_MiddleLabel, Cache_RightLabel },
-                                      { Cache_BottomLeftLabel, Cache_BottomLabel, Cache_BottomRightLabel } };
+            caches = new Label[,] { { Hider_TopLeftLabel, Hider_TopLabel, Hider_TopRightLabel },
+                                      { Hider_LeftLabel, Hider_MiddleLabel, Hider_RightLabel },
+                                      { Hider_BottomLeftLabel, Hider_BottomLabel, Hider_BottomRightLabel } };
 
             int zeroOrOne = random.Next(0, 2);
 
@@ -77,15 +77,7 @@ namespace Code
                         for (int l = 0; l < 3; l++)
                         {
                             isOccupiedBy[i, j, k, l] = 0;
-
-                            if (circleTurn)
-                            {
-                                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#DDDDFF");
-                            }
-                            else
-                            {
-                                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#FFDDDD");
-                            }
+                            BackCaseColor(i, j, k, l);
                         }
                     }
                 }
@@ -125,412 +117,25 @@ namespace Code
             System.Windows.Forms.Application.Exit();
         }
 
-        private void TopLeft_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 0, 0, Cache_TopLeftLabel, TopLeft_TopLeftLabel);
-        }
-
-        private void TopLeft_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 0, 1, Cache_TopLeftLabel, TopLeft_TopLabel);
-        }
-
-        private void TopLeft_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 0, 2, Cache_TopLeftLabel, TopLeft_TopRightLabel);
-        }
-
-        private void TopLeft_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 1, 0, Cache_TopLeftLabel, TopLeft_LeftLabel);
-        }
-
-        private void TopLeft_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 1, 1, Cache_TopLeftLabel, TopLeft_MiddleLabel);
-        }
-
-        private void TopLeft_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 1, 2, Cache_TopLeftLabel, TopLeft_RightLabel);
-        }
-
-        private void TopLeft_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 2, 0, Cache_TopLeftLabel, TopLeft_BottomLeftLabel);
-        }
-
-        private void TopLeft_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 2, 1, Cache_TopLeftLabel, TopLeft_BottomLabel);
-        }
-
-        private void TopLeft_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 0, 2, 2, Cache_TopLeftLabel, TopLeft_BottomRightLabel);
-        }
-
-        private void Top_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 0, 0, Cache_TopLabel, Top_TopLeftLabel);
-        }
-
-        private void Top_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 0, 1, Cache_TopLabel, Top_TopLabel);
-        }
-
-        private void Top_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 0, 2, Cache_TopLabel, Top_TopRightLabel);
-        }
-
-        private void Top_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 1, 0, Cache_TopLabel, Top_LeftLabel);
-        }
-
-        private void Top_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 1, 1, Cache_TopLabel, Top_MiddleLabel);
-        }
-
-        private void Top_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 1, 2, Cache_TopLabel, Top_RightLabel);
-        }
-
-        private void Top_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 2, 0, Cache_TopLabel, Top_BottomLeftLabel);
-        }
-
-        private void Top_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 2, 1, Cache_TopLabel, Top_BottomLabel);
-        }
-
-        private void Top_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, 2, 2, Cache_TopLabel, Top_BottomRightLabel);
-        }
-
-        private void TopRight_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 0, 0, Cache_TopRightLabel, TopRight_TopLeftLabel);
-        }
-
-        private void TopRight_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 0, 1, Cache_TopRightLabel, TopRight_TopLabel);
-        }
-
-        private void TopRight_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 0, 2, Cache_TopRightLabel, TopRight_TopRightLabel);
-        }
-
-        private void TopRight_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 1, 0, Cache_TopRightLabel, TopRight_LeftLabel);
-        }
-
-        private void TopRight_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 1, 1, Cache_TopRightLabel, TopRight_MiddleLabel);
-        }
-
-        private void TopRight_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 1, 2, Cache_TopRightLabel, TopRight_RightLabel);
-        }
-
-        private void TopRight_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 2, 0, Cache_TopRightLabel, TopRight_BottomLeftLabel);
-        }
-
-        private void TopRight_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 2, 1, Cache_TopRightLabel, TopRight_BottomLabel);
-        }
-
-        private void TopRight_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, 2, 2, Cache_TopRightLabel, TopRight_BottomRightLabel);
-        }
-
-        private void Left_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 0, 0, Cache_LeftLabel, Left_TopLeftLabel);
-        }
-
-        private void Left_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 0, 1, Cache_LeftLabel, Left_TopLabel);
-        }
-
-        private void Left_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 0, 2, Cache_LeftLabel, Left_TopRightLabel);
-        }
-
-        private void Left_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 1, 0, Cache_LeftLabel, Left_LeftLabel);
-        }
-
-        private void Left_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 1, 1, Cache_LeftLabel, Left_MiddleLabel);
-        }
-
-        private void Left_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 1, 2, Cache_LeftLabel, Left_RightLabel);
-        }
-
-        private void Left_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 2, 0, Cache_LeftLabel, Left_BottomLeftLabel);
-        }
-
-        private void Left_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 2, 1, Cache_LeftLabel, Left_BottomLabel);
-        }
-
-        private void Left_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, 2, 2, Cache_LeftLabel, Left_BottomRightLabel);
-        }
-
-        private void Middle_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 0, 0, Cache_MiddleLabel, Middle_TopLeftLabel);
-        }
-
-        private void Middle_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 0, 1, Cache_MiddleLabel, Middle_TopLabel);
-        }
-
-        private void Middle_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 0, 2, Cache_MiddleLabel, Middle_TopRightLabel);
-        }
-
-        private void Middle_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 1, 0, Cache_MiddleLabel, Middle_LeftLabel);
-        }
-
-        private void Middle_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 1, 1, Cache_MiddleLabel, Middle_MiddleLabel);
-        }
-
-        private void Middle_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 1, 2, Cache_MiddleLabel, Middle_RightLabel);
-        }
-
-        private void Middle_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 2, 0, Cache_MiddleLabel, Middle_BottomLeftLabel);
-        }
-
-        private void Middle_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 2, 1, Cache_MiddleLabel, Middle_BottomLabel);
-        }
-
-        private void Middle_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, 2, 2, Cache_MiddleLabel, Middle_BottomRightLabel);
-        }
-
-        private void Right_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 0, 0, Cache_RightLabel, Right_TopLeftLabel);
-        }
-
-        private void Right_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 0, 1, Cache_RightLabel, Right_TopLabel);
-        }
-
-        private void Right_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 0, 2, Cache_RightLabel, Right_TopRightLabel);
-        }
-
-        private void Right_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 1, 0, Cache_RightLabel, Right_LeftLabel);
-        }
-
-        private void Right_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 1, 1, Cache_RightLabel, Right_MiddleLabel);
-        }
-
-        private void Right_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 1, 2, Cache_RightLabel, Right_RightLabel);
-        }
-
-        private void Right_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 2, 0, Cache_RightLabel, Right_BottomLeftLabel);
-        }
-
-        private void Right_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 2, 1, Cache_RightLabel, Right_BottomLabel);
-        }
-
-        private void Right_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, 2, 2, Cache_RightLabel, Right_BottomRightLabel);
-        }
-
-        private void BottomLeft_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 0, 0, Cache_BottomLeftLabel, BottomLeft_TopLeftLabel);
-        }
-
-        private void BottomLeft_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 0, 1, Cache_BottomLeftLabel, BottomLeft_TopLabel);
-        }
-
-        private void BottomLeft_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 0, 2, Cache_BottomLeftLabel, BottomLeft_TopRightLabel);
-        }
-
-        private void BottomLeft_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 1, 0, Cache_BottomLeftLabel, BottomLeft_LeftLabel);
-        }
-
-        private void BottomLeft_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 1, 1, Cache_BottomLeftLabel, BottomLeft_MiddleLabel);
-        }
-
-        private void BottomLeft_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 1, 2, Cache_BottomLeftLabel, BottomLeft_RightLabel);
-        }
-
-        private void BottomLeft_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 2, 0, Cache_BottomLeftLabel, BottomLeft_BottomLeftLabel);
-        }
-
-        private void BottomLeft_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 2, 1, Cache_BottomLeftLabel, BottomLeft_BottomLabel);
-        }
-
-        private void BottomLeft_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, 2, 2, Cache_BottomLeftLabel, BottomLeft_BottomRightLabel);
-        }
-
-        private void Bottom_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 0, 0, Cache_BottomLabel, Bottom_TopLeftLabel);
-        }
-
-        private void Bottom_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 0, 1, Cache_BottomLabel, Bottom_TopLabel);
-        }
-
-        private void Bottom_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 0, 2, Cache_BottomLabel, Bottom_TopRightLabel);
-        }
-
-        private void Bottom_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 1, 0, Cache_BottomLabel, Bottom_LeftLabel);
-        }
-
-        private void Bottom_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 1, 1, Cache_BottomLabel, Bottom_MiddleLabel);
-        }
-
-        private void Bottom_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 1, 2, Cache_BottomLabel, Bottom_RightLabel);
-        }
-
-        private void Bottom_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 2, 0, Cache_BottomLabel, Bottom_BottomLeftLabel);
-        }
-
-        private void Bottom_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 2, 1, Cache_BottomLabel, Bottom_BottomLabel);
-        }
-
-        private void Bottom_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, 2, 2, Cache_BottomLabel, Bottom_BottomRightLabel);
-        }
-
-        private void BottomRight_TopLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 0, 0, Cache_BottomRightLabel, BottomRight_TopLeftLabel);
-        }
-
-        private void BottomRight_TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 0, 1, Cache_BottomRightLabel, BottomRight_TopLabel);
-        }
-
-        private void BottomRight_TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 0, 2, Cache_BottomRightLabel, BottomRight_TopRightLabel);
-        }
-
-        private void BottomRight_LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 1, 0, Cache_BottomRightLabel, BottomRight_LeftLabel);
-        }
-
-        private void BottomRight_MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 1, 1, Cache_BottomRightLabel, BottomRight_MiddleLabel);
-        }
-
-        private void BottomRight_RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 1, 2, Cache_BottomRightLabel, BottomRight_RightLabel);
-        }
-
-        private void BottomRight_BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 2, 0, Cache_BottomRightLabel, BottomRight_BottomLeftLabel);
-        }
-
-        private void BottomRight_BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 2, 1, Cache_BottomRightLabel, BottomRight_BottomLabel);
-        }
-
-        private void BottomRight_BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, 2, 2, Cache_BottomRightLabel, BottomRight_BottomRightLabel);
+        private void TheLabel_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        for (int l = 0; l < 3; l++)
+                        {
+                            if (labels[i, j, k, l] == sender)
+                            {
+                                PlaceSymbol(i, j, k, l, caches[i, j], (Label)sender);
+                            }
+                        }
+                    }
+                }
+            }
         }
-
-
         private async void PlaceSymbol(int idLabelCaseColumn, int idLabelCaseRow, int idLabelColumn, int idLabelRow, Label cache, Label label)
         {
             if (!isgameEnded)
@@ -626,15 +231,7 @@ namespace Code
                                 for (int j = 0; j < 3; j++)
                                 {
                                     labels[idLabelColumn, idLabelRow, i, j].Enabled = true;
-
-                                    if (circleTurn)
-                                    {
-                                        labels[idLabelColumn, idLabelRow, i, j].BackColor = ColorTranslator.FromHtml("#DDDDFF");
-                                    }
-                                    else
-                                    {
-                                        labels[idLabelColumn, idLabelRow, i, j].BackColor = ColorTranslator.FromHtml("#FFDDDD");
-                                    }
+                                    BackCaseColor(idLabelColumn, idLabelRow, i, j);
                                 }
                             }
                         }
@@ -651,14 +248,7 @@ namespace Code
                                             if (isOccupiedBy[i, j, k, l] != 3 && isOccupiedBy[i, j, k, l] != 4)
                                             {
                                                 labels[i, j, k, l].Enabled = true;
-                                                if (circleTurn)
-                                                {
-                                                    labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#DDDDFF");
-                                                }
-                                                else
-                                                {
-                                                    labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#FFDDDD");
-                                                }
+                                                BackCaseColor(i, j, k, l);
                                             }
 
                                         }
@@ -680,7 +270,17 @@ namespace Code
                 }
             }
         }
-
+        private void BackCaseColor(int i, int j, int k, int l)
+        {
+            if (circleTurn)
+            {
+                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#DDDDFF");
+            }
+            else
+            {
+                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#FFDDDD");
+            }
+        }
         private int VerifyWinnerCase(int[,,,] isOccupiedBy)
         {
             for (int c = 0; c < 3; c++)
