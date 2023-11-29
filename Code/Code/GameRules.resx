@@ -117,10 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Ultimate Tic-Tac-Toe is played in a big three by three grid where in each space there is a small three by three grid (9 small grids inside 1 big grid).
+  <data name="Rules_Label.Text" xml:space="preserve">
+    <value>CLASSIC TIC-TAC-TOE :
 
-You will either be playing X or O. To win the game, you must place 3 big symbols in a row in the big grid, either in a column, a line, or diagonally. To place a big symbol in the big grid, you must place 3 small symbols in a row in one of the small grids.
+Tic-Tac-Toe is played in a three by three grid. 
+
+You will either be playing X or O. To win the game you must place 3 of your symbols in a row
+
+══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+ULTIMATE TIC-TAC-TOE :
+
+Ultimate Tic-Tac-Toe is played in a big three by three grid where in each space there is a small three by three grid (9 small grids inside 1 big grid).
+
+You will either be playing X or O. To win the game, you must place 3 of your big symbols in a row in the big grid, either in a column, a line, or diagonally. To place a big symbol in the big grid, you must place 3 small symbols in a row in one of the small grids.
 
 The player who starts playing can choose where to play (starts by choosing a small grid, and then chooses where to play in that small grid. The position where the last player placed their symbol in the small grid, represents what small grid the next player must play. Example: Player 1 chooses the top corner space of the big grid and plays in the bottom left corner of the small grid, knowing Player 1 played in the bottom left corner of the small chosen grid, Player 2 must play in the bottom left small grid, and the chosen space inside that small grid where Player 2 decides to play, represents the small grid where Player 1 must play again. This only applies if the small grid where a player must play is not occupied by a giant X or giant O, if a grid where a player must play is occupied, the player can choose where to play.
 </value>

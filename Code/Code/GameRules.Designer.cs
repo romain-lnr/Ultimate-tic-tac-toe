@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameRulesForm));
             RulesTitleLabel = new Label();
-            label2 = new Label();
+            Rules_Label = new Label();
             BackToMenuButton = new Button();
             SuspendLayout();
             // 
@@ -38,28 +38,28 @@
             // 
             RulesTitleLabel.AutoSize = true;
             RulesTitleLabel.Font = new Font("Courier New", 27F, FontStyle.Bold, GraphicsUnit.Point);
-            RulesTitleLabel.Location = new Point(841, 95);
+            RulesTitleLabel.Location = new Point(841, 60);
             RulesTitleLabel.Name = "RulesTitleLabel";
             RulesTitleLabel.Size = new Size(238, 41);
             RulesTitleLabel.TabIndex = 0;
             RulesTitleLabel.Text = "Game Rules";
             RulesTitleLabel.Click += RulesTitleLabel_Click;
             // 
-            // label2
+            // Rules_Label
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(51, 241);
-            label2.MaximumSize = new Size(1800, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(1797, 252);
-            label2.TabIndex = 1;
-            label2.Text = resources.GetString("label2.Text");
+            Rules_Label.AutoSize = true;
+            Rules_Label.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            Rules_Label.Location = new Point(51, 150);
+            Rules_Label.MaximumSize = new Size(1800, 0);
+            Rules_Label.Name = "Rules_Label";
+            Rules_Label.Size = new Size(1799, 532);
+            Rules_Label.TabIndex = 1;
+            Rules_Label.Text = resources.GetString("Rules_Label.Text");
             // 
             // BackToMenuButton
             // 
             BackToMenuButton.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            BackToMenuButton.Location = new Point(765, 614);
+            BackToMenuButton.Location = new Point(765, 799);
             BackToMenuButton.Name = "BackToMenuButton";
             BackToMenuButton.Size = new Size(390, 132);
             BackToMenuButton.TabIndex = 2;
@@ -73,7 +73,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
             Controls.Add(BackToMenuButton);
-            Controls.Add(label2);
+            Controls.Add(Rules_Label);
             Controls.Add(RulesTitleLabel);
             Name = "GameRulesForm";
             Text = "Ultimate Tic-Tac-Toe";
@@ -83,7 +83,7 @@
 
         #endregion
         private Label RulesTitleLabel;
-        private Label label2;
+        private Label Rules_Label;
         private Button BackToMenuButton;
     }
 }

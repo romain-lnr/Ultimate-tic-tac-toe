@@ -23,7 +23,7 @@ namespace Code
         private bool isgameEnded;
         private bool isBotPlays;
         private Label[,,,] labels;
-        private Label[,] caches;
+        private Label[,] hiders;
         Random random = new Random((int)DateTime.Now.Ticks);
 
         private void WhosTurn()
@@ -58,7 +58,7 @@ namespace Code
                                      { { Bottom_TopLeftLabel,  Bottom_TopLabel, Bottom_TopRightLabel }, { Bottom_LeftLabel, Bottom_MiddleLabel, Bottom_RightLabel }, { Bottom_BottomLeftLabel, Bottom_BottomLabel, Bottom_BottomRightLabel } },
                                      { { BottomRight_TopLeftLabel,  BottomRight_TopLabel, BottomRight_TopRightLabel }, { BottomRight_LeftLabel, BottomRight_MiddleLabel, BottomRight_RightLabel }, { BottomRight_BottomLeftLabel, BottomRight_BottomLabel, BottomRight_BottomRightLabel } } } };
 
-            caches = new Label[,] { { Hider_TopLeftLabel, Hider_TopLabel, Hider_TopRightLabel },
+            hiders = new Label[,] { { Hider_TopLeftLabel, Hider_TopLabel, Hider_TopRightLabel },
                                       { Hider_LeftLabel, Hider_MiddleLabel, Hider_RightLabel },
                                       { Hider_BottomLeftLabel, Hider_BottomLabel, Hider_BottomRightLabel } };
 
@@ -68,16 +68,16 @@ namespace Code
 
             WhosTurn();
 
-            for (int i = 0; i < 3; i++)
+            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int bigRow = 0; bigRow < 3; bigRow++)
                 {
-                    for (int k = 0; k < 3; k++)
+                    for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                     {
-                        for (int l = 0; l < 3; l++)
+                        for (int smallRow = 0; smallRow < 3; smallRow++)
                         {
-                            isOccupiedBy[i, j, k, l] = 0;
-                            BackCaseColor(i, j, k, l);
+                            isOccupiedBy[bigColumn, bigRow, smallColumn, smallRow] = 0;
+                            BackCaseColor(bigColumn, bigRow, smallColumn, smallRow);
                         }
                     }
                 }
@@ -103,7 +103,7 @@ namespace Code
                 rdmRow = random.Next(0, 3);
             } while (isOccupiedBy[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow] != 0 || !labels[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow].Enabled); // || !labels[rdmColumn, rdmRow, 0 , 0].Enabled);
 
-            PlaceSymbol(rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow, caches[rdmCaseColumn, rdmCaseRow], labels[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow]);
+            PlaceSymbol(rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow, hiders[rdmCaseColumn, rdmCaseRow], labels[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow]);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -119,24 +119,24 @@ namespace Code
 
         private void TheLabel_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 3; i++)
+            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int bigRow = 0; bigRow < 3; bigRow++)
                 {
-                    for (int k = 0; k < 3; k++)
+                    for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                     {
-                        for (int l = 0; l < 3; l++)
+                        for (int smallRow = 0; smallRow < 3; smallRow++)
                         {
-                            if (labels[i, j, k, l] == sender)
+                            if (labels[bigColumn, bigRow, smallColumn, smallRow] == sender)
                             {
-                                PlaceSymbol(i, j, k, l, caches[i, j], (Label)sender);
+                                PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
                             }
                         }
                     }
                 }
             }
         }
-        private async void PlaceSymbol(int idLabelCaseColumn, int idLabelCaseRow, int idLabelColumn, int idLabelRow, Label cache, Label label)
+        private async void PlaceSymbol(int idLabelCaseColumn, int idLabelCaseRow, int idLabelColumn, int idLabelRow, Label hiders, Label label)
         {
             if (!isgameEnded)
             {
@@ -155,30 +155,30 @@ namespace Code
                     result = VerifyWinnerCase(isOccupiedBy);
                     if (result != 0)
                     {
-                        cache.Visible = true;
+                        hiders.Visible = true;
                         if (result == 1)
                         {
-                            cache.Image = System.Drawing.Image.FromFile(grandCercle);
+                            hiders.Image = System.Drawing.Image.FromFile(grandCercle);
 
-                            for (int i = 0; i < 3; i++)
+                            for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                             {
-                                for (int j = 0; j < 3; j++)
+                                for (int smallRow = 0; smallRow < 3; smallRow++)
                                 {
-                                    isOccupiedBy[idLabelCaseColumn, idLabelCaseRow, i, j] = 3;
-                                    labels[idLabelCaseColumn, idLabelCaseRow, i, j].Enabled = false;
+                                    isOccupiedBy[idLabelCaseColumn, idLabelCaseRow, smallColumn, smallRow] = 3;
+                                    labels[idLabelCaseColumn, idLabelCaseRow, smallColumn, smallRow].Enabled = false;
                                 }
                             }
                         }
                         else if (result == 2)
                         {
-                            cache.Image = System.Drawing.Image.FromFile(grandeCroix);
+                            hiders.Image = System.Drawing.Image.FromFile(grandeCroix);
 
-                            for (int i = 0; i < 3; i++)
+                            for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                             {
-                                for (int j = 0; j < 3; j++)
+                                for (int smallRow = 0; smallRow < 3; smallRow++)
                                 {
-                                    isOccupiedBy[idLabelCaseColumn, idLabelCaseRow, i, j] = 4;
-                                    labels[idLabelCaseColumn, idLabelCaseRow, i, j].Enabled = false;
+                                    isOccupiedBy[idLabelCaseColumn, idLabelCaseRow, smallColumn, smallRow] = 4;
+                                    labels[idLabelCaseColumn, idLabelCaseRow, smallColumn, smallRow].Enabled = false;
                                 }
                             }
                         }
@@ -189,15 +189,15 @@ namespace Code
                         if (verifyWinner(isOccupiedBy) == 3) OsWinningLabel.Visible = true;
                         if (verifyWinner(isOccupiedBy) == 4) XsWinningLabel.Visible = true;
 
-                        for (int i = 0; i < 3; i++)
+                        for (int bigColumn = 0; bigColumn < 3; bigColumn++)
                         {
-                            for (int j = 0; j < 3; j++)
+                            for (int bigRow = 0; bigRow < 3; bigRow++)
                             {
-                                for (int k = 0; k < 3; k++)
+                                for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                                 {
-                                    for (int l = 0; l < 3; l++)
+                                    for (int smallRow = 0; smallRow < 3; smallRow++)
                                     {
-                                        labels[i, j, k, l].Enabled = false;
+                                        labels[bigColumn, bigRow, smallColumn, smallRow].Enabled = false;
                                     }
                                 }
                             }
@@ -210,45 +210,45 @@ namespace Code
 
                         if (isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 3 && isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 4)
                         {
-                            for (int i = 0; i < 3; i++)
+                            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
                             {
-                                for (int j = 0; j < 3; j++)
+                                for (int bigRow = 0; bigRow < 3; bigRow++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                                     {
-                                        for (int l = 0; l < 3; l++)
+                                        for (int smallRow = 0; smallRow < 3; smallRow++)
                                         {
-                                            labels[i, j, k, l].Enabled = false;
-                                            labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#F0F0F0");
+                                            labels[bigColumn, bigRow, smallColumn, smallRow].Enabled = false;
+                                            labels[bigColumn, bigRow, smallColumn, smallRow].BackColor = ColorTranslator.FromHtml("#F0F0F0");
                                         }
                                     }
                                 }
                             }
 
 
-                            for (int i = 0; i < 3; i++)
+                            for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                             {
-                                for (int j = 0; j < 3; j++)
+                                for (int smallRow = 0; smallRow < 3; smallRow++)
                                 {
-                                    labels[idLabelColumn, idLabelRow, i, j].Enabled = true;
-                                    BackCaseColor(idLabelColumn, idLabelRow, i, j);
+                                    labels[idLabelColumn, idLabelRow, smallColumn, smallRow].Enabled = true;
+                                    BackCaseColor(idLabelColumn, idLabelRow, smallColumn, smallRow);
                                 }
                             }
                         }
                         else
                         {
-                            for (int i = 0; i < 3; i++)
+                            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
                             {
-                                for (int j = 0; j < 3; j++)
+                                for (int bigRow = 0; bigRow < 3; bigRow++)
                                 {
-                                    for (int k = 0; k < 3; k++)
+                                    for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                                     {
-                                        for (int l = 0; l < 3; l++)
+                                        for (int smallRow = 0; smallRow < 3; smallRow++)
                                         {
-                                            if (isOccupiedBy[i, j, k, l] != 3 && isOccupiedBy[i, j, k, l] != 4)
+                                            if (isOccupiedBy[bigColumn, bigRow, smallColumn, smallRow] != 3 && isOccupiedBy[bigColumn, bigRow, smallColumn, smallRow] != 4)
                                             {
-                                                labels[i, j, k, l].Enabled = true;
-                                                BackCaseColor(i, j, k, l);
+                                                labels[bigColumn, bigRow, smallColumn, smallRow].Enabled = true;
+                                                BackCaseColor(bigColumn, bigRow, smallColumn, smallRow);
                                             }
 
                                         }
@@ -270,15 +270,15 @@ namespace Code
                 }
             }
         }
-        private void BackCaseColor(int i, int j, int k, int l)
+        private void BackCaseColor(int bigColumn, int bigRow, int smallColumn, int smallRow)
         {
             if (circleTurn)
             {
-                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#DDDDFF");
+                labels[bigColumn, bigRow, smallColumn, smallRow].BackColor = ColorTranslator.FromHtml("#DDDDFF");
             }
             else
             {
-                labels[i, j, k, l].BackColor = ColorTranslator.FromHtml("#FFDDDD");
+                labels[bigColumn, bigRow, smallColumn, smallRow].BackColor = ColorTranslator.FromHtml("#FFDDDD");
             }
         }
         private int VerifyWinnerCase(int[,,,] isOccupiedBy)
@@ -290,22 +290,22 @@ namespace Code
                     if (usedCase[c, r] == null)
                     {
                         // Verify straight line vertically
-                        for (int i = 0; i < 3; i++)
+                        for (int smallColumn = 0; smallColumn < 3; smallColumn++)
                         {
-                            if ((isOccupiedBy[c, r, i, 0] == 1 && isOccupiedBy[c, r, i, 1] == 1 && isOccupiedBy[c, r, i, 2] == 1) || (isOccupiedBy[c, r, i, 0] == 2 && isOccupiedBy[c, r, i, 1] == 2 && isOccupiedBy[c, r, i, 2] == 2))
+                            if ((isOccupiedBy[c, r, smallColumn, 0] == 1 && isOccupiedBy[c, r, smallColumn, 1] == 1 && isOccupiedBy[c, r, smallColumn, 2] == 1) || (isOccupiedBy[c, r, smallColumn, 0] == 2 && isOccupiedBy[c, r, smallColumn, 1] == 2 && isOccupiedBy[c, r, smallColumn, 2] == 2))
                             {
                                 usedCase[c, r] = 1;
-                                return isOccupiedBy[c, r, i, 0];
+                                return isOccupiedBy[c, r, smallColumn, 0];
                             }
                         }
 
                         // Verify straight line horizontally
-                        for (int i = 0; i < 3; i++)
+                        for (int smallRow = 0; smallRow < 3; smallRow++)
                         {
-                            if ((isOccupiedBy[c, r, 0, i] == 1 && isOccupiedBy[c, r, 1, i] == 1 && isOccupiedBy[c, r, 2, i] == 1) || (isOccupiedBy[c, r, 0, i] == 2 && isOccupiedBy[c, r, 1, i] == 2 && isOccupiedBy[c, r, 2, i] == 2))
+                            if ((isOccupiedBy[c, r, 0, smallRow] == 1 && isOccupiedBy[c, r, 1, smallRow] == 1 && isOccupiedBy[c, r, 2, smallRow] == 1) || (isOccupiedBy[c, r, 0, smallRow] == 2 && isOccupiedBy[c, r, 1, smallRow] == 2 && isOccupiedBy[c, r, 2, smallRow] == 2))
                             {
                                 usedCase[c, r] = 1;
-                                return isOccupiedBy[c, r, 0, i];
+                                return isOccupiedBy[c, r, 0, smallRow];
                             }
                         }
 
@@ -329,19 +329,19 @@ namespace Code
         }
         private int verifyWinner(int[,,,] isOccupiedBy)
         {
-            for (int i = 0; i < 3; i++)
+            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
             {
-                if ((isOccupiedBy[i, 0, 1, 1] == 3 && isOccupiedBy[i, 1, 1, 1] == 3 && isOccupiedBy[i, 2, 1, 1] == 3) || (isOccupiedBy[i, 0, 1, 1] == 4 && isOccupiedBy[i, 1, 1, 1] == 4 && isOccupiedBy[i, 2, 1, 1] == 4))
+                if ((isOccupiedBy[bigColumn, 0, 1, 1] == 3 && isOccupiedBy[bigColumn, 1, 1, 1] == 3 && isOccupiedBy[bigColumn, 2, 1, 1] == 3) || (isOccupiedBy[bigColumn, 0, 1, 1] == 4 && isOccupiedBy[bigColumn, 1, 1, 1] == 4 && isOccupiedBy[bigColumn, 2, 1, 1] == 4))
                 {
-                    return isOccupiedBy[i, 0, 1, 1];
+                    return isOccupiedBy[bigColumn, 0, 1, 1];
                 }
             }
 
-            for (int i = 0; i < 3; i++)
+            for (int bigRow = 0; bigRow < 3; bigRow++)
             {
-                if ((isOccupiedBy[0, i, 1, 1] == 3 && isOccupiedBy[1, i, 1, 1] == 3 && isOccupiedBy[2, i, 1, 1] == 3) || (isOccupiedBy[0, i, 1, 1] == 4 && isOccupiedBy[1, i, 1, 1] == 4 && isOccupiedBy[2, i, 1, 1] == 4))
+                if ((isOccupiedBy[0, bigRow, 1, 1] == 3 && isOccupiedBy[1, bigRow, 1, 1] == 3 && isOccupiedBy[2, bigRow, 1, 1] == 3) || (isOccupiedBy[0, bigRow, 1, 1] == 4 && isOccupiedBy[1, bigRow, 1, 1] == 4 && isOccupiedBy[2, bigRow, 1, 1] == 4))
                 {
-                    return isOccupiedBy[0, i, 1, 1];
+                    return isOccupiedBy[0, bigRow, 1, 1];
                 }
             }
 
