@@ -87,7 +87,7 @@
             TopLeftLabel.Name = "TopLeftLabel";
             TopLeftLabel.Size = new Size(192, 192);
             TopLeftLabel.TabIndex = 3;
-            TopLeftLabel.Click += TopLeftLabel_Click;
+            TopLeftLabel.Click += TheLabel_Click;
             // 
             // XsTurnLabel
             // 
@@ -119,7 +119,7 @@
             TopLabel.Name = "TopLabel";
             TopLabel.Size = new Size(192, 192);
             TopLabel.TabIndex = 6;
-            TopLabel.Click += TopLabel_Click;
+            TopLabel.Click += TheLabel_Click;
             // 
             // TopRightLabel
             // 
@@ -129,7 +129,7 @@
             TopRightLabel.Name = "TopRightLabel";
             TopRightLabel.Size = new Size(192, 192);
             TopRightLabel.TabIndex = 7;
-            TopRightLabel.Click += TopRightLabel_Click;
+            TopRightLabel.Click += TheLabel_Click;
             // 
             // LeftLabel
             // 
@@ -139,7 +139,7 @@
             LeftLabel.Name = "LeftLabel";
             LeftLabel.Size = new Size(192, 192);
             LeftLabel.TabIndex = 8;
-            LeftLabel.Click += LeftLabel_Click;
+            LeftLabel.Click += TheLabel_Click;
             // 
             // MiddleLabel
             // 
@@ -149,7 +149,7 @@
             MiddleLabel.Name = "MiddleLabel";
             MiddleLabel.Size = new Size(192, 192);
             MiddleLabel.TabIndex = 9;
-            MiddleLabel.Click += MiddleLabel_Click;
+            MiddleLabel.Click += TheLabel_Click;
             // 
             // RightLabel
             // 
@@ -159,7 +159,7 @@
             RightLabel.Name = "RightLabel";
             RightLabel.Size = new Size(192, 192);
             RightLabel.TabIndex = 10;
-            RightLabel.Click += RightLabel_Click;
+            RightLabel.Click += TheLabel_Click;
             // 
             // BottomLeftLabel
             // 
@@ -169,7 +169,7 @@
             BottomLeftLabel.Name = "BottomLeftLabel";
             BottomLeftLabel.Size = new Size(192, 192);
             BottomLeftLabel.TabIndex = 11;
-            BottomLeftLabel.Click += BottomLeftLabel_Click;
+            BottomLeftLabel.Click += TheLabel_Click;
             // 
             // BottomLabel
             // 
@@ -179,7 +179,7 @@
             BottomLabel.Name = "BottomLabel";
             BottomLabel.Size = new Size(192, 192);
             BottomLabel.TabIndex = 12;
-            BottomLabel.Click += BottomLabel_Click;
+            BottomLabel.Click += TheLabel_Click;
             // 
             // BottomRightLabel
             // 
@@ -189,7 +189,7 @@
             BottomRightLabel.Name = "BottomRightLabel";
             BottomRightLabel.Size = new Size(192, 192);
             BottomRightLabel.TabIndex = 13;
-            BottomRightLabel.Click += BottomRightLabel_Click;
+            BottomRightLabel.Click += TheLabel_Click;
             // 
             // OsWinningLabel
             // 

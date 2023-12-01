@@ -125,7 +125,6 @@
             OsTurnLabel = new Label();
             OsWinningLabel = new Label();
             XsWinningLabel = new Label();
-            TopLeft_BorderBlueLabel = new Label();
             SuspendLayout();
             // 
             // Gridlabel
@@ -926,19 +925,11 @@
             XsWinningLabel.Text = "X won";
             XsWinningLabel.Visible = false;
             // 
-            // TopLeft_BorderBlueLabel
-            // 
-            TopLeft_BorderBlueLabel.Location = new Point(0, 0);
-            TopLeft_BorderBlueLabel.Name = "TopLeft_BorderBlueLabel";
-            TopLeft_BorderBlueLabel.Size = new Size(100, 23);
-            TopLeft_BorderBlueLabel.TabIndex = 0;
-            // 
             // PlayGameSMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(TopLeft_BorderBlueLabel);
             Controls.Add(XsWinningLabel);
             Controls.Add(OsWinningLabel);
             Controls.Add(OsTurnLabel);
@@ -1038,7 +1029,7 @@
             Controls.Add(Gridlabel);
             ForeColor = Color.Blue;
             Name = "PlayGameSMorpionForm";
-            Text = "PlayGameSMorpion";
+            Text = "Ultimate Tic-Tac-Toe";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1142,6 +1133,5 @@
         private Label OsTurnLabel;
         private Label OsWinningLabel;
         private Label XsWinningLabel;
-        private Label TopLeft_BorderBlueLabel;
     }
 }

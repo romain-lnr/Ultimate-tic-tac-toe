@@ -145,7 +145,7 @@
             ClassicButton.Name = "ClassicButton";
             ClassicButton.Size = new Size(390, 132);
             ClassicButton.TabIndex = 9;
-            ClassicButton.Text = "Classic";
+            ClassicButton.Text = "Classic Tic-Tac-Toe";
             ClassicButton.UseVisualStyleBackColor = true;
             ClassicButton.Visible = false;
             ClassicButton.Click += ClassicButton_Click;
@@ -157,7 +157,7 @@
             SuperMorpionButton.Name = "SuperMorpionButton";
             SuperMorpionButton.Size = new Size(390, 132);
             SuperMorpionButton.TabIndex = 10;
-            SuperMorpionButton.Text = "Super Morpion";
+            SuperMorpionButton.Text = "Ultimate Tic-Tac-Toe";
             SuperMorpionButton.UseVisualStyleBackColor = true;
             SuperMorpionButton.Visible = false;
             SuperMorpionButton.Click += SuperMorpionButton_Click;

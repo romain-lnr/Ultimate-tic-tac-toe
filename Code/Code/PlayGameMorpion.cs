@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Common;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -97,49 +98,21 @@ namespace Code
             System.Windows.Forms.Application.Exit();
         }
 
-        private void TopLeftLabel_Click(object sender, EventArgs e)
+        private void TheLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(0, 0, TopLeftLabel);
-        }
-
-        private void TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, TopLabel);
-        }
-
-        private void TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, TopRightLabel);
-        }
-
-        private void LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, LeftLabel);
-        }
-
-        private void MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, MiddleLabel);
-        }
-
-        private void RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, RightLabel);
-        }
-
-        private void BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, BottomLeftLabel);
-        }
-
-        private void BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, BottomLabel);
-        }
-
-        private void BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, BottomRightLabel);
+            for (int Column = 0; Column < 3; Column++)
+            {
+                for (int Row = 0; Row < 3; Row++)
+                {
+                    if (labels[Column, Row] == sender)
+                    {
+                        if (GameMenuForm.onePlayer)
+                        {
+                            if (circleTurn) PlaceSymbol(Column, Row, (Label)sender);
+                        } else PlaceSymbol(Column, Row, (Label)sender);
+                    }
+                }
+            }
         }
 
         private async void PlaceSymbol(int idLabelColumn, int idLabelRow, Label label)
@@ -175,10 +148,11 @@ namespace Code
 
                         if (GameMenuForm.onePlayer)
                         {
-                            // Attendre 500 millisecondes
-                            await Task.Delay(500);
-
-                            if (!isBotPlays) BotPlays(labels);
+                            if (!isBotPlays)
+                            {
+                                await Task.Delay(1000);
+                                BotPlays(labels);
+                            }
                             else isBotPlays = false;
                         }
                     }

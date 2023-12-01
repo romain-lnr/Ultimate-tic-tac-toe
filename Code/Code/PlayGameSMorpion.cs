@@ -129,7 +129,10 @@ namespace Code
                         {
                             if (labels[bigColumn, bigRow, smallColumn, smallRow] == sender)
                             {
-                                PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
+                                if (GameMenuForm.onePlayer)
+                                {
+                                    if (circleTurn) PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
+                                } else PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
                             }
                         }
                     }
@@ -260,10 +263,11 @@ namespace Code
 
                         if (GameMenuForm.onePlayer)
                         {
-                            // Attendre 100 millisecondes
-                            await Task.Delay(100);
-
-                            if (!isBotPlays) BotPlays(labels);
+                            if (!isBotPlays)
+                            {
+                                await Task.Delay(1500);
+                                BotPlays(labels);
+                            }
                             else isBotPlays = false;
                         }
                     }
