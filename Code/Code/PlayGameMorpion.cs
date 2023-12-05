@@ -57,11 +57,11 @@ namespace Code
 
             WhosTurn();
 
-            for (int i = 0; i < 3; i++)
+            for (int column = 0; column < 3; column++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int row = 0; row < 3; row++)
                 {
-                    isOccupiedBy[i, j] = 0;
+                    isOccupiedBy[column, row] = 0;
                 }
             }
 
@@ -100,17 +100,17 @@ namespace Code
 
         private void TheLabel_Click(object sender, EventArgs e)
         {
-            for (int Column = 0; Column < 3; Column++)
+            for (int column = 0; column < 3; column++)
             {
-                for (int Row = 0; Row < 3; Row++)
+                for (int row = 0; row < 3; row++)
                 {
-                    if (labels[Column, Row] == sender)
+                    if (labels[column, row] == sender)
                     {
                         if (GameMenuForm.onePlayer)
                         {
-                            if (circleTurn) PlaceSymbol(Column, Row, (Label)sender);
+                            if (circleTurn) PlaceSymbol(column, row, (Label)sender);
                         }
-                        else PlaceSymbol(Column, Row, (Label)sender);
+                        else PlaceSymbol(column, row, (Label)sender);
                     }
                 }
             }
@@ -164,41 +164,41 @@ namespace Code
 
         private int VerifyWinner(int[,] isOccupiedBy)
         {
-            // Verify straight line vertically
-            for (int i = 0; i < 3; i++)
+            // Verify straight row vertically
+            for (int column = 0; column < 3; column++)
             {
-                if ((isOccupiedBy[i, 0] == 1 && isOccupiedBy[i, 1] == 1 && isOccupiedBy[i, 2] == 1) || (isOccupiedBy[i, 0] == 2 && isOccupiedBy[i, 1] == 2 && isOccupiedBy[i, 2] == 2))
+                if ((isOccupiedBy[column, 0] == 1 && isOccupiedBy[column, 1] == 1 && isOccupiedBy[column, 2] == 1) || (isOccupiedBy[column, 0] == 2 && isOccupiedBy[column, 1] == 2 && isOccupiedBy[column, 2] == 2))
                 {
-                    return isOccupiedBy[i, 0];
+                    return isOccupiedBy[column, 0];
                 }
             }
 
-            // Verify straight line horizontally
-            for (int i = 0; i < 3; i++)
+            // Verify straight row horizontally
+            for (int row = 0; row < 3; row++)
             {
-                if ((isOccupiedBy[0, i] == 1 && isOccupiedBy[1, i] == 1 && isOccupiedBy[2, i] == 1) || (isOccupiedBy[0, i] == 2 && isOccupiedBy[1, i] == 2 && isOccupiedBy[2, i] == 2))
+                if ((isOccupiedBy[0, row] == 1 && isOccupiedBy[1, row] == 1 && isOccupiedBy[2, row] == 1) || (isOccupiedBy[0, row] == 2 && isOccupiedBy[1, row] == 2 && isOccupiedBy[2, row] == 2))
                 {
-                    return isOccupiedBy[0, i];
+                    return isOccupiedBy[0, row];
                 }
             }
 
-            // Verify horizontal right line
+            // Verify horizontal right row
             if ((isOccupiedBy[0, 0] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 2] == 1) || (isOccupiedBy[0, 0] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 2] == 2))
             {
                 return isOccupiedBy[0, 0];
             }
-            // Verify horizontal left line
+            // Verify horizontal left row
             else if ((isOccupiedBy[0, 2] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 0] == 1) || (isOccupiedBy[0, 2] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 0] == 2))
             {
                 return isOccupiedBy[0, 2];
             }
             int num = 0;
             // Verify tie
-            for (int i = 0; i < 3; i++)
+            for (int column = 0; column < 3; column++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int row = 0; row < 3; row++)
                 {
-                    if (isOccupiedBy[i, j] != 0) num++;
+                    if (isOccupiedBy[column, row] != 0) num++;
                 }
             }
             if (num == 9) return 3;

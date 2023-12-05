@@ -16,6 +16,7 @@ namespace Code
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
         private string petitCercle = "..\\..\\..\\Images\\PetitCercle.png";
         private string petiteCroix = "..\\..\\..\\Images\\PetiteCroix.png";
+        private string grandTrait = "..\\..\\..\\Images\\GrandTrait.png";
         private int[,,,] isOccupiedBy = new int[3, 3, 3, 3];
         private int?[,] usedCase = new int?[3, 3];
         private int result;
@@ -186,13 +187,26 @@ namespace Code
                                 }
                             }
                         }
+                        else if (result == 3)
+                        {
+                            hiders.Image = System.Drawing.Image.FromFile(grandTrait);
+
+                            for (int smallColumn = 0; smallColumn < 3; smallColumn++)
+                            {
+                                for (int smallRow = 0; smallRow < 3; smallRow++)
+                                {
+                                    isOccupiedBy[idLabelCaseColumn, idLabelCaseRow, smallColumn, smallRow] = 5;
+                                    labels[idLabelCaseColumn, idLabelCaseRow, smallColumn, smallRow].Enabled = false;
+                                }
+                            }
+                        }
                     }
 
                     if (verifyWinner(isOccupiedBy) != 0)
                     {
                         if (verifyWinner(isOccupiedBy) == 3) OsWinningLabel.Visible = true;
                         if (verifyWinner(isOccupiedBy) == 4) XsWinningLabel.Visible = true;
-
+                        if (verifyWinner(isOccupiedBy) == 5) TieLabel.Visible = true;
                         for (int bigColumn = 0; bigColumn < 3; bigColumn++)
                         {
                             for (int bigRow = 0; bigRow < 3; bigRow++)
@@ -212,7 +226,7 @@ namespace Code
                     {
                         WhosTurn();
 
-                        if (isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 3 && isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 4)
+                        if (isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 3 && isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 4 && isOccupiedBy[idLabelColumn, idLabelRow, 1, 1] != 5)
                         {
                             for (int bigColumn = 0; bigColumn < 3; bigColumn++)
                             {
@@ -326,6 +340,20 @@ namespace Code
                             usedCase[c, r] = 1;
                             return isOccupiedBy[c, r, 0, 2];
                         }
+                        // Verify Tie Case
+                        int num = 0;
+                        for (int column = 0; column < 3; column++)
+                        {
+                            for (int row = 0; row < 3; row++)
+                            {
+                                if (isOccupiedBy[c, r, column, row] != 0) num++;
+                            }
+                        }
+                        if (num == 9)
+                        {
+                            usedCase[c, r] = 1;
+                            return 3;
+                        }
                     }
                 }
             }
@@ -360,6 +388,23 @@ namespace Code
             {
                 return isOccupiedBy[0, 2, 1, 1];
             }
+            // Verify tie
+            int num = 0;
+            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
+            {
+                for (int bigRow = 0; bigRow < 3; bigRow++)
+                {
+                    for (int smallColumn = 0; smallColumn < 3; smallColumn++)
+                    {
+                        for (int smallRow = 0; smallRow < 3; smallRow++)
+                        {
+                            if (isOccupiedBy[bigColumn, bigRow, smallColumn, smallRow] != 0) num++;
+
+                        }
+                    }
+                }
+            }
+            if (num == 81) return 5;
             return 0;
         }
     }
