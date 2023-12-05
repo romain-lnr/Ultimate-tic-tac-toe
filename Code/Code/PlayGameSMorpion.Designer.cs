@@ -125,6 +125,7 @@
             OsTurnLabel = new Label();
             OsWinningLabel = new Label();
             XsWinningLabel = new Label();
+            TieLabel = new Label();
             SuspendLayout();
             // 
             // Gridlabel
@@ -925,11 +926,24 @@
             XsWinningLabel.Text = "X won";
             XsWinningLabel.Visible = false;
             // 
+            // TieLabel
+            // 
+            TieLabel.AutoSize = true;
+            TieLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            TieLabel.ForeColor = Color.Black;
+            TieLabel.Location = new Point(333, 648);
+            TieLabel.Name = "TieLabel";
+            TieLabel.Size = new Size(237, 37);
+            TieLabel.TabIndex = 97;
+            TieLabel.Text = "It's a draw";
+            TieLabel.Visible = false;
+            // 
             // PlayGameSMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(TieLabel);
             Controls.Add(XsWinningLabel);
             Controls.Add(OsWinningLabel);
             Controls.Add(OsTurnLabel);
@@ -1133,5 +1147,6 @@
         private Label OsTurnLabel;
         private Label OsWinningLabel;
         private Label XsWinningLabel;
+        private Label TieLabel;
     }
 }

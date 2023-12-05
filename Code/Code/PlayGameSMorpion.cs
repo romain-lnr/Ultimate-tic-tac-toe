@@ -132,7 +132,8 @@ namespace Code
                                 if (GameMenuForm.onePlayer)
                                 {
                                     if (circleTurn) PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
-                                } else PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
+                                }
+                                else PlaceSymbol(bigColumn, bigRow, smallColumn, smallRow, hiders[bigColumn, bigRow], (Label)sender);
                             }
                         }
                     }

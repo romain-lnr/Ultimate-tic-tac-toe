@@ -109,7 +109,8 @@ namespace Code
                         if (GameMenuForm.onePlayer)
                         {
                             if (circleTurn) PlaceSymbol(Column, Row, (Label)sender);
-                        } else PlaceSymbol(Column, Row, (Label)sender);
+                        }
+                        else PlaceSymbol(Column, Row, (Label)sender);
                     }
                 }
             }
@@ -140,6 +141,7 @@ namespace Code
                     {
                         if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
                         if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
+                        if (VerifyWinner(isOccupiedBy) == 3) TieLabel.Visible = true;
                         isgameEnded = true;
                     }
                     else
@@ -190,6 +192,16 @@ namespace Code
             {
                 return isOccupiedBy[0, 2];
             }
+            int num = 0;
+            // Verify tie
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (isOccupiedBy[i, j] != 0) num++;
+                }
+            }
+            if (num == 9) return 3;
             return 0;
         }
     }
