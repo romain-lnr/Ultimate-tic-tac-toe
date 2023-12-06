@@ -43,9 +43,7 @@
             BottomLeftLabel = new Label();
             BottomLabel = new Label();
             BottomRightLabel = new Label();
-            OsWinningLabel = new Label();
-            XsWinningLabel = new Label();
-            TieLabel = new Label();
+            ResultLabel = new Label();
             SuspendLayout();
             // 
             // GridLabel
@@ -192,49 +190,21 @@
             BottomRightLabel.TabIndex = 13;
             BottomRightLabel.Click += TheLabel_Click;
             // 
-            // OsWinningLabel
+            // ResultLabel
             // 
-            OsWinningLabel.AutoSize = true;
-            OsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            OsWinningLabel.ForeColor = Color.Red;
-            OsWinningLabel.Location = new Point(406, 648);
-            OsWinningLabel.Name = "OsWinningLabel";
-            OsWinningLabel.Size = new Size(177, 37);
-            OsWinningLabel.TabIndex = 14;
-            OsWinningLabel.Text = "O's won!";
-            OsWinningLabel.Visible = false;
-            // 
-            // XsWinningLabel
-            // 
-            XsWinningLabel.AutoSize = true;
-            XsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            XsWinningLabel.ForeColor = Color.Blue;
-            XsWinningLabel.Location = new Point(406, 648);
-            XsWinningLabel.Name = "XsWinningLabel";
-            XsWinningLabel.Size = new Size(177, 37);
-            XsWinningLabel.TabIndex = 15;
-            XsWinningLabel.Text = "X's won!";
-            XsWinningLabel.Visible = false;
-            // 
-            // TieLabel
-            // 
-            TieLabel.AutoSize = true;
-            TieLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            TieLabel.Location = new Point(333, 648);
-            TieLabel.Name = "TieLabel";
-            TieLabel.Size = new Size(237, 37);
-            TieLabel.TabIndex = 16;
-            TieLabel.Text = "It's a draw";
-            TieLabel.Visible = false;
+            ResultLabel.AutoSize = true;
+            ResultLabel.Font = new Font("Courier New", 50F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            ResultLabel.Location = new Point(85, 325);
+            ResultLabel.Name = "ResultLabel";
+            ResultLabel.Size = new Size(0, 76);
+            ResultLabel.TabIndex = 17;
             // 
             // PlayGameMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(TieLabel);
-            Controls.Add(XsWinningLabel);
-            Controls.Add(OsWinningLabel);
+            Controls.Add(ResultLabel);
             Controls.Add(BottomRightLabel);
             Controls.Add(BottomLabel);
             Controls.Add(BottomLeftLabel);
@@ -271,8 +241,6 @@
         private Label BottomLeftLabel;
         private Label BottomLabel;
         private Label BottomRightLabel;
-        private Label OsWinningLabel;
-        private Label XsWinningLabel;
-        private Label TieLabel;
+        private Label ResultLabel;
     }
 }

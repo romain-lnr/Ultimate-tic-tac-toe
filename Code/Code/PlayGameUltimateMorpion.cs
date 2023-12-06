@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Code
 {
-    public partial class PlayGameSMorpionForm : Form
+    public partial class PlayGameUltimateMorpionForm : Form
     {
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
@@ -43,7 +43,7 @@ namespace Code
             }
         }
 
-        public PlayGameSMorpionForm()
+        public PlayGameUltimateMorpionForm()
         {
             InitializeComponent();
 
@@ -204,9 +204,27 @@ namespace Code
 
                     if (verifyWinner(isOccupiedBy) != 0)
                     {
-                        if (verifyWinner(isOccupiedBy) == 3) OsWinningLabel.Visible = true;
-                        if (verifyWinner(isOccupiedBy) == 4) XsWinningLabel.Visible = true;
-                        if (verifyWinner(isOccupiedBy) == 5) TieLabel.Visible = true;
+                        if (verifyWinner(isOccupiedBy) == 3)
+                        {
+                            ResultLabel.Text = "O won !";
+                            ResultLabel.ForeColor = Color.Red;
+                        }
+
+                        if (verifyWinner(isOccupiedBy) == 4)
+                        {
+                            ResultLabel.Text = "X won !";
+                            ResultLabel.ForeColor = Color.Blue;
+                        }
+
+                        if (verifyWinner(isOccupiedBy) == 5)
+                        {
+                            ResultLabel.Text = "It's a tie...";
+                            ResultLabel.ForeColor = Color.Black;
+                        }
+
+                        XsTurnLabel.Visible = false;
+                        OsTurnLabel.Visible = false;
+
                         for (int bigColumn = 0; bigColumn < 3; bigColumn++)
                         {
                             for (int bigRow = 0; bigRow < 3; bigRow++)

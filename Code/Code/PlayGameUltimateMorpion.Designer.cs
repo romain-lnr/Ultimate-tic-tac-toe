@@ -1,6 +1,6 @@
 ﻿namespace Code
 {
-    partial class PlayGameSMorpionForm
+    partial class PlayGameUltimateMorpionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -123,9 +123,7 @@
             Hider_BottomRightLabel = new Label();
             XsTurnLabel = new Label();
             OsTurnLabel = new Label();
-            OsWinningLabel = new Label();
-            XsWinningLabel = new Label();
-            TieLabel = new Label();
+            ResultLabel = new Label();
             SuspendLayout();
             // 
             // Gridlabel
@@ -888,9 +886,9 @@
             XsTurnLabel.ForeColor = Color.Blue;
             XsTurnLabel.Location = new Point(92, 226);
             XsTurnLabel.Name = "XsTurnLabel";
-            XsTurnLabel.Size = new Size(177, 37);
+            XsTurnLabel.Size = new Size(197, 37);
             XsTurnLabel.TabIndex = 93;
-            XsTurnLabel.Text = "X's turn";
+            XsTurnLabel.Text = "X's turn!";
             // 
             // OsTurnLabel
             // 
@@ -899,53 +897,26 @@
             OsTurnLabel.ForeColor = Color.Red;
             OsTurnLabel.Location = new Point(92, 471);
             OsTurnLabel.Name = "OsTurnLabel";
-            OsTurnLabel.Size = new Size(177, 37);
+            OsTurnLabel.Size = new Size(197, 37);
             OsTurnLabel.TabIndex = 94;
-            OsTurnLabel.Text = "O's turn";
+            OsTurnLabel.Text = "O's turn!";
             // 
-            // OsWinningLabel
+            // ResultLabel
             // 
-            OsWinningLabel.AutoSize = true;
-            OsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            OsWinningLabel.ForeColor = Color.Red;
-            OsWinningLabel.Location = new Point(406, 648);
-            OsWinningLabel.Name = "OsWinningLabel";
-            OsWinningLabel.Size = new Size(117, 37);
-            OsWinningLabel.TabIndex = 95;
-            OsWinningLabel.Text = "O won";
-            OsWinningLabel.Visible = false;
+            ResultLabel.AutoSize = true;
+            ResultLabel.Font = new Font("Courier New", 50F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            ResultLabel.ForeColor = Color.Black;
+            ResultLabel.Location = new Point(85, 325);
+            ResultLabel.Name = "ResultLabel";
+            ResultLabel.Size = new Size(0, 76);
+            ResultLabel.TabIndex = 98;
             // 
-            // XsWinningLabel
-            // 
-            XsWinningLabel.AutoSize = true;
-            XsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            XsWinningLabel.Location = new Point(406, 648);
-            XsWinningLabel.Name = "XsWinningLabel";
-            XsWinningLabel.Size = new Size(117, 37);
-            XsWinningLabel.TabIndex = 96;
-            XsWinningLabel.Text = "X won";
-            XsWinningLabel.Visible = false;
-            // 
-            // TieLabel
-            // 
-            TieLabel.AutoSize = true;
-            TieLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            TieLabel.ForeColor = Color.Black;
-            TieLabel.Location = new Point(333, 648);
-            TieLabel.Name = "TieLabel";
-            TieLabel.Size = new Size(237, 37);
-            TieLabel.TabIndex = 97;
-            TieLabel.Text = "It's a draw";
-            TieLabel.Visible = false;
-            // 
-            // PlayGameSMorpionForm
+            // PlayGameUltimateMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(TieLabel);
-            Controls.Add(XsWinningLabel);
-            Controls.Add(OsWinningLabel);
+            Controls.Add(ResultLabel);
             Controls.Add(OsTurnLabel);
             Controls.Add(XsTurnLabel);
             Controls.Add(Hider_BottomRightLabel);
@@ -1041,8 +1012,9 @@
             Controls.Add(QuitButton);
             Controls.Add(BackButton);
             Controls.Add(Gridlabel);
+            Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
             ForeColor = Color.Blue;
-            Name = "PlayGameSMorpionForm";
+            Name = "PlayGameUltimateMorpionForm";
             Text = "Ultimate Tic-Tac-Toe";
             ResumeLayout(false);
             PerformLayout();
@@ -1145,8 +1117,6 @@
         private Label Hider_BottomRightLabel;
         private Label XsTurnLabel;
         private Label OsTurnLabel;
-        private Label OsWinningLabel;
-        private Label XsWinningLabel;
-        private Label TieLabel;
+        private Label ResultLabel;
     }
 }

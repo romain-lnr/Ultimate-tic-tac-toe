@@ -10,7 +10,7 @@
     <Compile Update="PlayGameMorpion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PlayGameSMorpion.cs">
+    <Compile Update="PlayGameUltimateMorpion.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

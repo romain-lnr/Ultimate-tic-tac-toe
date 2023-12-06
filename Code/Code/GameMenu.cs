@@ -54,7 +54,7 @@ namespace Code
             if (isSuperMorpion)
             {
                 // Show the game Morpion form
-                PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
+                PlayGameUltimateMorpionForm playGameSMorpion = new PlayGameUltimateMorpionForm();
                 playGameSMorpion.ShowDialog();
             }
             else
@@ -70,7 +70,7 @@ namespace Code
             if (isSuperMorpion)
             {
                 // Show the game Morpion form
-                PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
+                PlayGameUltimateMorpionForm playGameSMorpion = new PlayGameUltimateMorpionForm();
                 playGameSMorpion.ShowDialog();
             }
             else

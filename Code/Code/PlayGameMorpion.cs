@@ -139,9 +139,42 @@ namespace Code
 
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
-                        if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
-                        if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
-                        if (VerifyWinner(isOccupiedBy) == 3) TieLabel.Visible = true;
+                        if (VerifyWinner(isOccupiedBy) == 1)
+                        {
+                            ResultLabel.Text = "O won !";
+                            ResultLabel.ForeColor = Color.Red;
+                        }
+
+                        if (VerifyWinner(isOccupiedBy) == 2)
+                        {
+                            ResultLabel.Text = "X won !";
+                            ResultLabel.ForeColor = Color.Blue;
+                        }
+
+                        if (VerifyWinner(isOccupiedBy) == 3)
+                        {
+                            ResultLabel.Text = "It's a tie...";
+                            ResultLabel.ForeColor = Color.Black;
+                        }
+
+                        XsTurnLabel.Visible = false;
+                        OsTurnLabel.Visible = false;
+
+                        while (true) {
+                            for (int r = 0; r <= 255; r += 100)
+                            {
+                                for (int g = 0; g <= 255; g += 100)
+                                {
+                                    for (int b = 0; b <= 255; b++)
+                                    {
+                                        ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+                                        await Task.Delay(1);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                     
                         isgameEnded = true;
                     }
                     else
