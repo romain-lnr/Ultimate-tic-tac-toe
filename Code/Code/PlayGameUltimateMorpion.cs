@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -93,8 +94,75 @@ namespace Code
         private void BotPlays(Label[,,,] labels)
         {
             int rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow;
-
+            int[] countCircle = new int[2] { 0, 0 }, countCross = new int[2] { 0, 0 };
             isBotPlays = true;
+            for (int bigColumn = 0; bigColumn < 3; bigColumn++)
+            {
+                for (int bigRow = 0; bigRow < 3; bigRow++)
+                {
+                    if (labels[bigColumn, bigRow, 1, 1].Enabled)
+                    {
+                        for (int smallcolumn = 0; smallcolumn < 3; smallcolumn++)
+                        {
+                            // Check both rows and columns in a single loop
+                            for (int i = 0; i < 2; i++)
+                            {
+                                for (int smallrow = 0; smallrow < 3; smallrow++)
+                                {
+                                    int value = (i == 0) ? isOccupiedBy[bigColumn, bigRow, smallcolumn, smallrow] : isOccupiedBy[bigColumn, bigRow, smallrow, smallcolumn];
+
+                                    if (value == 1) countCircle[i]++;
+                                    else if (value == 2) countCross[i]++;
+                                }
+
+                                if (countCircle[i] == 2 || countCross[i] == 2)
+                                {
+                                    for (int rerow = 0; rerow < 3; rerow++)
+                                    {
+                                        int currentColumn = (i == 0) ? smallcolumn : rerow;
+                                        int currentRow = (i == 0) ? rerow : smallcolumn;
+
+                                        if (isOccupiedBy[bigColumn, bigRow, currentColumn, currentRow] == 0)
+                                        {
+                                            PlaceSymbol(bigColumn, bigRow, currentColumn, currentRow, hiders[bigColumn, bigRow], labels[bigColumn, bigRow, currentColumn, currentRow]);
+                                            return;
+                                        }
+                                    }
+                                }
+                                countCircle[i] = countCross[i] = 0;
+                            }
+
+                            // Check both diagonals in a single loop
+                            for (int i = 0; i < 2; i++)
+                            {
+                                for (int smallrow = 0; smallrow < 3; smallrow++)
+                                {
+                                    int value = (i == 0) ? isOccupiedBy[bigColumn, bigRow, smallrow, smallrow] : isOccupiedBy[bigColumn, bigRow, smallrow, smallrow % 2]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
+
+                                    if (value == 1) countCircle[i]++;
+                                    else if (value == 2) countCross[i]++;
+                                }
+
+                                if (countCircle[i] == 2 || countCross[i] == 2)
+                                {
+                                    for (int rerow = 0; rerow < 3; rerow++)
+                                    {
+                                        int currentColumn = (i == 0) ? rerow : 2 - rerow;
+                                        int currentRow = (i == 0) ? rerow : rerow;
+
+                                        if (isOccupiedBy[bigColumn, bigRow, currentColumn, currentRow] == 0)
+                                        {
+                                            PlaceSymbol(bigColumn, bigRow, currentColumn, currentRow, hiders[bigColumn, bigRow], labels[bigColumn, bigRow, currentColumn, currentRow]);
+                                            return;
+                                        }
+                                    }
+                                }
+                                countCircle[i] = countCross[i] = 0;
+                            }
+                        }
+                    }
+                }
+            }
 
             do
             {
@@ -298,7 +366,7 @@ namespace Code
                         {
                             if (!isBotPlays)
                             {
-                                await Task.Delay(1500);
+                                await Task.Delay(1000);
                                 BotPlays(labels);
                             }
                             else isBotPlays = false;

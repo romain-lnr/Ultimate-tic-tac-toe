@@ -73,10 +73,70 @@ namespace Code
 
         private void BotPlays(Label[,] labels)
         {
-            int rdmColumn;
-            int rdmRow;
-
+            int rdmColumn, rdmRow;
+            int[] countCircle = new int[2] { 0, 0 }, countCross = new int[2] { 0, 0 };
             isBotPlays = true;
+
+            for (int column = 0; column < 3; column++)
+            {
+                // Check both rows and columns in a single loop
+                for (int i = 0; i < 2; i++)
+                {
+                    for (int row = 0; row < 3; row++)
+                    {
+                        int value = (i == 0) ? isOccupiedBy[column, row] : isOccupiedBy[row, column];
+
+                        if (value == 1) countCircle[i]++;
+                        else if (value == 2) countCross[i]++;
+                    }
+
+                    if (countCircle[i] == 2 || countCross[i] == 2)
+                    {
+                        for (int rerow = 0; rerow < 3; rerow++)
+                        {
+                            int currentColumn = (i == 0) ? column : rerow;
+                            int currentRow = (i == 0) ? rerow : column;
+
+                            if (isOccupiedBy[currentColumn, currentRow] == 0)
+                            {
+                                PlaceSymbol(currentColumn, currentRow, labels[currentColumn, currentRow]);
+                                return;
+                            }
+                        }
+                    }
+
+                    // Reset counts for the next iteration
+                    countCircle[i] = countCross[i] = 0;
+                }
+
+                // Check both diagonals in a single loop
+                for (int i = 0; i < 2; i++)
+                {
+                    for (int row = 0; row < 3; row++)
+                    {
+                        int value = (i == 0) ? isOccupiedBy[row, row] : isOccupiedBy[row, row % 2]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
+
+                        if (value == 1) countCircle[i]++;
+                        else if (value == 2) countCross[i]++;
+                    }
+
+                    if (countCircle[i] == 2 || countCross[i] == 2)
+                    {
+                        for (int rerow = 0; rerow < 3; rerow++)
+                        {
+                            int currentColumn = (i == 0) ? rerow : 2 - rerow;
+                            int currentRow = (i == 0) ? rerow : rerow;
+
+                            if (isOccupiedBy[currentColumn, currentRow] == 0)
+                            {
+                                PlaceSymbol(currentColumn, currentRow, labels[currentColumn, currentRow]);
+                                return;
+                            }
+                        }
+                    }
+                    countCircle[i] = countCross[i] = 0;
+                }
+            }
 
             do
             {
@@ -86,6 +146,7 @@ namespace Code
 
             PlaceSymbol(rdmColumn, rdmRow, labels[rdmColumn, rdmRow]);
         }
+
 
         private void BackButton_Click(object sender, EventArgs e)
         {
@@ -160,21 +221,18 @@ namespace Code
                         XsTurnLabel.Visible = false;
                         OsTurnLabel.Visible = false;
 
-                        while (true) {
-                            for (int r = 0; r <= 255; r += 100)
-                            {
-                                for (int g = 0; g <= 255; g += 100)
-                                {
-                                    for (int b = 0; b <= 255; b++)
-                                    {
-                                        ResultLabel.ForeColor = Color.FromArgb(r, g, b);
-                                        await Task.Delay(1);
-                                        break;
-                                    }
-                                }
-                            }
+                        while (true)
+                        {
+                            Rgb_text(0, 0, 1);
+                            Rgb_text(0, 1, 0);
+                            Rgb_text(0, 0, -1);
+                            Rgb_text(1, 0, 0);
+                            Rgb_text(0, -1, 0);
+                            Rgb_text(0, 0, 1);
+                            Rgb_text(0, 1, 0);
+                            Rgb_text(-1, -1, -1);
                         }
-                     
+
                         isgameEnded = true;
                     }
                     else
@@ -194,7 +252,30 @@ namespace Code
                 }
             }
         }
+        private async void Rgb_text(int red, int green, int blue)
+        {
+            const int MAX_INTENSITY = 200;
+            int r = 0, g = 0, b = 0;
+            for (int x = 1; x <= MAX_INTENSITY; x++)
+            {
+                if (red < 0)
+                {
+                    r = red > 0 ? red * x : MAX_INTENSITY + red * x;
+                }
 
+                if (green < 0)
+                {
+                    g = green > 0 ? green * x : MAX_INTENSITY + green * x;
+                }
+
+                if (blue < 0)
+                {
+                    b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
+                }
+                ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+                await Task.Delay(20);
+            }
+        }
         private int VerifyWinner(int[,] isOccupiedBy)
         {
             // Verify straight row vertically

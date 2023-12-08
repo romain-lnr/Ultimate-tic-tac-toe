@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayGameMorpionForm));
             GridLabel = new Label();
             BackButton = new Button();
@@ -44,6 +45,7 @@
             BottomLabel = new Label();
             BottomRightLabel = new Label();
             ResultLabel = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // GridLabel
@@ -242,5 +244,6 @@
         private Label BottomLabel;
         private Label BottomRightLabel;
         private Label ResultLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
