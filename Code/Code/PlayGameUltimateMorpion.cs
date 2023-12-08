@@ -137,7 +137,7 @@ namespace Code
                             {
                                 for (int smallrow = 0; smallrow < 3; smallrow++)
                                 {
-                                    int value = (i == 0) ? isOccupiedBy[bigColumn, bigRow, smallrow, smallrow] : isOccupiedBy[bigColumn, bigRow, smallrow, smallrow % 2]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
+                                    int value = (i == 0) ? isOccupiedBy[bigColumn, bigRow, smallrow, smallrow] : isOccupiedBy[bigColumn, bigRow, smallrow, 2 - smallrow]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
 
                                     if (value == 1) countCircle[i]++;
                                     else if (value == 2) countCross[i]++;
@@ -302,6 +302,7 @@ namespace Code
                                     for (int smallRow = 0; smallRow < 3; smallRow++)
                                     {
                                         labels[bigColumn, bigRow, smallColumn, smallRow].Enabled = false;
+                                        labels[bigColumn, bigRow, smallColumn, smallRow].BackColor = ColorTranslator.FromHtml("#F0F0F0");
                                     }
                                 }
                             }

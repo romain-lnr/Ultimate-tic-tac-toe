@@ -76,5 +76,5 @@ C:\GitHub\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.PlayGameM
 C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.GameMenuForm.resources
 C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.GameRulesForm.resources
 C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.PlayGameMorpionForm.resources
-C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.PlayGameSMorpionForm.resources
 C:\GitHub\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.PlayGameUltimateMorpionForm.resources
+C:\Users\romai\Romain\GitHub_DATA\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.PlayGameUltimateMorpionForm.resources

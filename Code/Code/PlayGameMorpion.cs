@@ -114,7 +114,7 @@ namespace Code
                 {
                     for (int row = 0; row < 3; row++)
                     {
-                        int value = (i == 0) ? isOccupiedBy[row, row] : isOccupiedBy[row, row % 2]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
+                        int value = (i == 0) ? isOccupiedBy[row, row] : isOccupiedBy[row, 2 - row]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
 
                         if (value == 1) countCircle[i]++;
                         else if (value == 2) countCross[i]++;
@@ -221,17 +221,14 @@ namespace Code
                         XsTurnLabel.Visible = false;
                         OsTurnLabel.Visible = false;
 
-                        while (true)
-                        {
-                            Rgb_text(0, 0, 1);
-                            Rgb_text(0, 1, 0);
-                            Rgb_text(0, 0, -1);
-                            Rgb_text(1, 0, 0);
-                            Rgb_text(0, -1, 0);
-                            Rgb_text(0, 0, 1);
-                            Rgb_text(0, 1, 0);
-                            Rgb_text(-1, -1, -1);
-                        }
+                        Rgb_text(0, 0, 1);
+                        Rgb_text(0, 1, 0);
+                        Rgb_text(0, 0, -1);
+                        Rgb_text(1, 0, 0);
+                        Rgb_text(0, -1, 0);
+                        Rgb_text(0, 0, 1);
+                        Rgb_text(0, 1, 0);
+                        Rgb_text(-1, -1, -1);
 
                         isgameEnded = true;
                     }
@@ -273,7 +270,7 @@ namespace Code
                     b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
                 }
                 ResultLabel.ForeColor = Color.FromArgb(r, g, b);
-                await Task.Delay(20);
+                await Task.Delay(200);
             }
         }
         private int VerifyWinner(int[,] isOccupiedBy)
