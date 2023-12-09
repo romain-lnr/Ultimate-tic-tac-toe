@@ -24,6 +24,7 @@ namespace Code
         private bool circleTurn;
         private bool isgameEnded;
         private bool isBotPlays;
+        private bool isAuto = false;
         private Label[,,,] labels;
         private Label[,] hiders;
         Random random = new Random((int)DateTime.Now.Ticks);
@@ -370,6 +371,11 @@ namespace Code
                                 await Task.Delay(1000);
                                 BotPlays(labels);
                             }
+                            else if (isAuto)
+                            {
+                                await Task.Delay(2000);
+                                BotPlays(labels);
+                            }
                             else isBotPlays = false;
                         }
                     }
@@ -493,6 +499,12 @@ namespace Code
             }
             if (num == 81) return 5;
             return 0;
+        }
+
+        private void AutoLabel_Click(object sender, EventArgs e)
+        {
+            if (isAuto) isAuto = false;
+            else isAuto = true;
         }
     }
 }
