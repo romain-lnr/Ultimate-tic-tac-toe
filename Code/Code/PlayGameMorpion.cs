@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Code
 {
@@ -177,7 +176,7 @@ namespace Code
             }
         }
 
-        private async void PlaceSymbol(int idLabelColumn, int idLabelRow, Label label)
+        private void PlaceSymbol(int idLabelColumn, int idLabelRow, Label label)
         {
             if (!isgameEnded)
             {
@@ -196,41 +195,33 @@ namespace Code
                         circleTurn = true;
                     }
 
-
-
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
                         if (VerifyWinner(isOccupiedBy) == 1)
                         {
                             ResultLabel.Text = "O won !";
-                            ResultLabel.ForeColor = Color.Red;
+                            //ResultLabel.ForeColor = Color.Red;
                         }
 
                         if (VerifyWinner(isOccupiedBy) == 2)
                         {
                             ResultLabel.Text = "X won !";
-                            ResultLabel.ForeColor = Color.Blue;
+                            //ResultLabel.ForeColor = Color.Blue;
                         }
 
                         if (VerifyWinner(isOccupiedBy) == 3)
                         {
                             ResultLabel.Text = "It's a tie...";
-                            ResultLabel.ForeColor = Color.Black;
+                            //ResultLabel.ForeColor = Color.Black;
                         }
 
                         XsTurnLabel.Visible = false;
                         OsTurnLabel.Visible = false;
 
-                        Rgb_text(0, 0, 1);
-                        Rgb_text(0, 1, 0);
-                        Rgb_text(0, 0, -1);
-                        Rgb_text(1, 0, 0);
-                        Rgb_text(0, -1, 0);
-                        Rgb_text(0, 0, 1);
-                        Rgb_text(0, 1, 0);
-                        Rgb_text(-1, -1, -1);
-
                         isgameEnded = true;
+
+
+                        RGBTimer_Classic.Enabled = true;
                     }
                     else
                     {
@@ -238,39 +229,37 @@ namespace Code
 
                         if (GameMenuForm.onePlayer)
                         {
-                            if (!isBotPlays)
-                            {
-                                await Task.Delay(1000);
-                                BotPlays(labels);
-                            }
-                            else isBotPlays = false;
+                            if (!isBotPlays) BotTimer_Classic.Enabled = true;
+                            isBotPlays = false;
                         }
                     }
                 }
             }
         }
-        private async void Rgb_text(int red, int green, int blue)
+        private void Rgb_text(int red, int green, int blue)
         {
+            RGBTimer_Classic.Start();
             const int MAX_INTENSITY = 200;
             int r = 0, g = 0, b = 0;
             for (int x = 1; x <= MAX_INTENSITY; x++)
             {
-                if (red < 0)
+                if (red != 0)
                 {
                     r = red > 0 ? red * x : MAX_INTENSITY + red * x;
                 }
 
-                if (green < 0)
+                if (green != 0)
                 {
                     g = green > 0 ? green * x : MAX_INTENSITY + green * x;
                 }
 
-                if (blue < 0)
+                if (blue != 0)
                 {
                     b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
                 }
                 ResultLabel.ForeColor = Color.FromArgb(r, g, b);
-                await Task.Delay(200);
+                //Debug.WriteLine(r.ToString(), g.ToString(), b.ToString());
+                RGBTimer_Classic.Stop();
             }
         }
         private int VerifyWinner(int[,] isOccupiedBy)
@@ -314,6 +303,24 @@ namespace Code
             }
             if (num == 9) return 3;
             return 0;
+        }
+
+        private void BotTimer_Classic_Tick(object sender, EventArgs e)
+        {
+            BotPlays(labels);
+            BotTimer_Classic.Enabled = false;
+        }
+
+        private void RGBTimer_Classic_Tick(object sender, EventArgs e)
+        {
+            Rgb_text(0, 0, 1);
+            Rgb_text(0, 1, 0);
+            Rgb_text(0, 0, -1);
+            Rgb_text(1, 0, 0);
+            Rgb_text(0, -1, 0);
+            Rgb_text(0, 0, 1);
+            Rgb_text(0, 1, 0);
+            Rgb_text(-1, -1, -1);
         }
     }
 }

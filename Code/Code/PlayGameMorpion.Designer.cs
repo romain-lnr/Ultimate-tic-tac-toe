@@ -45,7 +45,8 @@
             BottomLabel = new Label();
             BottomRightLabel = new Label();
             ResultLabel = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
+            BotTimer_Classic = new System.Windows.Forms.Timer(components);
+            RGBTimer_Classic = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // GridLabel
@@ -201,6 +202,16 @@
             ResultLabel.Size = new Size(0, 76);
             ResultLabel.TabIndex = 17;
             // 
+            // BotTimer_Classic
+            // 
+            BotTimer_Classic.Interval = 1000;
+            BotTimer_Classic.Tick += BotTimer_Classic_Tick;
+            // 
+            // RGBTimer_Classic
+            // 
+            RGBTimer_Classic.Interval = 50;
+            RGBTimer_Classic.Tick += RGBTimer_Classic_Tick;
+            // 
             // PlayGameMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -244,6 +255,7 @@
         private Label BottomLabel;
         private Label BottomRightLabel;
         private Label ResultLabel;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer BotTimer_Classic;
+        private System.Windows.Forms.Timer RGBTimer_Classic;
     }
 }

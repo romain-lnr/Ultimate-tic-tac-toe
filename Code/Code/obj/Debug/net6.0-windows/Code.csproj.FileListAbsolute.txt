@@ -100,3 +100,4 @@ C:\Users\py71hee\Desktop\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows
 C:\Users\py71hee\Desktop\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.pdb
 C:\Users\py71hee\Desktop\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.genruntimeconfig.cache
 C:\Users\py71hee\Desktop\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\ref\Code.dll
+C:\GitHub\Ultimate-tic-tac-toe\Code\Code\obj\Debug\net6.0-windows\Code.PlayGameSMorpion.resources

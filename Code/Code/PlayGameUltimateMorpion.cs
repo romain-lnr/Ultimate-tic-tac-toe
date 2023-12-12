@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -210,7 +211,7 @@ namespace Code
                 }
             }
         }
-        private async void PlaceSymbol(int idLabelCaseColumn, int idLabelCaseRow, int idLabelColumn, int idLabelRow, Label hiders, Label label)
+        private void PlaceSymbol(int idLabelCaseColumn, int idLabelCaseRow, int idLabelColumn, int idLabelRow, Label hiders, Label label)
         {
             if (!isgameEnded)
             {
@@ -366,17 +367,8 @@ namespace Code
 
                         if (GameMenuForm.onePlayer)
                         {
-                            if (!isBotPlays)
-                            {
-                                await Task.Delay(1000);
-                                BotPlays(labels);
-                            }
-                            else if (isAuto)
-                            {
-                                await Task.Delay(2000);
-                                BotPlays(labels);
-                            }
-                            else isBotPlays = false;
+                            if (!isBotPlays) BotTimer_Ultimate.Enabled = true;
+                            isBotPlays = false;
                         }
                     }
                 }
@@ -505,6 +497,45 @@ namespace Code
         {
             if (isAuto) isAuto = false;
             else isAuto = true;
+        }
+
+        /*private void Rgb_text(int red, int green, int blue)
+        {
+            const int MAX_INTENSITY = 200;
+            int r = 0, g = 0, b = 0;
+            for (int x = 1; x <= MAX_INTENSITY; x++)
+            {
+                if (red < 0)
+                {
+                    r = red > 0 ? red * x : MAX_INTENSITY + red * x;
+                }
+
+                if (green < 0)
+                {
+                    g = green > 0 ? green * x : MAX_INTENSITY + green * x;
+                }
+
+                if (blue < 0)
+                {
+                    b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
+                }
+                ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+                Console.WriteLine(blue);
+            }
+        }*/
+
+        private void BotTimer_Ultimate_Tick(object sender, EventArgs e)
+        {
+            BotPlays(labels);
+
+            if (!isAuto)
+            {
+                BotTimer_Ultimate.Enabled = false;
+            }
+            else
+            {
+                BotTimer_Ultimate.Interval = 300;
+            }
         }
     }
 }

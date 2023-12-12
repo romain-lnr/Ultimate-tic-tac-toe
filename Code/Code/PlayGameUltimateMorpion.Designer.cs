@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Gridlabel = new Label();
             BackButton = new Button();
             QuitButton = new Button();
@@ -125,6 +126,7 @@
             OsTurnLabel = new Label();
             ResultLabel = new Label();
             AutoLabel = new Button();
+            BotTimer_Ultimate = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Gridlabel
@@ -924,6 +926,11 @@
             AutoLabel.UseVisualStyleBackColor = true;
             AutoLabel.Click += AutoLabel_Click;
             // 
+            // BotTimer_Ultimate
+            // 
+            BotTimer_Ultimate.Interval = 1000;
+            BotTimer_Ultimate.Tick += BotTimer_Ultimate_Tick;
+            // 
             // PlayGameUltimateMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1133,5 +1140,8 @@
         private Label OsTurnLabel;
         private Label ResultLabel;
         private Button AutoLabel;
+        private System.Windows.Forms.Timer timerRGB;
+        private System.Windows.Forms.Timer BotTimer;
+        private System.Windows.Forms.Timer BotTimer_Ultimate;
     }
 }
