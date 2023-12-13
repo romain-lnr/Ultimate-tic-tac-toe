@@ -272,7 +272,7 @@ namespace Code
         {
             if (x > MAX_INTENSITY)
             {
-                if (gradientIndex >= gradients.Length /* / 3*/)
+                if (gradientIndex >= gradients.Length / 3 - 1)
                 {
                     RGBTimer_Classic.Enabled = false;
                     return;
