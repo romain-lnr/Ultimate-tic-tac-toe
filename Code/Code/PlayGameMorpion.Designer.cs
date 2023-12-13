@@ -209,7 +209,7 @@
             // 
             // RGBTimer_Classic
             // 
-            RGBTimer_Classic.Interval = 50;
+            RGBTimer_Classic.Interval = 1;
             RGBTimer_Classic.Tick += RGBTimer_Classic_Tick;
             // 
             // PlayGameMorpionForm

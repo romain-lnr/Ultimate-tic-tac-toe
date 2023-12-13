@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -16,6 +17,8 @@ namespace Code
 {
     public partial class PlayGameMorpionForm : Form
     {
+        const int MAX_INTENSITY = 201;
+
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
         private int[,] isOccupiedBy = new int[3, 3];
@@ -23,6 +26,22 @@ namespace Code
         private bool isgameEnded;
         private bool isBotPlays;
         private Label[,] labels;
+        private int r, g, b, x;
+        int red, green, blue, gradientIndex;
+
+        int[,] gradients = { { 0, 0, 1 }, { 0, 1, 0 }, { 0, 0, -1 }, { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 1, 0 }, { -1, -1, -1 } };
+
+
+        /*
+        Rgb_text(0, 0, 1);
+        Rgb_text(0, 1, 0);
+        Rgb_text(0, 0, -1);
+        Rgb_text(1, 0, 0);
+        Rgb_text(0, -1, 0);
+        Rgb_text(0, 0, 1);
+        Rgb_text(0, 1, 0);
+        Rgb_text(-1, -1, -1);*/
+
         Random random = new Random((int)DateTime.Now.Ticks);
 
         private void WhosTurn()
@@ -220,8 +239,7 @@ namespace Code
 
                         isgameEnded = true;
 
-
-                        RGBTimer_Classic.Enabled = true;
+                        ColorizeRgbText();
                     }
                     else
                     {
@@ -236,30 +254,63 @@ namespace Code
                 }
             }
         }
+
+        private void ColorizeRgbText()
+        {
+            r = 0;
+            g = 0;
+            b = 0;
+            x = 0;
+            gradientIndex = 0;
+            red = gradients[gradientIndex, 0];
+            green = gradients[gradientIndex, 1];
+            blue = gradients[gradientIndex, 2];
+            RGBTimer_Classic.Enabled = true;
+        }
+
+        private void RGBTimer_Classic_Tick(object sender, EventArgs e)
+        {
+            if (x > MAX_INTENSITY)
+            {
+                if (gradientIndex >= gradients.Length /* / 3*/)
+                {
+                    RGBTimer_Classic.Enabled = false;
+                    return;
+                }
+                x = 0;
+                gradientIndex++;
+                red = gradients[gradientIndex, 0];
+                green = gradients[gradientIndex , 1];
+                blue = gradients[gradientIndex, 2];
+            }
+
+            if (red != 0)
+            {
+                r = red > 0 ? red * x : MAX_INTENSITY + red * x;
+            }
+
+            if (green != 0)
+            {
+                g = green > 0 ? green * x : MAX_INTENSITY + green * x;
+            }
+
+            if (blue != 0)
+            {
+                b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
+            }
+            ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+
+            x = x + 3;
+        }
+
         private void Rgb_text(int red, int green, int blue)
         {
-            RGBTimer_Classic.Start();
-            const int MAX_INTENSITY = 200;
-            int r = 0, g = 0, b = 0;
+            r = 0;
+            g = 0;
+            b = 0;
             for (int x = 1; x <= MAX_INTENSITY; x++)
             {
-                if (red != 0)
-                {
-                    r = red > 0 ? red * x : MAX_INTENSITY + red * x;
-                }
-
-                if (green != 0)
-                {
-                    g = green > 0 ? green * x : MAX_INTENSITY + green * x;
-                }
-
-                if (blue != 0)
-                {
-                    b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
-                }
-                ResultLabel.ForeColor = Color.FromArgb(r, g, b);
-                //Debug.WriteLine(r.ToString(), g.ToString(), b.ToString());
-                RGBTimer_Classic.Stop();
+                RGBTimer_Classic.Enabled = false;
             }
         }
         private int VerifyWinner(int[,] isOccupiedBy)
@@ -311,16 +362,5 @@ namespace Code
             BotTimer_Classic.Enabled = false;
         }
 
-        private void RGBTimer_Classic_Tick(object sender, EventArgs e)
-        {
-            Rgb_text(0, 0, 1);
-            Rgb_text(0, 1, 0);
-            Rgb_text(0, 0, -1);
-            Rgb_text(1, 0, 0);
-            Rgb_text(0, -1, 0);
-            Rgb_text(0, 0, 1);
-            Rgb_text(0, 1, 0);
-            Rgb_text(-1, -1, -1);
-        }
     }
 }
