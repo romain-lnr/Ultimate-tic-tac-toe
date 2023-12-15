@@ -17,7 +17,7 @@ namespace Code
 {
     public partial class PlayGameMorpionForm : Form
     {
-        const int MAX_INTENSITY = 201;
+        const int MAX_INTENSITY = 228;
 
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
@@ -30,17 +30,6 @@ namespace Code
         int red, green, blue, gradientIndex;
 
         int[,] gradients = { { 0, 0, 1 }, { 0, 1, 0 }, { 0, 0, -1 }, { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 1, 0 }, { -1, -1, -1 } };
-
-
-        /*
-        Rgb_text(0, 0, 1);
-        Rgb_text(0, 1, 0);
-        Rgb_text(0, 0, -1);
-        Rgb_text(1, 0, 0);
-        Rgb_text(0, -1, 0);
-        Rgb_text(0, 0, 1);
-        Rgb_text(0, 1, 0);
-        Rgb_text(-1, -1, -1);*/
 
         Random random = new Random((int)DateTime.Now.Ticks);
 
@@ -238,7 +227,6 @@ namespace Code
                         OsTurnLabel.Visible = false;
 
                         isgameEnded = true;
-
                         ColorizeRgbText();
                     }
                     else
@@ -274,8 +262,7 @@ namespace Code
             {
                 if (gradientIndex >= gradients.Length / 3 - 1)
                 {
-                    RGBTimer_Classic.Enabled = false;
-                    return;
+                    gradientIndex = -1;
                 }
                 x = 0;
                 gradientIndex++;
@@ -300,7 +287,7 @@ namespace Code
             }
             ResultLabel.ForeColor = Color.FromArgb(r, g, b);
 
-            x = x + 3;
+            x = x + 4;
         }
 
         private void Rgb_text(int red, int green, int blue)
@@ -313,6 +300,7 @@ namespace Code
                 RGBTimer_Classic.Enabled = false;
             }
         }
+
         private int VerifyWinner(int[,] isOccupiedBy)
         {
             // Verify straight row vertically

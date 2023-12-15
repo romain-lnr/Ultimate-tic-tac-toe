@@ -14,6 +14,8 @@ namespace Code
 {
     public partial class PlayGameUltimateMorpionForm : Form
     {
+        const int MAX_INTENSITY = 228;
+
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
         private string petitCercle = "..\\..\\..\\Images\\PetitCercle.png";
@@ -29,6 +31,10 @@ namespace Code
         private Label[,,,] labels;
         private Label[,] hiders;
         Random random = new Random((int)DateTime.Now.Ticks);
+        private int r, g, b, x;
+        int red, green, blue, gradientIndex;
+
+        int[,] gradients = { { 0, 0, 1 }, { 0, 1, 0 }, { 0, 0, -1 }, { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 1, 0 }, { -1, -1, -1 } };
 
         private void WhosTurn()
         {
@@ -374,6 +380,65 @@ namespace Code
                 }
             }
         }
+
+        private void ColorizeRgbText()
+        {
+            r = 0;
+            g = 0;
+            b = 0;
+            x = 0;
+            gradientIndex = 0;
+            red = gradients[gradientIndex, 0];
+            green = gradients[gradientIndex, 1];
+            blue = gradients[gradientIndex, 2];
+            RGBTimer_Ultimate.Enabled = true;
+        }
+
+        private void RGBTimer_Classic_Tick(object sender, EventArgs e)
+        {
+            if (x > MAX_INTENSITY)
+            {
+                if (gradientIndex >= gradients.Length / 3 - 1)
+                {
+                    gradientIndex = -1;
+                }
+                x = 0;
+                gradientIndex++;
+                red = gradients[gradientIndex, 0];
+                green = gradients[gradientIndex, 1];
+                blue = gradients[gradientIndex, 2];
+            }
+
+            if (red != 0)
+            {
+                r = red > 0 ? red * x : MAX_INTENSITY + red * x;
+            }
+
+            if (green != 0)
+            {
+                g = green > 0 ? green * x : MAX_INTENSITY + green * x;
+            }
+
+            if (blue != 0)
+            {
+                b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
+            }
+            ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+
+            x = x + 4;
+        }
+
+        private void Rgb_text(int red, int green, int blue)
+        {
+            r = 0;
+            g = 0;
+            b = 0;
+            for (int x = 1; x <= MAX_INTENSITY; x++)
+            {
+                RGBTimer_Classic.Enabled = false;
+            }
+        }
+
         private void BackCaseColor(int bigColumn, int bigRow, int smallColumn, int smallRow)
         {
             if (circleTurn)
