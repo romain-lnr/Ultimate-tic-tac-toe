@@ -30,11 +30,12 @@ namespace Code
         private bool isAuto = false;
         private Label[,,,] labels;
         private Label[,] hiders;
-        Random random = new Random((int)DateTime.Now.Ticks);
         private int r, g, b, x;
         int red, green, blue, gradientIndex;
 
         int[,] gradients = { { 0, 0, 1 }, { 0, 1, 0 }, { 0, 0, -1 }, { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 1, 0 }, { -1, -1, -1 } };
+
+        Random random = new Random((int)DateTime.Now.Ticks);
 
         private void WhosTurn()
         {
@@ -178,7 +179,7 @@ namespace Code
                 rdmCaseRow = random.Next(0, 3);
                 rdmColumn = random.Next(0, 3);
                 rdmRow = random.Next(0, 3);
-            } while (isOccupiedBy[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow] != 0 || !labels[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow].Enabled); // || !labels[rdmColumn, rdmRow, 0 , 0].Enabled);
+            } while (isOccupiedBy[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow] != 0 || !labels[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow].Enabled);
 
             PlaceSymbol(rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow, hiders[rdmCaseColumn, rdmCaseRow], labels[rdmCaseColumn, rdmCaseRow, rdmColumn, rdmRow]);
         }
@@ -278,25 +279,8 @@ namespace Code
                         }
                     }
 
-                    if (verifyWinner(isOccupiedBy) != 0)
+                    if (VerifyWinner(isOccupiedBy) != 0)
                     {
-                        if (verifyWinner(isOccupiedBy) == 3)
-                        {
-                            ResultLabel.Text = "O won !";
-                            ResultLabel.ForeColor = Color.Red;
-                        }
-
-                        if (verifyWinner(isOccupiedBy) == 4)
-                        {
-                            ResultLabel.Text = "X won !";
-                            ResultLabel.ForeColor = Color.Blue;
-                        }
-
-                        if (verifyWinner(isOccupiedBy) == 5)
-                        {
-                            ResultLabel.Text = "It's a tie...";
-                            ResultLabel.ForeColor = Color.Black;
-                        }
 
                         XsTurnLabel.Visible = false;
                         OsTurnLabel.Visible = false;
@@ -316,6 +300,16 @@ namespace Code
                             }
                         }
                         isgameEnded = true;
+                        if (VerifyWinner(isOccupiedBy) == 3)
+                        {
+                            ResultLabel.Text = "O won !";
+                            ColorizeRgbText();
+                        }
+                        else if (VerifyWinner(isOccupiedBy) == 4)
+                        {
+                            ResultLabel.Text = "X won !";
+                            ColorizeRgbText();
+                        } else ResultLabel.Text = "It's a tie !";
                     }
                     else
                     {
@@ -374,68 +368,10 @@ namespace Code
                         if (GameMenuForm.onePlayer)
                         {
                             if (!isBotPlays) BotTimer_Ultimate.Enabled = true;
-                            isBotPlays = false;
+                            else isBotPlays = false;
                         }
                     }
                 }
-            }
-        }
-
-        private void ColorizeRgbText()
-        {
-            r = 0;
-            g = 0;
-            b = 0;
-            x = 0;
-            gradientIndex = 0;
-            red = gradients[gradientIndex, 0];
-            green = gradients[gradientIndex, 1];
-            blue = gradients[gradientIndex, 2];
-            RGBTimer_Ultimate.Enabled = true;
-        }
-
-        private void RGBTimer_Classic_Tick(object sender, EventArgs e)
-        {
-            if (x > MAX_INTENSITY)
-            {
-                if (gradientIndex >= gradients.Length / 3 - 1)
-                {
-                    gradientIndex = -1;
-                }
-                x = 0;
-                gradientIndex++;
-                red = gradients[gradientIndex, 0];
-                green = gradients[gradientIndex, 1];
-                blue = gradients[gradientIndex, 2];
-            }
-
-            if (red != 0)
-            {
-                r = red > 0 ? red * x : MAX_INTENSITY + red * x;
-            }
-
-            if (green != 0)
-            {
-                g = green > 0 ? green * x : MAX_INTENSITY + green * x;
-            }
-
-            if (blue != 0)
-            {
-                b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
-            }
-            ResultLabel.ForeColor = Color.FromArgb(r, g, b);
-
-            x = x + 4;
-        }
-
-        private void Rgb_text(int red, int green, int blue)
-        {
-            r = 0;
-            g = 0;
-            b = 0;
-            for (int x = 1; x <= MAX_INTENSITY; x++)
-            {
-                RGBTimer_Classic.Enabled = false;
             }
         }
 
@@ -510,7 +446,55 @@ namespace Code
             return 0;
 
         }
-        private int verifyWinner(int[,,,] isOccupiedBy)
+
+        private void ColorizeRgbText()
+        {
+            r = 0;
+            g = 0;
+            b = 0;
+            x = 0;
+            gradientIndex = 0;
+            red = gradients[gradientIndex, 0];
+            green = gradients[gradientIndex, 1];
+            blue = gradients[gradientIndex, 2];
+            RGBTimer_Ultimate.Enabled = true;
+        }
+
+        private void RGBTimer_Ultimate_Tick(object sender, EventArgs e)
+        {
+            if (x > MAX_INTENSITY)
+            {
+                if (gradientIndex >= gradients.Length / 3 - 1)
+                {
+                    gradientIndex = -1;
+                }
+                x = 0;
+                gradientIndex++;
+                red = gradients[gradientIndex, 0];
+                green = gradients[gradientIndex, 1];
+                blue = gradients[gradientIndex, 2];
+            }
+
+            if (red != 0)
+            {
+                r = red > 0 ? red * x : MAX_INTENSITY + red * x;
+            }
+
+            if (green != 0)
+            {
+                g = green > 0 ? green * x : MAX_INTENSITY + green * x;
+            }
+
+            if (blue != 0)
+            {
+                b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
+            }
+            ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+
+            x = x + 4;
+        }
+
+        private int VerifyWinner(int[,,,] isOccupiedBy)
         {
             for (int bigColumn = 0; bigColumn < 3; bigColumn++)
             {
@@ -564,43 +548,10 @@ namespace Code
             else isAuto = true;
         }
 
-        /*private void Rgb_text(int red, int green, int blue)
-        {
-            const int MAX_INTENSITY = 200;
-            int r = 0, g = 0, b = 0;
-            for (int x = 1; x <= MAX_INTENSITY; x++)
-            {
-                if (red < 0)
-                {
-                    r = red > 0 ? red * x : MAX_INTENSITY + red * x;
-                }
-
-                if (green < 0)
-                {
-                    g = green > 0 ? green * x : MAX_INTENSITY + green * x;
-                }
-
-                if (blue < 0)
-                {
-                    b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
-                }
-                ResultLabel.ForeColor = Color.FromArgb(r, g, b);
-                Console.WriteLine(blue);
-            }
-        }*/
-
         private void BotTimer_Ultimate_Tick(object sender, EventArgs e)
         {
             BotPlays(labels);
-
-            if (!isAuto)
-            {
-                BotTimer_Ultimate.Enabled = false;
-            }
-            else
-            {
-                BotTimer_Ultimate.Interval = 300;
-            }
+            BotTimer_Ultimate.Enabled = false;
         }
     }
 }

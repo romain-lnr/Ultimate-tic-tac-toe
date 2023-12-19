@@ -121,7 +121,7 @@ namespace Code
                 {
                     for (int row = 0; row < 3; row++)
                     {
-                        int value = (i == 0) ? isOccupiedBy[row, row] : isOccupiedBy[row, 2 - row]; // 0;0 1;1 2;2 - 0;2 1;1 2;0
+                        int value = (i == 0) ? isOccupiedBy[row, row] : isOccupiedBy[row, 2 - row];
 
                         if (value == 1) countCircle[i]++;
                         else if (value == 2) countCross[i]++;
@@ -205,29 +205,23 @@ namespace Code
 
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
-                        if (VerifyWinner(isOccupiedBy) == 1)
-                        {
-                            ResultLabel.Text = "O won !";
-                            //ResultLabel.ForeColor = Color.Red;
-                        }
-
-                        if (VerifyWinner(isOccupiedBy) == 2)
-                        {
-                            ResultLabel.Text = "X won !";
-                            //ResultLabel.ForeColor = Color.Blue;
-                        }
-
-                        if (VerifyWinner(isOccupiedBy) == 3)
-                        {
-                            ResultLabel.Text = "It's a tie...";
-                            //ResultLabel.ForeColor = Color.Black;
-                        }
 
                         XsTurnLabel.Visible = false;
                         OsTurnLabel.Visible = false;
 
                         isgameEnded = true;
-                        ColorizeRgbText();
+
+                        if (VerifyWinner(isOccupiedBy) == 1)
+                        {
+                            ResultLabel.Text = "O won !";
+                            ColorizeRgbText();
+                        }
+                        else if (VerifyWinner(isOccupiedBy) == 2)
+                        {
+                            ResultLabel.Text = "X won !";
+                            ColorizeRgbText();
+                        }
+                        else ResultLabel.Text = "It's a tie !";
                     }
                     else
                     {
@@ -288,17 +282,6 @@ namespace Code
             ResultLabel.ForeColor = Color.FromArgb(r, g, b);
 
             x = x + 4;
-        }
-
-        private void Rgb_text(int red, int green, int blue)
-        {
-            r = 0;
-            g = 0;
-            b = 0;
-            for (int x = 1; x <= MAX_INTENSITY; x++)
-            {
-                RGBTimer_Classic.Enabled = false;
-            }
         }
 
         private int VerifyWinner(int[,] isOccupiedBy)

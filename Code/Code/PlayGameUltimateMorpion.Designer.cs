@@ -125,8 +125,8 @@
             XsTurnLabel = new Label();
             OsTurnLabel = new Label();
             ResultLabel = new Label();
-            AutoLabel = new Button();
             BotTimer_Ultimate = new System.Windows.Forms.Timer(components);
+            RGBTimer_Ultimate = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Gridlabel
@@ -914,29 +914,21 @@
             ResultLabel.Size = new Size(0, 76);
             ResultLabel.TabIndex = 98;
             // 
-            // AutoLabel
-            // 
-            AutoLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            AutoLabel.ForeColor = Color.Black;
-            AutoLabel.Location = new Point(1406, 149);
-            AutoLabel.Name = "AutoLabel";
-            AutoLabel.Size = new Size(390, 132);
-            AutoLabel.TabIndex = 99;
-            AutoLabel.Text = "Auto";
-            AutoLabel.UseVisualStyleBackColor = true;
-            AutoLabel.Click += AutoLabel_Click;
-            // 
             // BotTimer_Ultimate
             // 
             BotTimer_Ultimate.Interval = 1000;
             BotTimer_Ultimate.Tick += BotTimer_Ultimate_Tick;
+            // 
+            // RGBTimer_Ultimate
+            // 
+            RGBTimer_Ultimate.Interval = 1;
+            RGBTimer_Ultimate.Tick += RGBTimer_Ultimate_Tick;
             // 
             // PlayGameUltimateMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(AutoLabel);
             Controls.Add(ResultLabel);
             Controls.Add(OsTurnLabel);
             Controls.Add(XsTurnLabel);
@@ -1139,9 +1131,7 @@
         private Label XsTurnLabel;
         private Label OsTurnLabel;
         private Label ResultLabel;
-        private Button AutoLabel;
-        private System.Windows.Forms.Timer timerRGB;
-        private System.Windows.Forms.Timer BotTimer;
         private System.Windows.Forms.Timer BotTimer_Ultimate;
+        private System.Windows.Forms.Timer RGBTimer_Ultimate;
     }
 }
