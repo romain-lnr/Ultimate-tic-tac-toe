@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayGameMorpionForm));
             GridLabel = new Label();
             BackButton = new Button();
@@ -43,8 +44,9 @@
             BottomLeftLabel = new Label();
             BottomLabel = new Label();
             BottomRightLabel = new Label();
-            OsWinningLabel = new Label();
-            XsWinningLabel = new Label();
+            ResultLabel = new Label();
+            BotTimer_Classic = new System.Windows.Forms.Timer(components);
+            RGBTimer_Classic = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // GridLabel
@@ -87,7 +89,7 @@
             TopLeftLabel.Name = "TopLeftLabel";
             TopLeftLabel.Size = new Size(192, 192);
             TopLeftLabel.TabIndex = 3;
-            TopLeftLabel.Click += TopLeftLabel_Click;
+            TopLeftLabel.Click += TheLabel_Click;
             // 
             // XsTurnLabel
             // 
@@ -119,7 +121,7 @@
             TopLabel.Name = "TopLabel";
             TopLabel.Size = new Size(192, 192);
             TopLabel.TabIndex = 6;
-            TopLabel.Click += TopLabel_Click;
+            TopLabel.Click += TheLabel_Click;
             // 
             // TopRightLabel
             // 
@@ -129,7 +131,7 @@
             TopRightLabel.Name = "TopRightLabel";
             TopRightLabel.Size = new Size(192, 192);
             TopRightLabel.TabIndex = 7;
-            TopRightLabel.Click += TopRightLabel_Click;
+            TopRightLabel.Click += TheLabel_Click;
             // 
             // LeftLabel
             // 
@@ -139,7 +141,7 @@
             LeftLabel.Name = "LeftLabel";
             LeftLabel.Size = new Size(192, 192);
             LeftLabel.TabIndex = 8;
-            LeftLabel.Click += LeftLabel_Click;
+            LeftLabel.Click += TheLabel_Click;
             // 
             // MiddleLabel
             // 
@@ -149,7 +151,7 @@
             MiddleLabel.Name = "MiddleLabel";
             MiddleLabel.Size = new Size(192, 192);
             MiddleLabel.TabIndex = 9;
-            MiddleLabel.Click += MiddleLabel_Click;
+            MiddleLabel.Click += TheLabel_Click;
             // 
             // RightLabel
             // 
@@ -159,7 +161,7 @@
             RightLabel.Name = "RightLabel";
             RightLabel.Size = new Size(192, 192);
             RightLabel.TabIndex = 10;
-            RightLabel.Click += RightLabel_Click;
+            RightLabel.Click += TheLabel_Click;
             // 
             // BottomLeftLabel
             // 
@@ -169,7 +171,7 @@
             BottomLeftLabel.Name = "BottomLeftLabel";
             BottomLeftLabel.Size = new Size(192, 192);
             BottomLeftLabel.TabIndex = 11;
-            BottomLeftLabel.Click += BottomLeftLabel_Click;
+            BottomLeftLabel.Click += TheLabel_Click;
             // 
             // BottomLabel
             // 
@@ -179,7 +181,7 @@
             BottomLabel.Name = "BottomLabel";
             BottomLabel.Size = new Size(192, 192);
             BottomLabel.TabIndex = 12;
-            BottomLabel.Click += BottomLabel_Click;
+            BottomLabel.Click += TheLabel_Click;
             // 
             // BottomRightLabel
             // 
@@ -189,39 +191,33 @@
             BottomRightLabel.Name = "BottomRightLabel";
             BottomRightLabel.Size = new Size(192, 192);
             BottomRightLabel.TabIndex = 13;
-            BottomRightLabel.Click += BottomRightLabel_Click;
+            BottomRightLabel.Click += TheLabel_Click;
             // 
-            // OsWinningLabel
+            // ResultLabel
             // 
-            OsWinningLabel.AutoSize = true;
-            OsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            OsWinningLabel.ForeColor = Color.Red;
-            OsWinningLabel.Location = new Point(406, 648);
-            OsWinningLabel.Name = "OsWinningLabel";
-            OsWinningLabel.Size = new Size(177, 37);
-            OsWinningLabel.TabIndex = 14;
-            OsWinningLabel.Text = "O's won!";
-            OsWinningLabel.Visible = false;
+            ResultLabel.AutoSize = true;
+            ResultLabel.Font = new Font("Courier New", 50F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            ResultLabel.Location = new Point(85, 325);
+            ResultLabel.Name = "ResultLabel";
+            ResultLabel.Size = new Size(0, 76);
+            ResultLabel.TabIndex = 17;
             // 
-            // XsWinningLabel
+            // BotTimer_Classic
             // 
-            XsWinningLabel.AutoSize = true;
-            XsWinningLabel.Font = new Font("Courier New", 25F, FontStyle.Bold, GraphicsUnit.Point);
-            XsWinningLabel.ForeColor = Color.Blue;
-            XsWinningLabel.Location = new Point(406, 648);
-            XsWinningLabel.Name = "XsWinningLabel";
-            XsWinningLabel.Size = new Size(177, 37);
-            XsWinningLabel.TabIndex = 15;
-            XsWinningLabel.Text = "X's won!";
-            XsWinningLabel.Visible = false;
+            BotTimer_Classic.Interval = 1000;
+            BotTimer_Classic.Tick += BotTimer_Classic_Tick;
+            // 
+            // RGBTimer_Classic
+            // 
+            RGBTimer_Classic.Interval = 1;
+            RGBTimer_Classic.Tick += RGBTimer_Classic_Tick;
             // 
             // PlayGameMorpionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
-            Controls.Add(XsWinningLabel);
-            Controls.Add(OsWinningLabel);
+            Controls.Add(ResultLabel);
             Controls.Add(BottomRightLabel);
             Controls.Add(BottomLabel);
             Controls.Add(BottomLeftLabel);
@@ -258,7 +254,8 @@
         private Label BottomLeftLabel;
         private Label BottomLabel;
         private Label BottomRightLabel;
-        private Label OsWinningLabel;
-        private Label XsWinningLabel;
+        private Label ResultLabel;
+        private System.Windows.Forms.Timer BotTimer_Classic;
+        private System.Windows.Forms.Timer RGBTimer_Classic;
     }
 }

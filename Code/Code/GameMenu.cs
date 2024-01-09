@@ -54,7 +54,7 @@ namespace Code
             if (isSuperMorpion)
             {
                 // Show the game Morpion form
-                PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
+                PlayGameUltimateMorpionForm playGameSMorpion = new PlayGameUltimateMorpionForm();
                 playGameSMorpion.ShowDialog();
             }
             else
@@ -70,7 +70,7 @@ namespace Code
             if (isSuperMorpion)
             {
                 // Show the game Morpion form
-                PlayGameSMorpionForm playGameSMorpion = new PlayGameSMorpionForm();
+                PlayGameUltimateMorpionForm playGameSMorpion = new PlayGameUltimateMorpionForm();
                 playGameSMorpion.ShowDialog();
             }
             else
@@ -104,6 +104,8 @@ namespace Code
             // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+
+            isSuperMorpion = false;
         }
 
         private void SuperMorpionButton_Click(object sender, EventArgs e)
@@ -115,6 +117,7 @@ namespace Code
             // Enable the game mode buttons
             OnePlayerButton.Visible = true;
             TwoPlayersButton.Visible = true;
+
             isSuperMorpion = true;
         }
     }

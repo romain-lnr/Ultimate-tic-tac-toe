@@ -4,18 +4,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Code
 {
     public partial class PlayGameMorpionForm : Form
     {
+        const int MAX_INTENSITY = 228;
+
         private string grandCercle = "..\\..\\..\\Images\\GrandCercle.png";
         private string grandeCroix = "..\\..\\..\\Images\\GrandeCroix.png";
         private int[,] isOccupiedBy = new int[3, 3];
@@ -23,6 +26,11 @@ namespace Code
         private bool isgameEnded;
         private bool isBotPlays;
         private Label[,] labels;
+        private int r, g, b, x;
+        int red, green, blue, gradientIndex;
+
+        int[,] gradients = { { 0, 0, 1 }, { 0, 1, 0 }, { 0, 0, -1 }, { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 }, { 0, 1, 0 }, { -1, -1, -1 } };
+
         Random random = new Random((int)DateTime.Now.Ticks);
 
         private void WhosTurn()
@@ -56,11 +64,11 @@ namespace Code
 
             WhosTurn();
 
-            for (int i = 0; i < 2; i++)
+            for (int column = 0; column < 3; column++)
             {
-                for (int j = 0; j < 2; j++)
+                for (int row = 0; row < 3; row++)
                 {
-                    isOccupiedBy[i, j] = 0;
+                    isOccupiedBy[column, row] = 0;
                 }
             }
 
@@ -72,10 +80,70 @@ namespace Code
 
         private void BotPlays(Label[,] labels)
         {
-            int rdmColumn;
-            int rdmRow;
-
+            int rdmColumn, rdmRow;
+            int[] countCircle = new int[2] { 0, 0 }, countCross = new int[2] { 0, 0 };
             isBotPlays = true;
+
+            for (int column = 0; column < 3; column++)
+            {
+                // Check both rows and columns in a single loop
+                for (int i = 0; i < 2; i++)
+                {
+                    for (int row = 0; row < 3; row++)
+                    {
+                        int value = (i == 0) ? isOccupiedBy[column, row] : isOccupiedBy[row, column];
+
+                        if (value == 1) countCircle[i]++;
+                        else if (value == 2) countCross[i]++;
+                    }
+
+                    if (countCircle[i] == 2 || countCross[i] == 2)
+                    {
+                        for (int rerow = 0; rerow < 3; rerow++)
+                        {
+                            int currentColumn = (i == 0) ? column : rerow;
+                            int currentRow = (i == 0) ? rerow : column;
+
+                            if (isOccupiedBy[currentColumn, currentRow] == 0)
+                            {
+                                PlaceSymbol(currentColumn, currentRow, labels[currentColumn, currentRow]);
+                                return;
+                            }
+                        }
+                    }
+
+                    // Reset counts for the next iteration
+                    countCircle[i] = countCross[i] = 0;
+                }
+
+                // Check both diagonals in a single loop
+                for (int i = 0; i < 2; i++)
+                {
+                    for (int row = 0; row < 3; row++)
+                    {
+                        int value = (i == 0) ? isOccupiedBy[row, row] : isOccupiedBy[row, 2 - row];
+
+                        if (value == 1) countCircle[i]++;
+                        else if (value == 2) countCross[i]++;
+                    }
+
+                    if (countCircle[i] == 2 || countCross[i] == 2)
+                    {
+                        for (int rerow = 0; rerow < 3; rerow++)
+                        {
+                            int currentColumn = (i == 0) ? rerow : 2 - rerow;
+                            int currentRow = (i == 0) ? rerow : rerow;
+
+                            if (isOccupiedBy[currentColumn, currentRow] == 0)
+                            {
+                                PlaceSymbol(currentColumn, currentRow, labels[currentColumn, currentRow]);
+                                return;
+                            }
+                        }
+                    }
+                    countCircle[i] = countCross[i] = 0;
+                }
+            }
 
             do
             {
@@ -85,6 +153,7 @@ namespace Code
 
             PlaceSymbol(rdmColumn, rdmRow, labels[rdmColumn, rdmRow]);
         }
+
 
         private void BackButton_Click(object sender, EventArgs e)
         {
@@ -97,52 +166,25 @@ namespace Code
             System.Windows.Forms.Application.Exit();
         }
 
-        private void TopLeftLabel_Click(object sender, EventArgs e)
+        private void TheLabel_Click(object sender, EventArgs e)
         {
-            PlaceSymbol(0, 0, TopLeftLabel);
+            for (int column = 0; column < 3; column++)
+            {
+                for (int row = 0; row < 3; row++)
+                {
+                    if (labels[column, row] == sender)
+                    {
+                        if (GameMenuForm.onePlayer)
+                        {
+                            if (circleTurn) PlaceSymbol(column, row, (Label)sender);
+                        }
+                        else PlaceSymbol(column, row, (Label)sender);
+                    }
+                }
+            }
         }
 
-        private void TopLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 1, TopLabel);
-        }
-
-        private void TopRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(0, 2, TopRightLabel);
-        }
-
-        private void LeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 0, LeftLabel);
-        }
-
-        private void MiddleLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 1, MiddleLabel);
-        }
-
-        private void RightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(1, 2, RightLabel);
-        }
-
-        private void BottomLeftLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 0, BottomLeftLabel);
-        }
-
-        private void BottomLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 1, BottomLabel);
-        }
-
-        private void BottomRightLabel_Click(object sender, EventArgs e)
-        {
-            PlaceSymbol(2, 2, BottomRightLabel);
-        }
-
-        private async void PlaceSymbol(int idLabelColumn, int idLabelRow, Label label)
+        private void PlaceSymbol(int idLabelColumn, int idLabelRow, Label label)
         {
             if (!isgameEnded)
             {
@@ -161,13 +203,25 @@ namespace Code
                         circleTurn = true;
                     }
 
-
-
                     if (VerifyWinner(isOccupiedBy) != 0)
                     {
-                        if (VerifyWinner(isOccupiedBy) == 1) OsWinningLabel.Visible = true;
-                        if (VerifyWinner(isOccupiedBy) == 2) XsWinningLabel.Visible = true;
+
+                        XsTurnLabel.Visible = false;
+                        OsTurnLabel.Visible = false;
+
                         isgameEnded = true;
+
+                        if (VerifyWinner(isOccupiedBy) == 1)
+                        {
+                            ResultLabel.Text = "O won !";
+                            ColorizeRgbText();
+                        }
+                        else if (VerifyWinner(isOccupiedBy) == 2)
+                        {
+                            ResultLabel.Text = "X won !";
+                            ColorizeRgbText();
+                        }
+                        else ResultLabel.Text = "It's a tie !";
                     }
                     else
                     {
@@ -175,48 +229,109 @@ namespace Code
 
                         if (GameMenuForm.onePlayer)
                         {
-                            // Attendre 500 millisecondes
-                            await Task.Delay(500);
-
-                            if (!isBotPlays) BotPlays(labels);
-                            else isBotPlays = false;
+                            if (!isBotPlays) BotTimer_Classic.Enabled = true;
+                            isBotPlays = false;
                         }
                     }
                 }
             }
         }
 
+        private void ColorizeRgbText()
+        {
+            r = 0;
+            g = 0;
+            b = 0;
+            x = 0;
+            gradientIndex = 0;
+            red = gradients[gradientIndex, 0];
+            green = gradients[gradientIndex, 1];
+            blue = gradients[gradientIndex, 2];
+            RGBTimer_Classic.Enabled = true;
+        }
+
+        private void RGBTimer_Classic_Tick(object sender, EventArgs e)
+        {
+            if (x > MAX_INTENSITY)
+            {
+                if (gradientIndex >= gradients.Length / 3 - 1)
+                {
+                    gradientIndex = -1;
+                }
+                x = 0;
+                gradientIndex++;
+                red = gradients[gradientIndex, 0];
+                green = gradients[gradientIndex , 1];
+                blue = gradients[gradientIndex, 2];
+            }
+
+            if (red != 0)
+            {
+                r = red > 0 ? red * x : MAX_INTENSITY + red * x;
+            }
+
+            if (green != 0)
+            {
+                g = green > 0 ? green * x : MAX_INTENSITY + green * x;
+            }
+
+            if (blue != 0)
+            {
+                b = blue > 0 ? blue * x : MAX_INTENSITY + blue * x;
+            }
+            ResultLabel.ForeColor = Color.FromArgb(r, g, b);
+
+            x = x + 4;
+        }
+
         private int VerifyWinner(int[,] isOccupiedBy)
         {
-            // Verify straight line vertically
-            for (int i = 0; i < 3; i++)
+            // Verify straight row vertically
+            for (int column = 0; column < 3; column++)
             {
-                if ((isOccupiedBy[i, 0] == 1 && isOccupiedBy[i, 1] == 1 && isOccupiedBy[i, 2] == 1) || (isOccupiedBy[i, 0] == 2 && isOccupiedBy[i, 1] == 2 && isOccupiedBy[i, 2] == 2))
+                if ((isOccupiedBy[column, 0] == 1 && isOccupiedBy[column, 1] == 1 && isOccupiedBy[column, 2] == 1) || (isOccupiedBy[column, 0] == 2 && isOccupiedBy[column, 1] == 2 && isOccupiedBy[column, 2] == 2))
                 {
-                    return isOccupiedBy[i, 0];
+                    return isOccupiedBy[column, 0];
                 }
             }
 
-            // Verify straight line horizontally
-            for (int i = 0; i < 3; i++)
+            // Verify straight row horizontally
+            for (int row = 0; row < 3; row++)
             {
-                if ((isOccupiedBy[0, i] == 1 && isOccupiedBy[1, i] == 1 && isOccupiedBy[2, i] == 1) || (isOccupiedBy[0, i] == 2 && isOccupiedBy[1, i] == 2 && isOccupiedBy[2, i] == 2))
+                if ((isOccupiedBy[0, row] == 1 && isOccupiedBy[1, row] == 1 && isOccupiedBy[2, row] == 1) || (isOccupiedBy[0, row] == 2 && isOccupiedBy[1, row] == 2 && isOccupiedBy[2, row] == 2))
                 {
-                    return isOccupiedBy[0, i];
+                    return isOccupiedBy[0, row];
                 }
             }
 
-            // Verify horizontal right line
+            // Verify horizontal right row
             if ((isOccupiedBy[0, 0] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 2] == 1) || (isOccupiedBy[0, 0] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 2] == 2))
             {
                 return isOccupiedBy[0, 0];
             }
-            // Verify horizontal left line
+            // Verify horizontal left row
             else if ((isOccupiedBy[0, 2] == 1 && isOccupiedBy[1, 1] == 1 && isOccupiedBy[2, 0] == 1) || (isOccupiedBy[0, 2] == 2 && isOccupiedBy[1, 1] == 2 && isOccupiedBy[2, 0] == 2))
             {
                 return isOccupiedBy[0, 2];
             }
+            int num = 0;
+            // Verify tie
+            for (int column = 0; column < 3; column++)
+            {
+                for (int row = 0; row < 3; row++)
+                {
+                    if (isOccupiedBy[column, row] != 0) num++;
+                }
+            }
+            if (num == 9) return 3;
             return 0;
         }
+
+        private void BotTimer_Classic_Tick(object sender, EventArgs e)
+        {
+            BotPlays(labels);
+            BotTimer_Classic.Enabled = false;
+        }
+
     }
 }
