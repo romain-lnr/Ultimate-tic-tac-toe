@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "TlS+G+x7oOmK9f7N3polvJJMWlZ+EdU3+0AgMI31zhd3DzKqymguzpvFifhfPzdXQ4qAwFlP74P5WlF51ijnHg==",
+  "dgSpecHash": "TYKj+xUbGgmObF99ODOpPTNiLzIj8CspgNpjv0tRLv7O29UaxZF4Uii8F/kOaqw4RCE4vLPWjs/9+3cVVpmRZA==",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jcarvalh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\jcarvalh\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\jcarvalh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\jcarvalh\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\py71hee\\.nuget\\packages\\": {}
+    "C:\\Users\\jcarvalh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+      "projectUniqueName": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
       "projectName": "Code",
-      "projectPath": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
-      "packagesPath": "C:\\Users\\py71hee\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
+      "projectPath": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\Code.csproj",
+      "packagesPath": "C:\\Users\\jcarvalh\\.nuget\\packages\\",
+      "outputPath": "C:\\Ultimate-tic-tac-toe\\Code\\Code\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\py71hee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jcarvalh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -40,6 +40,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -56,6 +61,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -64,7 +87,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }
